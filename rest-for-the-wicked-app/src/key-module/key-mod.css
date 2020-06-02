@@ -1,0 +1,14 @@
+.key-container {
+    display: inline-block;
+
+    grid-column-start: left-mod-start;
+    grid-column-end: left-mod-end;
+    grid-row-start: lower-mod-start;
+    grid-row-end: lower-mod-end;
+
+    width: 100%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: deeppink;
+}

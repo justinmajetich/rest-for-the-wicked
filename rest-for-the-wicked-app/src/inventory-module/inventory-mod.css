@@ -1,0 +1,14 @@
+.inventory-container {
+    display: block;
+
+    grid-column-start: mid-mod-start;
+    grid-column-end: mid-mod-end;
+    grid-row-start: center-mod-start;
+    grid-row-end: lower-mod-end;
+
+    width: 100%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: deeppink;
+}

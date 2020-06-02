@@ -1,4 +1,20 @@
 .App {
+  display: grid;
+  grid-template-columns: 20px [left-mod-start] 1fr [left-mod-end] 20px
+                         [mid-mod-start] 1fr [mid-mod-end] 20px
+                         [right-mod-start] 2fr [right-mod-end] 20px;
+
+  grid-template-rows: 20px [upper-mod-start] 5fr [upper-mod-end] 20px
+                      [center-mod-start] 2fr [center-mod-end] 20px
+                      [lower-mod-start] 2fr [lower-mod-end] 20px;
+
+  width: 1080px;
+  height: 720px;
+  margin: 100px auto;
+
+  background-color: black;
+
+  color: whitesmoke;
   text-align: center;
 }
 
@@ -11,17 +27,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

@@ -1,21 +1,19 @@
 import React from 'react';
 import './App.css';
-import { RequestModule } from './request-module/RequestModule';
-import { MethodModule } from './method-module/MethodModule';
-import { InventoryModule } from './inventory-module/InventoryModule';
 import { StoryModule } from './story-module/StoryModule';
-import { MapModule } from './map-module/MapModule';
+import { MethodModule } from './method-module/MethodModule';
+import { KeyModule } from './key-module/KeyModule'
+import { InventoryModule } from './inventory-module/InventoryModule';
+import { PathModule } from './map-module/PathModule';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <RequestModule></RequestModule>
-        <MethodModule></MethodModule>
-        <InventoryModule></InventoryModule>
         <StoryModule></StoryModule>
-        <MapModule></MapModule>
-      </header>
+        <MethodModule></MethodModule>
+        <KeyModule></KeyModule>
+        <InventoryModule></InventoryModule>
+        <PathModule></PathModule>
     </div>
   );
 }

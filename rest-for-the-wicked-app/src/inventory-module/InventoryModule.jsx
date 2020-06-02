@@ -1,9 +1,10 @@
 import React from "react";
+import "./inventory-mod.css";
 
 export class InventoryModule extends React.Component {
     render() {
         return (
-            <section className="request-container">
+            <section className="inventory-container">
                 <div className="title-bar">
                     <h2>Inventory</h2>
                 </div>

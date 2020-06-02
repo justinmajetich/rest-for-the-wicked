@@ -1,4 +1,5 @@
 import React from "react";
+import "./method-mod.css";
 
 export class MethodModule extends React.Component {
     render() {

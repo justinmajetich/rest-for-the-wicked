@@ -1,6 +1,7 @@
 import React from "react";
+import "./request-mod.css";
 
-export class RequestModule extends React.Component {
+export class RequestBar extends React.Component {
 
     render() {
         return (

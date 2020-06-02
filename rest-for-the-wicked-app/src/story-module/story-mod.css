@@ -1,0 +1,14 @@
+.story-container {
+    display: inline-block;
+
+    grid-column-start: left-mod-start;
+    grid-column-end: right-mod-end;
+    grid-row-start: upper-mod-start;
+    grid-row-end: upper-mod-end;
+
+    width: 100%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: deeppink;
+}

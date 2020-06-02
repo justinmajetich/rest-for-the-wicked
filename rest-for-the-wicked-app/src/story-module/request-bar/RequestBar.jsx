@@ -6,8 +6,11 @@ export class RequestBar extends React.Component {
     render() {
         return (
             <section className="request-container">
-                <RequestButton></RequestButton>
-                <TileReceiver></TileReceiver>
+                <div className="tile-zone">
+                    <TileReceiver/>
+                    <TileReceiver/>
+                </div>
+                <RequestButton/>
             </section>
         )
     }
@@ -16,8 +19,8 @@ export class RequestBar extends React.Component {
 class RequestButton extends React.Component {
     render() {
         return (
-          <button>
-              <h2>Request</h2>
+          <button className="request-button">
+              <h3>Make Request</h3>
           </button>
         );
     }
@@ -26,7 +29,7 @@ class RequestButton extends React.Component {
 class TileReceiver extends React.Component {
     render() {
         return (
-          <div className="tile-receiver"></div>
+          <span className="tile-receiver"/>
         );
     }
 }

@@ -1,14 +1,47 @@
 .story-container {
-    display: inline-block;
-
     grid-column-start: left-mod-start;
     grid-column-end: right-mod-end;
     grid-row-start: upper-mod-start;
     grid-row-end: upper-mod-end;
+
+    display: grid;
+    grid-template-columns: 50px [start] 1fr [end] 50px;
+    grid-template-rows: 10% [start-objective] 5% [start-name] 10%
+                        [start-description] 1fr [req-bar-top] 70px
+                        [req-bar-bottom] 10%;
 
     width: 100%;
 
     border-style: solid;
     border-width: 1px;
     border-color: deeppink;
+}
+
+p.objective {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-objective;
+    grid-row-end: start-name;
+
+    margin: 0px;
+
+    text-align: right;
+}
+
+h3.poi-name {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-name;
+    grid-row-end: start-description;
+
+    margin: 0px;
+}
+
+p.poi-description {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-description;
+    grid-row-end: start-help-text;
+
+    margin: 0px;
 }

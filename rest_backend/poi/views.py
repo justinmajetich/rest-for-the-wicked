@@ -1,26 +1,24 @@
 from django.shortcuts import render
 from .models import Post, Item
+from django.db import models
 from django.views.generic import ListView
 from django.http.response import JsonResponse
+from rest_framework import serializers
+from django.forms.models import model_to_dict
 
 
-def home(request):
-    context = {
-        'poi_content': Post.objects.all()
-    }
-    return render(request, 'poi/home.html', context)
+def poi(request):
+   poi_list = []
+   for poi in Post.objects.all():
+       poi_list.append(model_to_dict(poi))
+   return JsonResponse({'pois': poi_list})
 
 
-def item(request):
-    context = {
-        'item_content': Item.objects.all()
-    }
-    return render(request, 'poi/item.html', context)
-
-
-def jsonify_models(request):
-    data = {'name', 'description', 'linked_items', 'linked_poi', 'authors'}
-    return JsonResponse(data)
+def items(request):
+    items_list = []
+    for item in Item.objects.all():
+        items_list.append(model_to_dict(item))
+    return JsonResponse({'items': items_list})
 
 class PostListView(ListView):
     model = Post

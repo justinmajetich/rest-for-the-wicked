@@ -3,6 +3,6 @@ from .views import PostListView
 from . import views
 
 urlpatterns = [
-    path('poi/', views.home, name='poi-home'),
-    path('item/', views.item, name='poi-item'),
+    path('poi/', views.poi, name='poi-home'),
+    path('items/', views.items, name='poi-item'),
 ]

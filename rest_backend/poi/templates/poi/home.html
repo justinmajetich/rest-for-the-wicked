@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="../poi/static/style.css">
+
+    <title>POI Engine</title>
+
+</head>
+<body>
+    {% for poi in poi_content %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+    <h2>{{ poi.name }}</h2>
+    <p>Description: {{ poi.description }}</p>
+    <p>Linked Items: {{ poi.linked_items }}</p>
+    <p>Linked POI: {{ poi.linked_poi }}</p>
+          </div>
+    {% endfor %}
+</body>
+</html>

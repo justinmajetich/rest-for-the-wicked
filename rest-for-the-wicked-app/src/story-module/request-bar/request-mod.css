@@ -21,7 +21,7 @@
 
 }
 
-.tile-zone {
+.tile-receiver-zone {
     flex-grow: 1;
     display: flex;
     flex-direction: row;

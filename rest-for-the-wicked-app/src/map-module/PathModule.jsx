@@ -6,7 +6,7 @@ export class PathModule extends React.Component {
         return (
             <section className="path-container">
                 <div className="title-bar">
-                    <h2>Map</h2>
+                    <h4>paths</h4>
                 </div>
             </section>
         );

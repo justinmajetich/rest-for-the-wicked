@@ -1,5 +1,6 @@
 .inventory-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     grid-column-start: mid-mod-start;
     grid-column-end: mid-mod-end;

@@ -1,8 +1,8 @@
 .App {
   display: grid;
   grid-template-columns: 20px [left-mod-start] 1fr [left-mod-end] 20px
-                         [mid-mod-start] 1fr [mid-mod-end] 20px
-                         [right-mod-start] 2fr [right-mod-end] 20px;
+                         [mid-mod-start] .9fr [mid-mod-end] 20px
+                         [right-mod-start] 2.1fr [right-mod-end] 20px;
 
   grid-template-rows: 20px [upper-mod-start] 5fr [upper-mod-end] 20px
                       [center-mod-start] 1.85fr [center-mod-end] 20px

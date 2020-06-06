@@ -1,0 +1,10 @@
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 110px;
+    height: 40px;
+
+    background-color: dodgerblue;
+}

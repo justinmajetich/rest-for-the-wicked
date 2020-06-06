@@ -1,13 +1,13 @@
 import React from "react";
 import "./request-mod.css";
+import { Droppable } from "react-beautiful-dnd";
 
 export class RequestBar extends React.Component {
 
     render() {
         return (
             <section className="request-container">
-                <div className="tile-zone">
-                    <TileReceiver/>
+                <div className="tile-receiver-zone">
                     <TileReceiver/>
                 </div>
                 <RequestButton/>
@@ -29,7 +29,18 @@ class RequestButton extends React.Component {
 class TileReceiver extends React.Component {
     render() {
         return (
-          <span className="tile-receiver"/>
+            <Droppable droppableId={"tile-receiver"} type={"method"}>
+                {(provided, snapshot) => (
+                    <span
+                        className="tile-receiver"
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                    >
+                        <h3>TileReceiver</h3>
+                        {provided.placeholder}
+                    </span>
+                )}
+            </Droppable>
         );
     }
 }

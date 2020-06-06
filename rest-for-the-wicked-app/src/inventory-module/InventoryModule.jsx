@@ -1,16 +1,15 @@
 import React from "react";
 import "./inventory-mod.css";
+import {TileList} from "../TileList";
 
 export class InventoryModule extends React.Component {
     render() {
         return (
             <section className="inventory-container">
                 <div className="title-bar">
-                    <h2>Inventory</h2>
+                    <h4>inventory</h4>
                 </div>
-                <div className="tile-list">
-                    { /* map Tile element to every item in list */ }
-                </div>
+                <TileList/>
             </section>
         );
     }

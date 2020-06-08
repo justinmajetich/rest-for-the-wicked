@@ -5,15 +5,15 @@ import { Draggable } from "react-beautiful-dnd";
 export class Tile extends React.Component {
     render() {
         return (
-            <Draggable draggableId="tile" index={0}>
+            <Draggable draggableId={this.props.name} index={this.props.index}>
                 {(provided, snapshot) => (
                     <div
-                        className="tile"
+                        className={this.props.type + "-tile"}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                     >
-                        <h3>Tile</h3>
+                        <h3>{this.props.name}</h3>
                     </div>
                 )}
             </Draggable>

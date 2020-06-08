@@ -1,0 +1,86 @@
+.request-container {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: req-bar-top;
+    grid-row-end: req-bar-bottom;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: deeppink;
+}
+
+.request-button {
+    display: inline-block;
+    width: 150px;
+    height: 100%;
+}
+
+.tile-receiver-zone {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 90%;
+    width: auto;
+
+    border: aquamarine dashed 1px;
+}
+
+.method-receiver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    width: 120px;
+
+    margin-right: 10px;
+
+    background-color: gray;
+}
+
+.path-receiver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    width: 120px;
+
+    margin-right: 10px;
+
+    background-color: gray;
+}
+
+.key-receiver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    width: 120px;
+
+    margin-right: 10px;
+
+    background-color: gray;
+}
+
+.item-receiver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    width: 120px;
+
+    margin-right: 10px;
+
+    background-color: gray;
+}

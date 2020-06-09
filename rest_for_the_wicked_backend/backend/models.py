@@ -3,15 +3,29 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class POI(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True, unique=True)
     description = models.TextField()
-    linked_items = models.CharField(max_length=100)
-    linked_poi = models.CharField(max_length=100)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    # many to many relationship
+    parent = models.ForeignKey('POI' , on_delete=models.CASCADE, blank=True, null=True, related_name='children')
+    needs_key = models.BooleanField(default=False)
+    full_path = models.CharField(max_length=100)
+
+    #backrefs spawnded_items, usable_items
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True, unique=True)
     description = models.TextField()
-    origin_poi_name = models.CharField(max_length=100)
-    use_poi_name = models.CharField(max_length=100)
+    spawn_poi = models.ForeignKey(POI, on_delete=models.CASCADE, related_name='spawned_items')
+    use_poi = models.ForeignKey(POI, on_delete=models.CASCADE, related_name='usable_items')
+    is_key = models.BooleanField(default=False)
+
+    
+    '''
+    name:
+    full_path:
+    contained_items: [{name: "stapler", description: "blah blah blah"}],
+    needsKey: null / {name :"keycard", description:"has dr. name"},
+    usable_items: ["gun", "key_card"],
+    linked_poi: ["research_wing"]
+    '''

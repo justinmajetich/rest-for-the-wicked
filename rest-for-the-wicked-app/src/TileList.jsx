@@ -6,7 +6,7 @@ import {Tile} from './Tile'
 export class TileList extends React.Component {
     render() {
         return (
-            <Droppable droppableId={this.props.module} type={this.props.module.slice(0, -1)}>
+            <Droppable droppableId={this.props.module + "_list"} type={this.props.module.slice(0, -1)}>
                 {(provided, snapshot) => (
                     <div
                         className="tile-list"

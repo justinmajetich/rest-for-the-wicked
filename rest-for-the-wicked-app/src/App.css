@@ -14,6 +14,7 @@
 
   background-color: black;
 
+  font-family: 'PixelOperatorMono', "Andale Mono", Arial, sans-serif;
   color: whitesmoke;
   text-align: left;
 }
@@ -27,10 +28,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

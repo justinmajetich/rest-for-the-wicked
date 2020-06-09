@@ -20,9 +20,8 @@ export class ItemsModule extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return ({
-        items: state.lists.items
+        items: state.lists.items_list
     });
 };
 

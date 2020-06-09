@@ -21,7 +21,7 @@ class MethodsModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        methods: state.lists.methods
+        methods: state.lists.methods_list
     });
 };
 

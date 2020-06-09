@@ -2,18 +2,20 @@ import React from "react";
 import "./request-mod.css";
 import { Droppable } from "react-beautiful-dnd";
 import {connect} from "react-redux";
+import {Tile} from "../Tile";
 
 export class RequestBar extends React.Component {
 
     render() {
         return (
             <section className="request-container">
-                <div className="tile-receiver-zone">
-                    {this.props.receivers.map(receiver => {
-                        const key = Object.keys(receiver);
-                        const title = receiver[key[0]].title
-
-                        return (<TileReceiver key={title + "-receiver"} title={title} />);
+                <div className="tile-receiver-zone"> {
+                    Object.entries(this.props.receivers).map(receiver => {
+                        return (<TileReceiver
+                            key={receiver[0]}
+                            title={receiver[1].title}
+                            content={receiver[1].content}
+                        />);
                         })
                     }
                 </div>
@@ -38,8 +40,9 @@ class TileReceiver extends React.Component {
     render() {
         return (
             <Droppable
-                droppableId={this.props.title + "-receiver"}
+                droppableId={this.props.title + "_receiver"}
                 type={this.props.title}
+                isDropDisabled={this.props.content ? true : false}
             >
                 {(provided, snapshot) => (
                     <span
@@ -47,7 +50,12 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        <h3>{this.props.title}</h3>
+                        {this.props.content ? <Tile
+                            key={this.props.content}
+                            name={this.props.content}
+                            type={this.props.title + "s"}
+                            index={0}
+                        /> : <h3>{this.props.title}</h3>}
                         {provided.placeholder}
                     </span>
                 )}

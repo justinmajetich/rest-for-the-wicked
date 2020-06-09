@@ -3,7 +3,8 @@
 @font-face {
     font-family: 'pixel_operatorbold';
     src: url('pixeloperator-bold-webfont.woff2') format('woff2'),
-         url('pixeloperator-bold-webfont.woff') format('woff');
+         url('pixeloperator-bold-webfont.woff') format('woff'),
+         url('PixelOperator-Bold.ttf')  format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -15,7 +16,8 @@
 @font-face {
     font-family: 'pixel_operatorregular';
     src: url('pixeloperator-webfont.woff2') format('woff2'),
-         url('pixeloperator-webfont.woff') format('woff');
+         url('pixeloperator-webfont.woff') format('woff'),
+         url('PixelOperator.ttf')  format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -87,7 +89,8 @@
 @font-face {
     font-family: 'pixel_operator_monobold';
     src: url('pixeloperatormono-bold-webfont.woff2') format('woff2'),
-         url('pixeloperatormono-bold-webfont.woff') format('woff');
+         url('pixeloperatormono-bold-webfont.woff') format('woff'),
+         url('PixelOperatorMono-Bold.ttf')  format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -99,7 +102,9 @@
 @font-face {
     font-family: 'pixel_operator_monoregular';
     src: url('pixeloperatormono-webfont.woff2') format('woff2'),
-         url('pixeloperatormono-webfont.woff') format('woff');
+         url('pixeloperatormono-webfont.woff') format('woff'),
+         url('PixelOperatorMono.ttf')  format('truetype') /* Safari, Android, iOS */
+;
     font-weight: normal;
     font-style: normal;
 

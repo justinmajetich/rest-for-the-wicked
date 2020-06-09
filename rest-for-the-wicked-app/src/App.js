@@ -1,5 +1,5 @@
 import React from 'react'
-import './custom-font/custom-fonts.css'
+import './custom-font/pixel-operator/stylesheet.css'
 import './App.css'
 import { DragDropContext } from 'react-beautiful-dnd'
 import StoryModule from './story-module/StoryModule'
@@ -7,7 +7,15 @@ import { PathsModule } from './maps-module/PathsModule'
 import MethodModule from './methods-module/MethodsModule'
 import KeysModule from './keys-module/KeysModule'
 import ItemsModule from './items-module/ItemsModule'
-import {addToList, addToRequest, rearrangeList, removeFromList, removeFromRequest} from './redux/actions'
+import {
+    addToList,
+    addToRequest,
+    rearrangeList,
+    removeFromList,
+    removeFromRequest,
+    removeFromEmbed,
+    addToEmbed
+} from './redux/actions'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
@@ -29,6 +37,22 @@ class App extends React.Component {
         // If dropped no where or in place
         if (!destination || (destID === sourceID && destination.index === source.index)) { return; }
 
+        // PATH_EMBED -> PATH_RECEIVER
+        if (destID === "path_receiver") {
+            console.log("PATH EMBED -> RECEIVER");
+            this.props.dispatch(addToRequest(result));
+            this.props.dispatch(removeFromEmbed(result));
+            return;
+        }
+
+        // PATH_RECEIVER -> PATH_EMBED
+        if (sourceID === "path_receiver" && destID.includes("embed", -5)) {
+            console.log("PATH EMBED -> RECEIVER");
+            this.props.dispatch(addToEmbed(result));
+            this.props.dispatch(removeFromRequest(result));
+            return;
+        }
+
         // LIST -> RECEIVER
         if (destID.includes("receiver", -8)) {
             console.log("ANY -> RECEIVER");
@@ -49,7 +73,6 @@ class App extends React.Component {
         if (destID.includes("list", -4)) {
             console.log("LIST -> LIST");
             this.props.dispatch(rearrangeList(result));
-            return;
         }
     }
 

@@ -1,5 +1,7 @@
 export const UPDATE_POI = 'UPDATE_POI';
 export const UPDATE_OBJECTIVE = 'UPDATE_OBJECTIVE';
+export const ADD_TO_EMBED = 'ADD_TO_EMBED';
+export const REMOVE_FROM_EMBED = 'REMOVE_FROM_EMBED';
 
 export const ADD_TO_LIST = 'ADD_TO_LIST';
 export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST';

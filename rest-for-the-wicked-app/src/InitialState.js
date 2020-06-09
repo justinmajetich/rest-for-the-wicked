@@ -1,13 +1,22 @@
 const initialState = {
     poi: {
-            name: "init_poi_name",
-            full_path: "/api/init_poi_name",
-            description: "init_description",
+            name: "api",
+            full_path: "/api",
+            description: {
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut [lobby] et dolore magna aliqua. Ut enim ad minim veniam, quis exercitation ullamco laboris nisi ut ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    embeds: {
+                            lobby_embed: {
+                                    name: "lobby",
+                                    docked: true
+                            }
+                    }
+            },
             spawned_items: [{name: "stapler", description: "shiny red"}, {name: "mug", description: "full of coffee"}],
-            usable_items: [{name: "gun", description: "black metal"}],
-            needs_key: {name: "keycard", description: "has dr delete's name on it"},
-            linked_poi: ["research_wing", "admin_wing"]
-        },
+            usable_items: null,
+            needs_key: null,
+            parent: null,
+            children: [{name: "research_wing"}, {name: "admin_wing"}]
+    },
     objective: "init objective",
     request_bar: {
             method_receiver: {
@@ -38,7 +47,7 @@ const initialState = {
             },
             items_list: {
                     title: "items",
-                    content: ["stapler", "decoy_bug", "deletes_email"]
+                    content: ["decoy_bug", "deletes_email"]
             }
     },
     map_nodes: {

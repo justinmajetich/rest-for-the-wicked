@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import { updatePOI, updateObjective } from './storyReducer'
+import { updateObjective, updateStory } from './storyReducer'
 import { updateMap } from './mapsReducer'
 import { updateList } from './listReducer'
 import { updateRequest } from './requestReducer'
 
 const rootReducer = combineReducers({
-    poi: updatePOI,
+    poi: updateStory,
     objective: updateObjective,
     request_bar: updateRequest,
     lists: updateList,

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Item
+from .models import POI, Item
 
-admin.site.register(Post)
+admin.site.register(POI)
 admin.site.register(Item)

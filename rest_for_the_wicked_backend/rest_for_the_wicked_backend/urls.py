@@ -1,4 +1,4 @@
-"""rest_backend URL Configuration
+"""rest_for_the_wicked_backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('poi.urls')),
+    path('', include('backend.urls'))
 ]

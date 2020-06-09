@@ -37,7 +37,27 @@ h3.poi-name {
     margin: 0px;
 }
 
+.description-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-description;
+    grid-row-end: start-help-text;
+
+    height: max-content;
+    line-height: 30px;
+}
+
+.description-container .word {
+    margin-right: 5px;
+
+    height: max-content;
+}
+
 p.poi-description {
+    visibility: hidden;
     grid-column-start: start;
     grid-column-end: end;
     grid-row-start: start-description;

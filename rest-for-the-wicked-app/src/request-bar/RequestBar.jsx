@@ -42,7 +42,7 @@ class TileReceiver extends React.Component {
             <Droppable
                 droppableId={this.props.title + "_receiver"}
                 type={this.props.title}
-                isDropDisabled={this.props.content}
+                isDropDisabled={this.props.content ? true : false}
             >
                 {(provided, snapshot) => (
                     <span

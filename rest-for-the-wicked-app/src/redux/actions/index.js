@@ -1,9 +1,11 @@
 import {
     UPDATE_POI,
     UPDATE_OBJECTIVE,
-    ADD_TILE_TO_REQUEST,
-    REMOVE_TILE_FROM_REQUEST,
-    UPDATE_LIST
+    ADD_TO_REQUEST,
+    REMOVE_FROM_REQUEST,
+    ADD_TO_LIST,
+    REMOVE_FROM_LIST,
+    REARRANGE_LIST
 } from "./actionTypes"
 
 export function updatePOI(content) {
@@ -20,43 +22,36 @@ export function updateObjective(objective) {
     });
 }
 
-export function updateList(result) {
+export function addToList(result) {
     return ({
-        type: UPDATE_LIST,
+        type: ADD_TO_LIST,
         payload: result
     })
 }
 
-export function addTileToRequest(tile) {
+export function removeFromList(result) {
     return ({
-        type: ADD_TILE_TO_REQUEST,
-        payload: tile
-    })
-}
-export function removeTileFromRequest(tile) {
-    return ({
-        type: REMOVE_TILE_FROM_REQUEST,
-        payload: tile
+        type: REMOVE_FROM_LIST,
+        payload: result
     })
 }
 
+export function rearrangeList(result) {
+    return ({
+        type: REARRANGE_LIST,
+        payload: result
+    })
+}
 
-// export function updateItemsList(result) {
-//     return ({
-//         type: UPDATE_ITEMS_LIST,
-//         payload: result
-//     })
-// }
-//
-// export function updateKeysList(result) {
-//     return ({
-//         type: UPDATE_KEYS_LIST,
-//         payload: result
-//     })
-// }
-// export function updateMethodsList(result) {
-//     return ({
-//         type: UPDATE_METHODS_LIST,
-//         payload: result
-//     })
-// }
+export function addToRequest(result) {
+    return ({
+        type: ADD_TO_REQUEST,
+        payload: result
+    })
+}
+export function removeFromRequest(tile) {
+    return ({
+        type: REMOVE_FROM_REQUEST,
+        payload: tile
+    })
+}

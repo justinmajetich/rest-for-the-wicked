@@ -21,7 +21,7 @@ export class KeysModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        keys: state.lists.keys
+        keys: state.lists.keys_list
     });
 };
 

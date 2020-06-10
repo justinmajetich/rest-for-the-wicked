@@ -41,14 +41,6 @@ export class Description extends React.Component {
                             embeds={this.props.embeds}
                             key={index}
                         />);
-                    } else if (word[0] === '{') {
-                        const name = /\w+/.exec(word)[0];
-                        return (<TileEmbed
-                            name={name}
-                            type={"item"}
-                            embeds={this.props.embeds}
-                            key={index}
-                        />);
                     } else {
                         return (<span
                             className={"word"}
@@ -63,7 +55,6 @@ export class Description extends React.Component {
 
 export class TileEmbed extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <Droppable
                 droppableId={this.props.name + "_embed"}

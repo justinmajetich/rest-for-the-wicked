@@ -15,39 +15,44 @@ const initialState = {
             usable_items: null,
             needs_key: null,
             parent: null,
-            children: [{name: "research_wing"}, {name: "admin_wing"}]
+            children: [{name: "lobby", needs_key: "lab_badge", usable_items: [{name: "cheese"}]}]
     },
     objective: "init objective",
     request_bar: {
             method_receiver: {
                     title: "method",
-                    content: null
+                    content: null,
+                    is_visible: true
             },
             path_receiver: {
                     title: "path",
-                    content: null
+                    content: null,
+                    is_visible: true
+
             },
             key_receiver: {
                     title: "key",
-                    content: null
+                    content: null,
+                    is_visible: false
             },
             item_receiver: {
                     title: "item",
-                    content: null
+                    content: null,
+                    is_visible: false
             },
     },
     lists: {
             methods_list: {
                     title: "methods",
-                    content: ["GET", "POST", "PUT", "DELETE"]
+                    content: [{name: "GET"}, {name: "POST"}, {name: "PUT"}]
             },
             keys_list: {
                     title: "keys",
-                    content: ["{lab_badge}", "{keycard}"]
+                    content: [{name: "lab_badge"}]
             },
             items_list: {
                     title: "items",
-                    content: ["decoy_bug", "deletes_email"]
+                    content: [{name: "decoy_bug"}, {name: "email"}]
             }
     },
     map_nodes: {

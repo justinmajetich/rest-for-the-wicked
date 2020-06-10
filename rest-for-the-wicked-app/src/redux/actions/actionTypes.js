@@ -3,6 +3,12 @@ export const UPDATE_OBJECTIVE = 'UPDATE_OBJECTIVE';
 export const DRAG_TO_EMBED = 'DRAG_TO_EMBED';
 export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';
 
+export const LIST_TO_RECEIVER = 'LIST_TO_RECEIVER';
+export const RECEIVER_TO_LIST ='RECEIVER_TO_LIST';
+export const LIST_TO_LIST = 'LIST_TO_LIST';
+
+
+
 export const DRAG_TO_LIST = 'DRAG_TO_LIST';
 export const DRAG_FROM_LIST = 'DRAG_FROM_LIST';
 export const DRAG_REARRANGE_LIST = 'DRAG_REARRANGE_LIST';

@@ -132,12 +132,12 @@ class App extends React.Component {
 const mapStateToProps = state => {
     return ({
         children_poi: state.poi.children,
-        methods: state.lists.methods_list.content,
-        items: state.lists.items_list.content,
-        keys: state.lists.keys_list.content,
-        method_receiver: state.request_bar.method_receiver.content,
-        item_receiver: state.request_bar.item_receiver.content,
-        key_receiver: state.request_bar.key_receiver.content
+        methods: state.droppables.lists.method_list.content,
+        items: state.droppables.lists.item_list.content,
+        keys: state.droppables.lists.key_list.content,
+        method_receiver: state.droppables.receivers.method_receiver.content,
+        item_receiver: state.droppables.receivers.item_receiver.content,
+        key_receiver: state.droppables.receivers.key_receiver.content
     });
 };
 export default connect(mapStateToProps)(App);

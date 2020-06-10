@@ -9,8 +9,33 @@ import {
     DRAG_FROM_LIST,
     DRAG_REARRANGE_LIST,
     REMOVE_FROM_RECEIVER,
-    ADD_TO_LIST
+    ADD_TO_LIST,
+    LIST_TO_RECEIVER,
+    LIST_TO_LIST,
+    RECEIVER_TO_LIST
 } from "./actionTypes"
+
+export function dragListToReceiver(payload = {listID: "", receiverID: "", contentID: ""}) {
+    return ({
+        type: LIST_TO_RECEIVER,
+        payload: payload
+    });
+}
+
+export function dragReceiverToList(payload = {listID: "", receiverID: "", contentID: ""}) {
+    return ({
+        type: RECEIVER_TO_LIST,
+        payload: payload
+    });
+}
+
+export function dragListToList(payload = {sourceListID: "", destListID: "", contentID: ""}) {
+    return ({
+        type: LIST_TO_LIST,
+        payload: payload
+    });
+}
+
 
 // STORY MODULE ---------------------
 export function updatePOI(content) {

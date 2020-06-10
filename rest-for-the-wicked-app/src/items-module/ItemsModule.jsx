@@ -21,7 +21,7 @@ export class ItemsModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        items: state.lists.items_list
+        items: state.droppables.lists.item_list
     });
 };
 

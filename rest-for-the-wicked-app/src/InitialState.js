@@ -4,8 +4,8 @@ const initialState = {
             full_path: "/api",
             description: {
                     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut [lobby] et dolore magna aliqua. Ut enim ad minim veniam, quis exercitation ullamco laboris nisi ut ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    embeds: {
-                            lobby_embed: {
+                    docks: {
+                            lobby: {
                                     name: "lobby",
                                     docked: true
                             }
@@ -18,41 +18,70 @@ const initialState = {
             children: [{name: "lobby", needs_key: "lab_badge", usable_items: [{name: "cheese"}]}]
     },
     objective: "init objective",
-    request_bar: {
-            method_receiver: {
-                    title: "method",
-                    content: null,
-                    is_visible: true
-            },
-            path_receiver: {
-                    title: "path",
-                    content: null,
-                    is_visible: true
+    droppables: {
+            receivers: {
+                    method_receiver: {
+                            title: "method",
+                            content: {name: "GET"},
+                            is_visible: true
+                    },
+                    path_receiver: {
+                            title: "path",
+                            content: null,
+                            is_visible: true
 
+                    },
+                    key_receiver: {
+                            title: "key",
+                            content: null,
+                            is_visible: false
+                    },
+                    item_receiver: {
+                            title: "item",
+                            content: null,
+                            is_visible: false
+                    },
             },
-            key_receiver: {
-                    title: "key",
-                    content: null,
-                    is_visible: false
-            },
-            item_receiver: {
-                    title: "item",
-                    content: null,
-                    is_visible: false
-            },
-    },
-    lists: {
-            methods_list: {
-                    title: "methods",
-                    content: [{name: "GET"}, {name: "POST"}, {name: "PUT"}]
-            },
-            keys_list: {
-                    title: "keys",
-                    content: [{name: "lab_badge"}]
-            },
-            items_list: {
-                    title: "items",
-                    content: [{name: "decoy_bug"}, {name: "email"}]
+            lists: {
+                    method_list: {
+                            title: "methods",
+                            docks: {
+                                    GET: {
+                                            content: {name: "GET"},
+                                            is_visible: true
+                                    },
+                                    POST: {
+                                            content: {name: "POST"},
+                                            is_visible: true
+                                    },
+                                    PUT: {
+                                            content: {name: "PUT"},
+                                            is_visible: true
+                                    }
+                            }
+                    },
+                    key_list: {
+                            title: "keys",
+                            docks: {
+                                    lab_badge: {
+                                            content: {name: "lab_badge"},
+                                            is_visible: true
+                                    }
+                            }
+                    },
+                    item_list: {
+                            title: "items",
+                            docks: {
+                                    decoy_bug: {
+                                            content: {name: "decoy_bug"},
+                                            is_visible: true
+                                    },
+                                    email: {
+                                            content: {name: "email"},
+                                            is_visible: true
+                                    }
+                            }
+                    }
             }
     },
     map_nodes: {

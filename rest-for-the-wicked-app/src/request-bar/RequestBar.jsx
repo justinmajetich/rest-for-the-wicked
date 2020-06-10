@@ -84,7 +84,7 @@ class RequestButton extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        receivers: state.request_bar,
+        receivers: state.droppables.receivers,
     });
 };
 

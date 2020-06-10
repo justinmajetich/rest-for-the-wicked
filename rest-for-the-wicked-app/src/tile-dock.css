@@ -1,8 +1,4 @@
-h3 {
-    margin: 0px;
-}
-
-.method-tile {
+.method-dock {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,32 +6,12 @@ h3 {
     width: 100px;
     height: 38px;
 
-    background-color: dodgerblue;
+    margin: 5px;
+
+    background-color: #333333;
 }
 
-.item-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 150px;
-    height: 38px;
-
-    background-color: green;
-}
-
-.key-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 150px;
-    height: 38px;
-
-    background-color: darkorange;
-}
-
-.path-tile {
+.path-dock {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,5 +19,33 @@ h3 {
     width: 100px;
     height: 38px;
 
-    background-color: burlywood;
+    margin-right: 5px;
+
+    background-color: #333333;
+}
+
+.key-dock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 38px;
+
+    margin: 5px;
+
+    background-color: #333333;
+}
+
+.item-dock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 38px;
+
+    margin: 5px;
+
+    background-color: #333333;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./keys-mod.css";
-import {TileList} from "../TileList";
+import {TileDock} from "../TileDock";
 import {connect} from "react-redux";
 
 export class KeysModule extends React.Component {
@@ -10,10 +10,22 @@ export class KeysModule extends React.Component {
                 <div className="title-bar">
                     <h4>{this.props.keys.title}</h4>
                 </div>
-                <TileList
-                    module={this.props.keys.title}
-                    content={this.props.keys.content}
-                />
+                <div className={"key-harbor"}>
+                    {Object.entries(this.props.keys.docks).map((dock, index) => {
+                        if (dock[1].is_visible) {
+                            return (
+                                <TileDock
+                                    key={index}
+                                    name={dock[0]}
+                                    type={this.props.keys.title.slice(0, -1)}
+                                    content={dock[1].content}
+                                />
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
+                </div>
             </section>
         );
     }

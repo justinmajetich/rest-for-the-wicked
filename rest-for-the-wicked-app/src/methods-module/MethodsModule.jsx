@@ -1,6 +1,6 @@
 import React from "react";
 import "./methods-mod.css";
-import { TileList } from "../TileList";
+import { TileDock } from "../TileDock";
 import {connect} from "react-redux";
 
 class MethodsModule extends React.Component {
@@ -10,10 +10,22 @@ class MethodsModule extends React.Component {
                 <div className="title-bar">
                     <h4>{this.props.methods.title}</h4>
                 </div>
-                <TileList
-                    module={this.props.methods.title}
-                    content={this.props.methods.content}
-                />
+                <div className={"method-harbor"}>
+                    {Object.entries(this.props.methods.docks).map((dock, index) => {
+                        if (dock[1].is_visible) {
+                            return (
+                                <TileDock
+                                    key={index}
+                                    name={dock[0]}
+                                    type={this.props.methods.title.slice(0, -1)}
+                                    content={dock[1].content}
+                                />
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
+                </div>
             </section>
         );
     }

@@ -72,6 +72,7 @@ export const updateDroppable = (state = {}, action) => {
         }
 
         case LIST_TO_LIST: {
+            return(state);
 
         }
 

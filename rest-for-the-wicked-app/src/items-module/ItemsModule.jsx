@@ -1,19 +1,31 @@
 import React from "react";
 import "./items-mod.css";
 import {connect} from "react-redux";
-import {TileList} from "../TileList";
+import {TileDock} from "../TileDock";
 
 export class ItemsModule extends React.Component {
     render() {
         return (
-            <section className="inventory-container">
+            <section className="item-container">
                 <div className="title-bar">
                     <h4>{this.props.items.title}</h4>
                 </div>
-                <TileList
-                    module={this.props.items.title}
-                    content={this.props.items.content}
-                />
+                <div className={"item-harbor"}>
+                    {Object.entries(this.props.items.docks).map((dock, index) => {
+                        if (dock[1].is_visible) {
+                            return (
+                                <TileDock
+                                    key={index}
+                                    name={dock[0]}
+                                    type={this.props.items.title.slice(0, -1)}
+                                    content={dock[1].content}
+                                />
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
+                </div>
             </section>
         );
     }

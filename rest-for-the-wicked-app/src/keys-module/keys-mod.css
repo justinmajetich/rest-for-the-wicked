@@ -11,3 +11,15 @@
 
     border: deeppink solid 1px;
 }
+
+.key-harbor {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 15px;
+    border: chartreuse dashed 1px;
+}

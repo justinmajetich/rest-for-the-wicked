@@ -1,4 +1,4 @@
-import {UPDATE_POI, UPDATE_OBJECTIVE, ADD_TO_EMBED, REMOVE_FROM_EMBED} from "../actions/actionTypes"
+import {UPDATE_POI, UPDATE_OBJECTIVE, DRAG_TO_EMBED, DRAG_FROM_EMBED} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
     switch (action.type) {
@@ -8,7 +8,7 @@ export const updateStory = (state = {}, action) => {
                 name: action.payload.name,
                 description: action.payload.description
             });
-        } case ADD_TO_EMBED: {
+        } case DRAG_TO_EMBED: {
             const name = action.payload.draggableId;
             const embedsKey = action.payload.destination.droppableId;
             return ({
@@ -24,7 +24,7 @@ export const updateStory = (state = {}, action) => {
                     }
                 }
             });
-        } case REMOVE_FROM_EMBED: {
+        } case DRAG_FROM_EMBED: {
             const name = action.payload.draggableId;
             const embedsKey = action.payload.source.droppableId;
             return ({

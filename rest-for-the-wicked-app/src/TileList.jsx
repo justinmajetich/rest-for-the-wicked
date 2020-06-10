@@ -14,8 +14,8 @@ export class TileList extends React.Component {
                         {...provided.droppableProps}
                     >
                         {this.props.content.map((tile, index) => <Tile
-                            key={tile}
-                            name={tile}
+                            key={tile.name}
+                            name={tile.name}
                             type={this.props.module}
                             index={index}
                         />)}

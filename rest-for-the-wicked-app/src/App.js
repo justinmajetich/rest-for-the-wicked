@@ -8,20 +8,22 @@ import MethodModule from './methods-module/MethodsModule'
 import KeysModule from './keys-module/KeysModule'
 import ItemsModule from './items-module/ItemsModule'
 import {
-    addToList,
-    addToRequest,
-    rearrangeList,
-    removeFromList,
-    removeFromRequest,
-    removeFromEmbed,
-    addToEmbed
+    dragToList,
+    dragToRequest,
+    dragRearrangeList,
+    dragFromList,
+    dragFromRequest,
+    dragFromEmbed,
+    dragToEmbed,
+    removeFromReceiver,
+    addToList
 } from './redux/actions'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
 
     onDragEnd = result => {
-        const { destination, source } = result;
+        const { destination, source, draggableId } = result;
         const sourceID = source ? source.droppableId : null;
         const destID = destination ? destination.droppableId : null;
 
@@ -40,39 +42,75 @@ class App extends React.Component {
         // PATH_EMBED -> PATH_RECEIVER
         if (destID === "path_receiver") {
             console.log("PATH EMBED -> RECEIVER");
-            this.props.dispatch(addToRequest(result));
-            this.props.dispatch(removeFromEmbed(result));
+            this.props.children_poi.forEach(poi => {
+                if (poi.name === draggableId) {
+                    result[draggableId] = poi;
+                }
+            });
+            this.props.dispatch(dragToRequest(result));
+            this.props.dispatch(dragFromEmbed(result));
             return;
         }
 
         // PATH_RECEIVER -> PATH_EMBED
         if (sourceID === "path_receiver" && destID.includes("embed", -5)) {
             console.log("PATH EMBED -> RECEIVER");
-            this.props.dispatch(addToEmbed(result));
-            this.props.dispatch(removeFromRequest(result));
+            this.props.dispatch(dragToEmbed(result));
+            this.props.dispatch(dragFromRequest(result));
+
+            // If hidden receivers have content
+            if (this.props.item_receiver) {
+                this.props.dispatch(addToList({
+                    content: this.props.item_receiver,
+                    list: "items_list"
+                }));
+                this.props.dispatch(removeFromReceiver("item_receiver"));
+            }
+            if (this.props.key_receiver) {
+                console.log("HERE")
+                //this.props.dispatch(addToList({
+                //     content: this.props.key_receiver,
+                //     list: "keys_list"
+                // }));
+                //this.props.dispatch(removeFromReceiver("key_receiver"));
+            }
             return;
         }
 
         // LIST -> RECEIVER
         if (destID.includes("receiver", -8)) {
-            console.log("ANY -> RECEIVER");
-            this.props.dispatch(addToRequest(result));
-            this.props.dispatch(removeFromList(result));
+            console.log("LIST -> RECEIVER");
+            const listName = result.source.droppableId.slice(0, -5);
+            this.props[listName].forEach(draggable => {
+                if (draggable.name === draggableId) {
+                    result[draggableId] = draggable;
+                }
+            });
+            this.props.dispatch(dragToRequest(result));
+            this.props.dispatch(dragFromList(result));
             return;
         }
 
         // RECEIVER -> LIST
         if (sourceID.includes("receiver", -8) && destID.includes("list", -4)) {
             console.log("RECEIVER -> LIST");
-            this.props.dispatch(addToList(result));
-            this.props.dispatch(removeFromRequest(result))
+            const receiverName = result.source.droppableId;
+            result[draggableId] = this.props[receiverName];
+            this.props.dispatch(dragToList(result));
+            this.props.dispatch(dragFromRequest(result));
             return;
         }
 
         // LIST -> LIST
         if (destID.includes("list", -4)) {
             console.log("LIST -> LIST");
-            this.props.dispatch(rearrangeList(result));
+            const listName = result.source.droppableId.slice(0, -5);
+            this.props[listName].forEach(draggable => {
+                if (draggable.name === draggableId) {
+                    result[draggableId] = draggable;
+                }
+            });
+            this.props.dispatch(dragRearrangeList(result));
         }
     }
 
@@ -91,5 +129,15 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = state => { return (state); };
+const mapStateToProps = state => {
+    return ({
+        children_poi: state.poi.children,
+        methods: state.lists.methods_list.content,
+        items: state.lists.items_list.content,
+        keys: state.lists.keys_list.content,
+        method_receiver: state.request_bar.method_receiver.content,
+        item_receiver: state.request_bar.item_receiver.content,
+        key_receiver: state.request_bar.key_receiver.content
+    });
+};
 export default connect(mapStateToProps)(App);

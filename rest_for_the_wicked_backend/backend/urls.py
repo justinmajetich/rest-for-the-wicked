@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from . import views
 
 urlpatterns = [
-    path('poi/', views.poi, name='poi-home'),
-    path('items/', views.items, name='poi-item'),
+    #path('poi/', views.poi, name='poi-home'),
+    #path('items/', views.items, name='poi-item'),
 ]

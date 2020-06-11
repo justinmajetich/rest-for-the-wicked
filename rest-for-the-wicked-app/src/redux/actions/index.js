@@ -1,117 +1,53 @@
 import {
-    UPDATE_POI,
-    UPDATE_OBJECTIVE,
-    DRAG_TO_EMBED,
+    TO_PATH_DOCK,
     DRAG_FROM_EMBED,
-    DRAG_TO_REQUEST,
-    DRAG_FROM_REQUEST,
-    DRAG_TO_LIST,
-    DRAG_FROM_LIST,
-    DRAG_REARRANGE_LIST,
-    REMOVE_FROM_RECEIVER,
-    ADD_TO_LIST,
     LIST_TO_RECEIVER,
-    LIST_TO_LIST,
-    RECEIVER_TO_LIST
+    RECEIVER_TO_LIST,
+    TO_PATH_RECEIVER,
+    FROM_PATH_RECEIVER
 } from "./actionTypes"
 
-export function dragListToReceiver(payload = {listID: "", receiverID: "", contentID: ""}) {
+// DROPPABLE REDUCER ---------------------
+
+export function listToReceiver(payload = {listType: "", receiverID: "", contentID: ""}) {
     return ({
         type: LIST_TO_RECEIVER,
         payload: payload
     });
 }
 
-export function dragReceiverToList(payload = {listID: "", receiverID: "", contentID: ""}) {
+export function receiverToList(payload = {listID: "", receiverID: "", contentID: ""}) {
     return ({
         type: RECEIVER_TO_LIST,
         payload: payload
     });
 }
 
-export function dragListToList(payload = {sourceListID: "", destListID: "", contentID: ""}) {
+export function toPathReceiver(payload = {receiverID: "", content:{}}) {
     return ({
-        type: LIST_TO_LIST,
+        type: TO_PATH_RECEIVER,
         payload: payload
-    });
+    })
 }
 
-
-// STORY MODULE ---------------------
-export function updatePOI(content) {
+export function fromPathReceiver() {
     return ({
-        type: UPDATE_POI,
-        payload: content
-    });
+        type: FROM_PATH_RECEIVER
+    })
 }
 
-export function updateObjective(objective) {
-    return ({
-        type: UPDATE_OBJECTIVE,
-        payload: objective
-    });
-}
+// STORY MODULE REDUCER ---------------------
 
-export function dragToEmbed(result) {
+export function toPathDock(result) {
     return ({
-        type: DRAG_TO_EMBED,
+        type: TO_PATH_DOCK,
         payload: result
     });
 }
 
-export function dragFromEmbed(result) {
+export function removeFromPathDock(result) {
     return ({
         type: DRAG_FROM_EMBED,
         payload: result
     });
-}
-
-// LIST MODULES ---------------------
-export function dragToList(result) {
-    return ({
-        type: DRAG_TO_LIST,
-        payload: result
-    })
-}
-
-export function dragFromList(result) {
-    return ({
-        type: DRAG_FROM_LIST,
-        payload: result
-    })
-}
-
-export function dragRearrangeList(result) {
-    return ({
-        type: DRAG_REARRANGE_LIST,
-        payload: result
-    })
-}
-
-export function addToList(payload = {list: "", content:{}}) {
-    return ({
-        type: ADD_TO_LIST,
-        payload: payload
-    })
-}
-
-// REQUEST MODULE ---------------------
-export function dragToRequest(result) {
-    return ({
-        type: DRAG_TO_REQUEST,
-        payload: result
-    })
-}
-export function dragFromRequest(tile) {
-    return ({
-        type: DRAG_FROM_REQUEST,
-        payload: tile
-    })
-}
-
-export function removeFromReceiver(receiver) {
-    return ({
-        type: REMOVE_FROM_RECEIVER,
-        payload: receiver
-    })
 }

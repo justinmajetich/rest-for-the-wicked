@@ -2,7 +2,7 @@ import React from "react"
 import "./story-mod.css"
 import { connect } from 'react-redux'
 import RequestBar from '../request-bar/RequestBar'
-import { TileDock } from '../TileDock'
+import { TileDock } from '../tiles/TileDock'
 
 class StoryModule extends React.Component {
     render() {

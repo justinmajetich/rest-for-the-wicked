@@ -1,6 +1,6 @@
 import React from "react";
 import "./keys-mod.css";
-import {TileDock} from "../TileDock";
+import {TileDock} from "../tiles/TileDock";
 import {connect} from "react-redux";
 
 export class KeysModule extends React.Component {

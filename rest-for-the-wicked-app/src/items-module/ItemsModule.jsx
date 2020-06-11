@@ -1,7 +1,7 @@
 import React from "react";
 import "./items-mod.css";
 import {connect} from "react-redux";
-import {TileDock} from "../TileDock";
+import {TileDock} from "../tiles/TileDock";
 
 export class ItemsModule extends React.Component {
     render() {

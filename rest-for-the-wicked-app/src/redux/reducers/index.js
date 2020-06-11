@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { updateObjective, updateStory } from './storyReducer'
 import { updateMap } from './mapsReducer'
-import {updateDroppable} from "./droppableReducer";
+import { updateDroppable } from './droppableReducer'
 
 const rootReducer = combineReducers({
     poi: updateStory,
@@ -9,11 +9,4 @@ const rootReducer = combineReducers({
     droppables: updateDroppable,
     map_nodes: updateMap
 });
-
 export default rootReducer;
-
-// methods: updateMethodsList,
-// items: updateItemsList,
-// keys: updateKeysList,
-// request_bar: updateRequest,
-// lists: updateList,

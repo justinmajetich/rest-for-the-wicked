@@ -1,6 +1,8 @@
-import {UPDATE_POI, UPDATE_OBJECTIVE, DRAG_TO_EMBED, DRAG_FROM_EMBED} from "../actions/actionTypes"
+import {UPDATE_POI, UPDATE_OBJECTIVE, TO_PATH_DOCK, DRAG_FROM_EMBED} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
+    const payload = action.payload;
+
     switch (action.type) {
         case UPDATE_POI: {
             return ({
@@ -8,39 +10,44 @@ export const updateStory = (state = {}, action) => {
                 name: action.payload.name,
                 description: action.payload.description
             });
-        } case DRAG_TO_EMBED: {
-            const name = action.payload.draggableId;
-            const embedsKey = action.payload.destination.droppableId;
+        }
+
+        case TO_PATH_DOCK: {
+            const content = payload[payload.draggableId];
+            const docksKey = payload.destination.droppableId;
             return ({
                 ...state,
                 description: {
                     ...state.description,
-                    embeds: {
-                        ...state.embeds,
-                        [embedsKey]: {
-                            name: name,
+                    docks: {
+                        ...state.docks,
+                        [docksKey]: {
+                            content: content,
                             docked: true
                         }
                     }
                 }
             });
-        } case DRAG_FROM_EMBED: {
-            const name = action.payload.draggableId;
-            const embedsKey = action.payload.source.droppableId;
+        }
+
+        case DRAG_FROM_EMBED: {
+            const docksKey = payload.source.droppableId;
             return ({
                 ...state,
                 description: {
                     ...state.description,
-                    embeds: {
-                        ...state.embeds,
-                        [embedsKey]: {
-                            name: name,
+                    docks: {
+                        ...state.docks,
+                        [docksKey]: {
+                            content: null,
                             docked: false
                         }
                     }
                 }
             });
-        } default: {
+        }
+
+        default: {
             return (state);
         }
     }

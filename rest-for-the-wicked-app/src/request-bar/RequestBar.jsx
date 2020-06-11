@@ -2,7 +2,7 @@ import React from "react"
 import "./request-mod.css"
 import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
-import { Tile } from "../Tile"
+import { Tile } from "../tiles/Tile"
 
 export class RequestBar extends React.Component {
 
@@ -25,14 +25,14 @@ export class RequestBar extends React.Component {
                         //         }));
                         //     }
                         // }
-                        if (!receiver[1].is_visible) {
-                            return null;
-                        } else {
+                        if (receiver[1].is_visible) {
                             return (<TileReceiver
                                 key={receiver[0]}
                                 name={receiver[1].title}
                                 content={receiver[1].content}
                             />);
+                        } else {
+                            return null;
                         }
                     })
                 }
@@ -58,12 +58,14 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        {this.props.content ? <Tile
-                            key={this.props.content.name}
-                            name={this.props.content.name}
-                            type={this.props.name + "s"}
-                            index={0}
-                        /> : <h3>{this.props.name}</h3>}
+                        {this.props.content ?
+                            <Tile
+                                name={this.props.content.name}
+                                type={this.props.name}
+                                index={0}
+                            /> :
+                            <h3>{this.props.name}</h3>
+                        }
                         {provided.placeholder}
                     </span>
                 )}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./methods-mod.css";
-import { TileDock } from "../TileDock";
+import { TileDock } from "../tiles/TileDock";
 import {connect} from "react-redux";
 
 class MethodsModule extends React.Component {

@@ -5,5 +5,4 @@ from .views import index
 urlpatterns = [
     # path('poi/', views.poi, name='poi-home'),
     #path('items/', views.items, name='poi-item'),
-    path('', index, name='index')
 ]

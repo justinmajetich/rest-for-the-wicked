@@ -1,9 +1,30 @@
+"""rest_for_the_wicked_backend URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from .views import index
+from api import views
+
+router = routers.DefaultRouter()
+router.register(r'poi', views.PoiViewSet)
+router.register(r'item', views.ItemViewSet)
 
 urlpatterns = [
-    # path('poi/', views.poi, name='poi-home'),
-    #path('items/', views.items, name='poi-item'),
-    path('', index, name='index')
+    path('admin/', admin.site.urls),
+    path('', include('api.urls')),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

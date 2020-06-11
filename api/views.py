@@ -6,7 +6,7 @@ from django.db import models
 from django.http.response import JsonResponse
 from rest_framework import serializers, viewsets
 from django.forms.models import model_to_dict
-from backend.serializers import POISerializer, ItemSerializer
+from api.serializers import POISerializer, ItemSerializer
 
 class PoiViewSet(viewsets.ModelViewSet):
     """

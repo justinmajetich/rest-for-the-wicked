@@ -1,4 +1,4 @@
-from backend.models import POI, Item
+from api.models import POI, Item
 from rest_framework import serializers
 '''
 Meta class define what you model is, what field to serialzie

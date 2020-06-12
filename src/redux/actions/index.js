@@ -4,7 +4,10 @@ import {
     LIST_TO_RECEIVER,
     RECEIVER_TO_LIST,
     TO_PATH_RECEIVER,
-    FROM_PATH_RECEIVER
+    FROM_PATH_RECEIVER,
+    MAKE_REQUEST_BEGIN,
+    MAKE_REQUEST_SUCCESS,
+    SET_REQUEST_ERROR
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -23,6 +26,10 @@ export function receiverToList(payload = {listID: "", receiverID: "", contentID:
     });
 }
 
+export function allReceiversToLists() {
+    
+}
+
 export function toPathReceiver(payload = {receiverID: "", content:{}}) {
     return ({
         type: TO_PATH_RECEIVER,
@@ -35,6 +42,7 @@ export function fromPathReceiver() {
         type: FROM_PATH_RECEIVER
     })
 }
+
 
 // STORY MODULE REDUCER ---------------------
 
@@ -49,5 +57,27 @@ export function removeFromPathDock(result) {
     return ({
         type: DRAG_FROM_EMBED,
         payload: result
+    });
+}
+
+// NETWORKING ACTIONS ---------------------
+
+export function makeRequestBegin() {
+    return ({
+        type: MAKE_REQUEST_BEGIN
+    });
+}
+
+export function makeRequestSuccess(newPOI) {
+    return ({
+        type: MAKE_REQUEST_SUCCESS,
+        payload: newPOI
+    });
+}
+
+export function setRequestError(message) {
+    return ({
+        type: SET_REQUEST_ERROR,
+        payload: message
     });
 }

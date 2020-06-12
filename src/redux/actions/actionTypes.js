@@ -1,11 +1,22 @@
-export const UPDATE_POI = 'UPDATE_POI';
-export const UPDATE_OBJECTIVE = 'UPDATE_OBJECTIVE';
-export const TO_PATH_DOCK = 'TO_PATH_DOCK';
-export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';
+
+// DROPPABLE ACTIONS ---------------------
 
 export const LIST_TO_RECEIVER = 'LIST_TO_RECEIVER';
 export const RECEIVER_TO_LIST ='RECEIVER_TO_LIST';
-export const LIST_TO_LIST = 'LIST_TO_LIST';
-
 export const TO_PATH_RECEIVER = 'TO_PATH_RECEIVER';
 export const FROM_PATH_RECEIVER = 'FROM_PATH_RECEIVER';
+export const ALL_RECEIVERS_TO_LISTS = 'ALL_RECEIVERS_TO_LISTS';
+export const LIST_TO_LIST = 'LIST_TO_LIST';
+
+
+// STORY ACTIONS ---------------------
+
+export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';
+export const TO_PATH_DOCK = 'TO_PATH_DOCK';
+
+
+// NETWORKING ACTIONS ---------------------
+
+export const MAKE_REQUEST_BEGIN = 'MAKE_REQUEST_BEGIN';
+export const MAKE_REQUEST_SUCCESS = 'MAKE_REQUEST_SUCCESS';
+export const SET_REQUEST_ERROR = 'SET_REQUEST_ERROR';

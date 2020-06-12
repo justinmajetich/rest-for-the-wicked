@@ -24,7 +24,7 @@ export class RequestBar extends React.Component {
                     })
                 }
                 </div>
-                <RequestButton receivers={this.props.receivers} />
+                <RequestButton receivers={this.props.receivers}/>
             </section>
         )
     }
@@ -65,7 +65,6 @@ function RequestButton (props) {
 
     function onClick(event) {
         event.preventDefault();
-        console.log('NOW WE\'RE COOKING WITH GAS');
         const r = props.receivers;
 
         // Create object from current request sequence

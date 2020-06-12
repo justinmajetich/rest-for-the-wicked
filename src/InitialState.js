@@ -6,13 +6,13 @@ const initialState = {
                     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut [lobby] et dolore magna aliqua. Ut enim ad minim veniam, quis exercitation ullamco laboris nisi ut ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     docks: {
                             lobby: {
-                                    content: {name: "lobby", needs_key: "lab_badge", usable_items: [{name: "cheese"}]},
+                                    content: {name: "lobby", needs_key: "lab_badge", usable_items: [{name: "decoy_bug", description: "False entity which can be uploaded into a security system"}]},
                                     docked: true
                             }
                     }
             },
             spawned_items: [{name: "stapler", description: "shiny red"}, {name: "mug", description: "full of coffee"}],
-            usable_items: null,
+            usable_items: [],
             needs_key: null,
             parent: null,
             children: [{name: "lobby", needs_key: "lab_badge", usable_items: [{name: "cheese"}]}]
@@ -73,7 +73,7 @@ const initialState = {
                             title: "items",
                             docks: {
                                     decoy_bug: {
-                                            content: {name: "decoy_bug"},
+                                            content: {name: "decoy_bug", description: "False entity which can be uploaded into a security system"},
                                             is_visible: true
                                     },
                                     email: {

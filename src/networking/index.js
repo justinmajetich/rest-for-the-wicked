@@ -1,18 +1,82 @@
 import axios from 'axios'
+import { store } from '../redux/store'
+import { makeRequestBegin, makeRequestSuccess } from '../redux/actions'
 
-export function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
-    console.log(request)
+export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
     // Validate request
     if (validateRequest(request)) {
-        // Make API request
-        axios({
+        store.dispatch(makeRequestBegin());
+        
+        // Make API request for poi
+        const newPOI = await axios({
             method: request.method.name,
             url: "http://localhost:8000/poi/" + request.path.name,
-        }).then(response => {
-            console.log(response.data);
+        }).then(async (response) => {
+
+            const data = response.data;
+            
+            // Get children/spawned_items of new POI
+            data.children = await getChildren(data.children);
+            data.spawned_items = await getItems(data.spawned_items);
+
+            // Get key/usable_items of children poi
+            for (let i = 0; i < data.children.length; i++) {
+                data.children[i].needs_key = await getKey(data.children[i].needs_key);
+                data.children[i].usable_items = await getItems(data.children[i].usable_items);
+            }
+            return (data);
+
+        }).catch( error => {
+            console.log('NETWORKING ERROR ' + error)
         });
+
+        store.dispatch(makeRequestSuccess(newPOI));
     }
+}
+
+async function getChildren(childURLs) {
+    const children = []
+
+    if (childURLs) {
+        for (let i = 0; i < childURLs.length; i++) {
+            children[i] = await axios.get(childURLs[i]).then(response => {
+                return (response.data);
+            }).catch(error => {
+                console.log('NETWORKING ERROR: ' + error);
+            });
+        }
+        return (children);
+    }
+    return (null);
+}
+
+async function getItems(itemURLs) {
+    const items = []
+
+    if (itemURLs) {
+        for (let i = 0; i < itemURLs.length; i++) {
+            items[i] = await axios.get(itemURLs[i]).then(response => {
+                return (response.data);
+            }).catch(error => {
+                console.log('NETWORKING ERROR: ' + error);
+            });
+        }
+        return (items);
+    }
+    return (null);
+}
+
+async function getKey(keyURL) {
+    if (keyURL) {
+        const key = await axios.get(keyURL).then(response => {
+            return (response.data);
+        }).catch(error => {
+            console.log('NETWORKING ERROR: ' + error);
+        });
+        return (key);
+    }
+    return (null);
 }
 
 function validateRequest(request) {
@@ -39,19 +103,15 @@ function validateRequest(request) {
             return false;
         }
     }
-    // Check if path uses key
+    // Check if path uses items
     if (request.path.usable_items) {
         // Check if present item is valid
         if (request.item && 
-            !request.path.usable_items.some(item => item === request.item)) {
+            !request.path.usable_items.some(item => item.name === request.item.name)) {
             console.log('You cannot use ' + request.item.name +
                         ' in the ' + request.path.name);
             return false;
         }
     }
     return true;
-}
-
-function parseResponse() {
-
 }

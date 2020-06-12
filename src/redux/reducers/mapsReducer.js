@@ -1,8 +1,8 @@
-import { UPDATE_POI } from "../actions/actionTypes"
+import { MAKE_REQUEST_SUCCESS } from "../actions/actionTypes"
 
 export const updateMap = (state = {}, action) => {
     switch (action.type) {
-        case UPDATE_POI: {
+        case MAKE_REQUEST_SUCCESS: {
             // map list of linked_poi and current node to object
             const known_nodes = {};
             action.payload.children.forEach(poi => {

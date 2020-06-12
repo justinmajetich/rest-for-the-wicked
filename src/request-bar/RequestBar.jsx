@@ -3,6 +3,7 @@ import "./request-mod.css"
 import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
 import { Tile } from "../tiles/Tile"
+import { makeRequest } from "../networking"
 
 export class RequestBar extends React.Component {
 
@@ -11,20 +12,6 @@ export class RequestBar extends React.Component {
             <section className="request-container">
                 <div className="tile-receiver-zone"> {
                     Object.entries(this.props.receivers).map(receiver => {
-                        // if ((receiver[0] === "key_receiver" && !pathNeedsKey) ||
-                        //     (receiver[0] === "item_receiver" && !pathUsesItem)) {
-                        //     // If hidden receivers are docked, return contents to lists
-                        //     if (receiver[1].content) {
-                        //         this.props.dispatch(addToList({
-                        //             content: receiver[1].content,
-                        //             list: (receiver[0].replace("_receiver", "s_list"))
-                        //         }));
-                        //         this.props.dispatch(removeFromReceiver({
-                        //             content: receiver[1].content,
-                        //             receiver: receiver[0]
-                        //         }));
-                        //     }
-                        // }
                         if (receiver[1].is_visible) {
                             return (<TileReceiver
                                 key={receiver[0]}
@@ -37,7 +24,7 @@ export class RequestBar extends React.Component {
                     })
                 }
                 </div>
-                <RequestButton/>
+                <RequestButton receivers={this.props.receivers} />
             </section>
         )
     }
@@ -74,14 +61,31 @@ class TileReceiver extends React.Component {
     }
 }
 
-class RequestButton extends React.Component {
-    render() {
-        return (
-          <button className="request-button">
-              <h3>Make Request</h3>
-          </button>
-        );
+function RequestButton (props) {
+
+    function onClick(event) {
+        event.preventDefault();
+        console.log('NOW WE\'RE COOKING WITH GAS');
+        const r = props.receivers;
+
+        // Create object from current request sequence
+        makeRequest({
+            method: r.method_receiver.content,
+            path: r.path_receiver.content,
+            key: r.key_receiver.content,
+            item: r.item_receiver.content
+        });
     }
+
+    return (
+        <button
+        className={"request-button"}
+        onClick={onClick}
+        >
+            <h3>Make Request</h3>
+        </button>
+    );
+
 }
 
 const mapStateToProps = state => {

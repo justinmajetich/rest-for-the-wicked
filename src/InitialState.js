@@ -73,18 +73,9 @@ const initialState = {
                     method_list: {
                             title: "methods",
                             docks: {
-                                    GET: {
-                                            content: {name: "GET"},
-                                            is_visible: true
-                                    },
-                                    POST: {
-                                            content: {name: "POST"},
-                                            is_visible: true
-                                    },
-                                    PUT: {
-                                            content: {name: "PUT"},
-                                            is_visible: true
-                                    }
+                                    GET: {name: "GET"},
+                                    POST: {name: "POST"},
+                                    PUT: {name: "PUT"}
                             }
                     },
                     key_list: {
@@ -94,10 +85,7 @@ const initialState = {
                     item_list: {
                             title: "items",
                             docks: {
-                                    decoy_bug: {
-                                            content: {name: "decoy_bug", description: "False entity which can be uploaded into a security system"},
-                                            is_visible: true
-                                    }
+                                    decoy_bug: {name: "decoy_bug", description: "False entity which can be uploaded into a security system"}
                             }
                     }
             }

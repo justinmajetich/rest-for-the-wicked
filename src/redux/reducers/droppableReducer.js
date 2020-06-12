@@ -11,11 +11,12 @@ export const updateDroppable = (state = {}, action) => {
         case LIST_TO_RECEIVER: {
 
             // Assign content from list to receiver
-            const content = state.lists[payload.listType].docks[payload.contentID].content;
+            const content = state.lists[payload.listType].docks[payload.contentID];
             // newState.receivers[payload.receiverID].content = newState.lists[payload.listType].docks[payload.contentID].content;
             // newState.lists[payload.listType].docks[payload.contentID].content = null;
 
             // Create new state with updated content
+            console.log(content)
             const newState = {
                 lists: {
                     ...state.lists,
@@ -23,10 +24,7 @@ export const updateDroppable = (state = {}, action) => {
                         ...state.lists[payload.listType],
                         docks: {
                             ...state.lists[payload.listType].docks,
-                            [payload.contentID]: {
-                                ...state.lists[payload.listType].docks[payload.contentID],
-                                content: null,
-                            }
+                            [payload.contentID]: null
                         }
                     }
                 },
@@ -34,7 +32,7 @@ export const updateDroppable = (state = {}, action) => {
                     ...state.receivers,
                     [payload.receiverID]: {
                         ...state.receivers[payload.receiverID],
-                        content: content,
+                        content: content
                     }
                 }
             };
@@ -54,10 +52,7 @@ export const updateDroppable = (state = {}, action) => {
                         ...state.lists[payload.listType],
                         docks: {
                             ...state.lists[payload.listType].docks,
-                            [payload.contentID]: {
-                                ...state.lists[payload.listType].docks[payload.contentID],
-                                content: content,
-                            }
+                            [payload.contentID]: content
                         }
                     }
                 },
@@ -202,10 +197,7 @@ export const updateDroppable = (state = {}, action) => {
                                 ...newState.lists[listType],
                                 docks: {
                                     ...newState.lists[listType].docks,
-                                    [content.name]: {
-                                        ...newState.lists[listType].docks[content.name],
-                                        content: content
-                                    }
+                                    [content.name]: content
                                 }
                             }
                         }
@@ -222,9 +214,9 @@ export const updateDroppable = (state = {}, action) => {
             console.log(payload)
             payload.forEach(item => {
                 if (item.is_key) {
-                    key_docks[item.name] = {content: item, is_visible: true};
+                    key_docks[item.name] = item;
                 } else {
-                    item_docks[item.name] = {content: item, is_visible: true};
+                    item_docks[item.name] = item;
                 }
             });
 

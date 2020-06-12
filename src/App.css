@@ -5,8 +5,8 @@
                          [right-mod-start] 2.1fr [right-mod-end] 20px;
 
   grid-template-rows: 20px [upper-mod-start] 5fr [upper-mod-end] 20px
-                      [center-mod-start] 1.85fr [center-mod-end] 20px
-                      [lower-mod-start] 1.85fr [lower-mod-end] 20px;
+                      [center-mod-start] 1.65fr [center-mod-end] 20px
+                      [lower-mod-start] 1.65fr [lower-mod-end] 20px;
 
   width: 1080px;
   height: 720px;

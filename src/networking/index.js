@@ -20,11 +20,15 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
             data.children = await getChildren(data.children);
             data.spawned_items = await getItems(data.spawned_items);
 
-            // Get key/usable_items of children poi
+            // Get parent POI
+            data.parent = await getParent(data.parent);
+
+            // Get key/usable_items of children POI
             for (let i = 0; i < data.children.length; i++) {
                 data.children[i].needs_key = await getKey(data.children[i].needs_key);
                 data.children[i].usable_items = await getItems(data.children[i].usable_items);
             }
+            
             return (data);
 
         }).catch( error => {
@@ -54,6 +58,18 @@ async function getChildren(childURLs) {
             });
         }
         return (children);
+    }
+    return (null);
+}
+
+async function getParent(parentURL) {
+    if (parentURL) {
+        const parent = await axios.get(parentURL).then(response => {
+            return (response.data);
+        }).catch(error => {
+            console.log('NETWORKING ERROR: ' + error);
+        });
+        return (parent);
     }
     return (null);
 }

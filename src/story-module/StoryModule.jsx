@@ -14,7 +14,12 @@ class StoryModule extends React.Component {
                     text={this.props.poi.description.text.split(" ")}
                     docks={this.props.poi.description.docks}
                 />
+                <ParentPOI
+                    parent={this.props.poi.parent}
+                    docks={this.props.poi.description.docks}
+                />
                 <RequestBar/>
+                <div className="request-feedback"><p>{this.props.request_feedback}</p></div>
             </section>
         );
     }
@@ -47,9 +52,34 @@ export class Description extends React.Component {
     }
 }
 
+function ParentPOI (props) {
+    
+    console.log(props)
+
+    if (props.parent) {
+        return (
+            <div
+                className={"parent-poi-container"}
+            >
+                <span className={"word"}>Return to </span>
+                <TileDock
+                    key={0}
+                    name={props.parent.name}
+                    type={"path"}
+                    content={props.docks[props.parent.name].content}
+                /> 
+                <span className={"word"}>.</span>
+            </div>
+        );
+    } else {
+        return (null);
+    }
+}
+
 const mapStateToProps = state => {
     return ({
         poi: state.poi,
+        request_feedback: state.invalid_request_message,
         objective: state.objective
     });
 };

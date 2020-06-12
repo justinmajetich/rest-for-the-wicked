@@ -12,7 +12,6 @@ export const updateStory = (state = {}, action) => {
         case MAKE_REQUEST_SUCCESS: {
             console.log('MAKE_REQUEST_SUCCESS')
             // Store old poi as parent
-            const parent = state;
             const text = payload.description;
 
             // Create docks object from children poi
@@ -21,9 +20,14 @@ export const updateStory = (state = {}, action) => {
                 docks[child.name] = {content: child, docked: true};
             });
 
+            // Create dock for parent
+            if (payload.parent) {
+                docks[payload.parent.name] = {content: payload.parent, docked: true};
+            }
+
             const newState = {
                 ...payload,
-                parent: parent,
+                parent: payload.parent,
                 description: {
                     text: text,
                     docks: docks
@@ -31,11 +35,6 @@ export const updateStory = (state = {}, action) => {
             };
             console.log(newState)
             return (newState);
-        }
-
-        case SET_INVALID_REQUEST_MESSAGE: {
-            console.log(payload)
-            return (state);
         }
 
         case TO_PATH_DOCK: {
@@ -75,6 +74,19 @@ export const updateStory = (state = {}, action) => {
             return (newState);
         }
 
+        default: {
+            return (state);
+        }
+    }
+}
+
+export const updateInvalidRequestMessage = (state = {}, action) => {
+    const payload = action.payload;
+    
+    switch (action.type) {
+        case SET_INVALID_REQUEST_MESSAGE: {
+            return (payload);
+        }
         default: {
             return (state);
         }

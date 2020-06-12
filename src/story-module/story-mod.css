@@ -6,9 +6,9 @@
 
     display: grid;
     grid-template-columns: 50px [start] 1fr [end] 50px;
-    grid-template-rows: 10% [start-objective] 5% [start-name] 10%
-                        [start-description] 1fr [req-bar-top] 70px
-                        [req-bar-bottom] 10%;
+    grid-template-rows: 8% [start-objective] 5% [start-name] 8%
+                        [start-description] 2fr [start-parent-poi] 1fr [req-bar-top] 70px
+                        [req-bar-bottom] 8%;
 
     width: 100%;
 
@@ -52,11 +52,40 @@ h3.poi-name {
 
 .description-container .word {
     margin-right: 5px;
-
     height: max-content;
 }
 
-.embed {
+.parent-poi-container {
+    display: flex;
+
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-parent-poi;
+    grid-row-end: end-help-text;
+
+    line-height: 40px;
+}
+
+.parent-poi-container .word {
+    margin-right: 5px;
+    height: max-content;
+}
+
+.request-feedback {
+    display: flex;
+    justify-content: center;
+
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: req-bar-bottom;
+
+}
+
+.request-feedback p {
+    margin: 0px;
+}
+
+/* .embed {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,4 +96,4 @@ h3.poi-name {
     margin-right: 5px;
 
     background-color: #333333;
-}
+} */

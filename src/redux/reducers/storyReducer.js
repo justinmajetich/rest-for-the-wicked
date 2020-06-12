@@ -1,4 +1,4 @@
-import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_REQUEST_ERROR} from "../actions/actionTypes"
+import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_INVALID_REQUEST_MESSAGE} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
     const payload = action.payload;
@@ -33,8 +33,8 @@ export const updateStory = (state = {}, action) => {
             return (newState);
         }
 
-        case SET_REQUEST_ERROR: {
-            console.log(payload.message)
+        case SET_INVALID_REQUEST_MESSAGE: {
+            console.log(payload)
             return (state);
         }
 

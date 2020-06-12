@@ -7,7 +7,7 @@ import {
     FROM_PATH_RECEIVER,
     MAKE_REQUEST_BEGIN,
     MAKE_REQUEST_SUCCESS,
-    SET_REQUEST_ERROR,
+    SET_INVALID_REQUEST_MESSAGE,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS
 } from "./actionTypes"
@@ -86,9 +86,9 @@ export function makeRequestSuccess(newPOI) {
     });
 }
 
-export function setRequestError(message) {
+export function setInvalidRequestMessage(message = "") {
     return ({
-        type: SET_REQUEST_ERROR,
+        type: SET_INVALID_REQUEST_MESSAGE,
         payload: message
     });
 }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { store } from '../redux/store'
-import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists } from '../redux/actions'
+import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage } from '../redux/actions'
 
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
@@ -89,24 +89,32 @@ async function getKey(keyURL) {
 function validateRequest(request) {
     // Check if method is present
     if (!request.method) {
-        console.log('You must use a method.');
+        store.dispatch(setInvalidRequestMessage(
+            'You must use a method.'
+        ));
         return false; 
     }
     // Check if path is present
     if (!request.path) {
-        console.log('You must select a path.');
+        store.dispatch(setInvalidRequestMessage(
+            'You must select a path.'
+        ));
         return false;
     }
     // Check if path needs key
     if (request.path.needs_key) {
         // Check if key is present
         if (!request.key) {
-            console.log('Access denied. Please use a key.');
+            store.dispatch(setInvalidRequestMessage(
+                'Access denied. Please use a key.'
+            ));
             return false;
         }
         // Check if present key is valid
         if (request.key === request.path.needs_key) {
-            console.log('Access denied. Invalid key.');
+            store.dispatch(setInvalidRequestMessage(
+                'Access denied. Invalid key.'
+            ));
             return false;
         }
     }
@@ -115,8 +123,9 @@ function validateRequest(request) {
         // Check if present item is valid
         if (request.item && 
             !request.path.usable_items.some(item => item.name === request.item.name)) {
-            console.log('You cannot use ' + request.item.name +
-                        ' in the ' + request.path.name);
+                store.dispatch(setInvalidRequestMessage(
+                    'You cannot use ' + request.item.name + ' in the ' + request.path.name
+                ));
             return false;
         }
     }

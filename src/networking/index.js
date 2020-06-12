@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { store } from '../redux/store'
-import { makeRequestBegin, makeRequestSuccess } from '../redux/actions'
+import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists } from '../redux/actions'
 
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
@@ -15,7 +15,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         }).then(async (response) => {
 
             const data = response.data;
-            
+
             // Get children/spawned_items of new POI
             data.children = await getChildren(data.children);
             data.spawned_items = await getItems(data.spawned_items);
@@ -31,7 +31,14 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
             console.log('NETWORKING ERROR ' + error)
         });
 
+        // Dispatch new POI object to story module
         store.dispatch(makeRequestSuccess(newPOI));
+        // Return request elements to docks
+        store.dispatch(receiversToLists());
+        // If POI spawns items/keys, add to respesctve lists
+        if (newPOI.spawned_items) {
+            store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items));
+        }
     }
 }
 

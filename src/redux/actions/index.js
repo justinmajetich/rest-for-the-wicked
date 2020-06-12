@@ -7,7 +7,9 @@ import {
     FROM_PATH_RECEIVER,
     MAKE_REQUEST_BEGIN,
     MAKE_REQUEST_SUCCESS,
-    SET_REQUEST_ERROR
+    SET_REQUEST_ERROR,
+    RECEIVERS_TO_LISTS,
+    ADD_SPAWNED_ITEMS_TO_LISTS
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -26,10 +28,6 @@ export function receiverToList(payload = {listID: "", receiverID: "", contentID:
     });
 }
 
-export function allReceiversToLists() {
-    
-}
-
 export function toPathReceiver(payload = {receiverID: "", content:{}}) {
     return ({
         type: TO_PATH_RECEIVER,
@@ -40,6 +38,19 @@ export function toPathReceiver(payload = {receiverID: "", content:{}}) {
 export function fromPathReceiver() {
     return ({
         type: FROM_PATH_RECEIVER
+    })
+}
+
+export function receiversToLists() {
+    return ({
+        type: RECEIVERS_TO_LISTS,
+    });
+}
+
+export function addSpawnedItemsToLists(spawned_items = []) {
+    return ({
+        type: ADD_SPAWNED_ITEMS_TO_LISTS,
+        payload: spawned_items
     })
 }
 

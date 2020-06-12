@@ -1,7 +1,7 @@
 import {
     TO_PATH_RECEIVER, LIST_TO_LIST,
     LIST_TO_RECEIVER,
-    RECEIVER_TO_LIST, FROM_PATH_RECEIVER
+    RECEIVER_TO_LIST, FROM_PATH_RECEIVER, RECEIVERS_TO_LISTS, ADD_SPAWNED_ITEMS_TO_LISTS
 } from '../actions/actionTypes'
 
 export const updateDroppable = (state = {}, action) => {
@@ -70,10 +70,6 @@ export const updateDroppable = (state = {}, action) => {
                 }
             };
             return (newState);
-        }
-
-        case LIST_TO_LIST: {
-            return(state);
         }
 
         case TO_PATH_RECEIVER: {
@@ -159,6 +155,98 @@ export const updateDroppable = (state = {}, action) => {
                 }
             }
             return(newState);
+        }
+
+        case RECEIVERS_TO_LISTS: {
+            // Remove content from path receiver, hide key/item receivers
+            let newState = {
+                ...state,
+                receivers: {
+                    ...state.receivers,
+                    path_receiver: {
+                        ...state.receivers.path_receiver,
+                        content: null
+                    },
+                    key_receiver: {
+                        ...state.receivers.key_receiver,
+                        is_visible: false
+                    },
+                    item_receiver: {
+                        ...state.receivers.item_receiver,
+                        is_visible: false
+                    }
+                }
+            };
+
+            // Return content from item/key/method receiver to dock
+            for (let type of ["item", "key", "method"]) {
+                let listType = type + "_list";
+                let receiverType = type + "_receiver";
+                console.log(listType)
+                console.log(receiverType)
+                if (state.receivers[receiverType].content) {
+                    const content = state.receivers[receiverType].content;
+                    console.log(content)
+                    newState = {
+                        ...newState,
+                        receivers: {
+                            ...newState.receivers,
+                            [receiverType]: {
+                                ...newState.receivers[receiverType],
+                                content: null,
+                            }
+                        },
+                        lists: {
+                            ...newState.lists,
+                            [listType]: {
+                                ...newState.lists[listType],
+                                docks: {
+                                    ...newState.lists[listType].docks,
+                                    [content.name]: {
+                                        ...newState.lists[listType].docks[content.name],
+                                        content: content
+                                    }
+                                }
+                            }
+                        }
+                    };
+                }
+            }
+            return(newState);
+        }
+
+        case ADD_SPAWNED_ITEMS_TO_LISTS: {
+            // Create key docks from spawned keys/items
+            const key_docks = state.lists.key_list.docks;
+            const item_docks = state.lists.item_list.docks;
+            console.log(payload)
+            payload.forEach(item => {
+                if (item.is_key) {
+                    key_docks[item.name] = {content: item, is_visible: true};
+                } else {
+                    item_docks[item.name] = {content: item, is_visible: true};
+                }
+            });
+
+            const newState = {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    key_list: {
+                        ...state.lists.key_list,
+                        docks: key_docks
+                    },
+                    item_list: {
+                        ...state.lists.item_list,
+                        docks: item_docks
+                    }
+                }
+            }
+            return (newState);
+        }
+
+        case LIST_TO_LIST: {
+            return(state);
         }
 
         default: {

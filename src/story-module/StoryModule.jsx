@@ -22,11 +22,13 @@ class StoryModule extends React.Component {
 
 export class Description extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <div className={"description-container"}>
                 {this.props.text.map((word, index) => {
                     if (word[0] === '[') {
                         const name = /\w+/.exec(word)[0];
+                        console.log(name)
                         return (<TileDock
                             key={index}
                             name={name}

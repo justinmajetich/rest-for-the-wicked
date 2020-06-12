@@ -58,19 +58,20 @@ export const updateStory = (state = {}, action) => {
 
         case DRAG_FROM_EMBED: {
             const docksKey = payload.source.droppableId;
-            return ({
+            const newState = {
                 ...state,
                 description: {
                     ...state.description,
                     docks: {
-                        ...state.docks,
+                        ...state.description.docks,
                         [docksKey]: {
                             content: null,
                             docked: false
                         }
                     }
                 }
-            });
+            };
+            return (newState);
         }
 
         default: {

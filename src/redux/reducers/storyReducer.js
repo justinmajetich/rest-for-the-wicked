@@ -39,6 +39,7 @@ export const updateStory = (state = {}, action) => {
         }
 
         case TO_PATH_DOCK: {
+            console.log(payload)
             const content = payload[payload.draggableId];
             const docksKey = payload.destination.droppableId;
             return ({
@@ -46,7 +47,7 @@ export const updateStory = (state = {}, action) => {
                 description: {
                     ...state.description,
                     docks: {
-                        ...state.docks,
+                        ...state.description.docks,
                         [docksKey]: {
                             content: content,
                             docked: true

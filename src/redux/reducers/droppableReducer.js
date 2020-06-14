@@ -67,10 +67,17 @@ export const updateDroppable = (state = {}, action) => {
             return (newState);
         }
 
-        case TO_PATH_RECEIVER: {
-            // Check if path takes item/key
+        case TO_PATH_RECEIVER: {    
+            // Check if path takes key
             const keyVisibility = !!payload.content.needs_key;
-            const itemVisibility = !!payload.content.usable_items;
+
+            // Check if method is POST/PUT and path takes item
+            let itemVisibility = false;
+            if (state.receivers.method_receiver.content &&
+                (state.receivers.method_receiver.content.name === "PUT" ||
+                state.receivers.method_receiver.content.name === "POST")) {
+                itemVisibility = !!payload.content.usable_items;
+            }
 
             // Create new state with updated content and visibilities
             const newState = {

@@ -11,12 +11,13 @@ export class RequestBar extends React.Component {
         return (
             <section className="request-container">
                 <div className="tile-receiver-zone"> {
-                    Object.entries(this.props.receivers).map(receiver => {
+                    Object.entries(this.props.receivers).map((receiver, index) => {
                         if (receiver[1].is_visible) {
                             return (<TileReceiver
                                 key={receiver[0]}
                                 name={receiver[1].title}
                                 content={receiver[1].content}
+                                receivers={this.props.receivers}
                             />);
                         } else {
                             return null;
@@ -31,13 +32,13 @@ export class RequestBar extends React.Component {
 }
 
 class TileReceiver extends React.Component {
-
     render() {
+        console.log(isDropDisabled(this.props.name, this.props.receivers))
         return (
             <Droppable
                 droppableId={this.props.name + "_receiver"}
                 type={this.props.name}
-                isDropDisabled={this.props.content ? true : false}
+                isDropDisabled={isDropDisabled(this.props.name, this.props.receivers)}
             >
                 {(provided, snapshot) => (
                     <span
@@ -84,7 +85,38 @@ function RequestButton (props) {
             <h3>Make Request</h3>
         </button>
     );
+}
 
+function isDropDisabled(currentReceiver = "", receivers = {}) {
+    currentReceiver += "_receiver";
+    console.log(currentReceiver)
+    console.log(receivers)
+    switch (currentReceiver) {
+        case "method_receiver": {
+            return (receivers.method_receiver.content ? true : false);
+        }
+        case "path_receiver": { 
+            if (receivers["method_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        case "key_receiver": {
+            if (receivers["path_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        case "item_receiver": {
+            if (receivers["key_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        default: { 
+            return (false);
+        }
+    }
 }
 
 const mapStateToProps = state => {

@@ -106,7 +106,7 @@ function validateRequest(request) {
     // Check if method is present
     if (!request.method) {
         store.dispatch(setInvalidRequestMessage(
-            'You must use a method.'
+            'You must choose a method.'
         ));
         return false; 
     }
@@ -140,7 +140,7 @@ function validateRequest(request) {
         if (request.item && 
             !request.path.usable_items.some(item => item.name === request.item.name)) {
                 store.dispatch(setInvalidRequestMessage(
-                    'You cannot use ' + request.item.name + ' in the ' + request.path.name
+                    'You cannot use a ' + request.item.name + ' in the ' + request.path.name
                 ));
             return false;
         }

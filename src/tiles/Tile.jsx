@@ -1,6 +1,7 @@
-import React from "react";
-import "./tile.css";
-import { Draggable } from "react-beautiful-dnd";
+import React from 'react'
+import './tile.css'
+import { Draggable } from 'react-beautiful-dnd'
+import { getSVGComponent } from '../assets/svgs'
 
 export class Tile extends React.Component {
     render() {
@@ -13,7 +14,7 @@ export class Tile extends React.Component {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                     >
-                        <h3>{this.props.name}</h3>
+                        {getSVGComponent(this.props.type, this.props.name)}
                     </div>
                 )}
             </Draggable>

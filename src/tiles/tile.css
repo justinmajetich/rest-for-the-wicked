@@ -1,47 +1,84 @@
-h3 {
-    margin: 0px;
+.h3-tile {
+    margin-right: 10px;
+    margin-left: 10px;
+
+    color: black;
 }
 
+/* METHOD TILES */
 .method-tile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 100px;
+    width: fit-content;
     height: 38px;
 
-    background-color: dodgerblue;
+    /* background-color: dodgerblue; */
 }
 
+
+/* ITEM TILES*/
 .item-tile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 150px;
+    width: fit-content;
     height: 38px;
 
-    background-color: green;
+    /* background-color: green; */
 }
 
+
+/* KEY TILES */
 .key-tile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 150px;
+    width: fit-content;
     height: 38px;
 
-    background-color: darkorange;
+    /* background-color: darkorange; */
 }
 
+/* PATH TILES */
 .path-tile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 100px;
+    width: fit-content;
     height: 38px;
 
-    background-color: burlywood;
+    /* background-color: burlywood; */
+}
+
+.method-path-base {
+    display: flex;
+}
+
+.method-path-base div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 38px;
+    min-width: 87px;
+    width: fit-content;
+
+    background-color: #FFFFFF;
+}
+
+.key-item-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 38px;
+    min-width: 130px;
+    width: fit-content;
+
+    background-color: #FFFFFF;
 }

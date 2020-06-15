@@ -1,4 +1,6 @@
 .method-dock {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,15 +10,23 @@
 
     margin: 5px;
 
-    background-color: #333333;
+    background-color: gray;
+}
+
+.method-dock-subtract {
+    position: absolute;
+    top: 0%;
+    right: 0%;
 }
 
 .path-dock {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 100px;
+    width: min-content;
+    min-width: 100px;
     height: 38px;
 
     margin-right: 5px;
@@ -24,12 +34,18 @@
     background-color: #333333;
 }
 
+.path-dock-subtract {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
 .key-dock {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 150px;
+    width: 130px;
     height: 38px;
 
     margin: 5px;
@@ -41,8 +57,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 150px;
+    
+    width: 130px;
     height: 38px;
 
     margin: 5px;

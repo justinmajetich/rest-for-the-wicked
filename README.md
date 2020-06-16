@@ -1,5 +1,7 @@
 # REST for the Wicked
 
+![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/landing_page/img/gambar-1.JPG)
+
 ## About the Game
 REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s. The look and feel is meant to invoke the graphics of the Apple Macintosh of the early 90s. Some of the inspiration for the game comes from series like Zork, Mist, Out of this World and Flashback.
 

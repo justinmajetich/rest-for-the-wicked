@@ -36,9 +36,10 @@ class App extends React.Component {
 
         // PATH_RECEIVER -> PATH_EMBED
         if (sourceID === "path_receiver") {
-                result[draggableId] = this.props.path_receiver;
-                this.props.dispatch(toPathDock(result));
-                this.props.dispatch(fromPathReceiver());
+            console.log("PATH_RECEIVER -> PATH_EMBED");
+            result[draggableId] = this.props.path_receiver;
+            this.props.dispatch(toPathDock(result));
+            this.props.dispatch(fromPathReceiver());
             return;
         }
 

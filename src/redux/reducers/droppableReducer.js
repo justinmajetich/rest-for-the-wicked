@@ -123,7 +123,7 @@ export const updateDroppable = (state = {}, action) => {
             };
 
             // Return content from item/key receiver to dock
-            for (let type of ["item", "key"]) {
+            for (let type of ["key", "item"]) {
                 let listType = type + "_list";
                 let receiverType = type + "_receiver";
                 console.log(listType)
@@ -146,10 +146,7 @@ export const updateDroppable = (state = {}, action) => {
                                 ...newState.lists[listType],
                                 docks: {
                                     ...newState.lists[listType].docks,
-                                    [content.name]: {
-                                        ...newState.lists[listType].docks[content.name],
-                                        content: content
-                                    }
+                                    [content.name]: content
                                 }
                             }
                         }

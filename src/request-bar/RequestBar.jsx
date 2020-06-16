@@ -36,7 +36,6 @@ export class RequestBar extends React.Component {
 
 class TileReceiver extends React.Component {
     render() {
-        console.log(isDropDisabled(this.props.name, this.props.receivers))
         return (
             <Droppable
                 droppableId={this.props.name + "_receiver"}
@@ -94,8 +93,6 @@ function RequestButton (props) {
 
 function isDropDisabled(currentReceiver = "", receivers = {}) {
     currentReceiver += "_receiver";
-    console.log(currentReceiver)
-    console.log(receivers)
     switch (currentReceiver) {
         case "method_receiver": {
             return (receivers.method_receiver.content ? true : false);

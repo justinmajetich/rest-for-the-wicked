@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>REST for the Wicked</title>
+</head>
+
+<body>
+  <section class="feature">
+    <div class="container-md">
+      <h1>REST for the WICKED</h1>
+      <p>A text adventure game that teaches the conecpts of REST API</p>
+      <img src="./img/rtf2.png" alt="">
+
+      <div class="row">
+        <a href="https://rest-for-the-wicked.herokuapp.com/" class="col-sm">
+          Play the Game
+        </a>
+        <a href="#about" class="col-sm">
+          About
+        </a>
+      </div>
+  </section>
+  <br>
+  <section name="#about" class="about container-md">
+    <h2>About the Game</h2>
+    <p>REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s. The look and feel is meant to
+      invoke the graphics of the Apple Macintosh of the early 90s. Some of the inspiration for the game comes from
+      series like Zork, Mist, Out of this World and Flashback.</p>
+      <p>The story is inspired by dystopian works like 1984, Brave New World, 12 Monkeys, The Matrix and Blade Runner.</p>
+    <p>The idea for a game that teaches coding with coding challenges comes from games like: </p>
+    <ul class="game-list">
+      <li><a href="https://www.codingame.com/start">CodinGame</a></li>
+      <li><a href="http://flexboxfroggy.com/">Flexbox Froggy</a></li>
+      <li><a href="https://codecombat.com/">Code Combat</a></li>
+      <li><a href="https://alexnisnevich.github.io/untrusted/">Untrusted</a></li>
+      <li><a href="https://robocode.sourceforge.io/">Robocode</a></li>
+      <li><a href="http://play.elevatorsaga.com/"> Elevator Saga</a></li>
+    </ul>
+    <p>We were inspired to create this game because when we created our own RESTful APIs for the Holberton Airbnb Clone
+      project, many of us found the REST API concept difficult to understand. Even students from cohorts above us were
+      unable to explain what a REST API is in a few sentences.</p>
+    <p>Although there are many text heavy REST API tutorials and explanations, we felt as though they were either too
+      technical or too general. In envisioning REST for the Wicked, we realized that a text adventure game would be the
+      perfect environment to explore what a RESTful API is and what it does.</p>
+      <p>The game is both played using the ideas of a RESTful API and built using a REST API. We thought this meta-idea a great educational tools.</p>
+     
+  </section>
+  <section class="play container-md">
+    <H2>How to Play</H2>
+    <div class="wrapper">
+      <p>
+        <p>The central textbox tells the story, but also contains certain words inside a tile. The tiled words are points of interest or items in the game that the player can interact with. Points of interest
+          include rooms as well as places such as the vault and the computer. When a tile is brought onto the game bar, a method tile can be dragged, creating a combination that is then queried after
+          clicking the Make Request button.
+        </p>
+      </p>
+    </div>
+    <img src="./img/gambar-1.JPG" alt="gamebar-1">
+    <p>The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a "key" or an item.</p>
+    <img src="./img/gamebar.JPG" alt="gamebar expanded">
+    <p>Using the REST architecture, a point of interest is synonymous with a URL route, while a key is meant to represent an API key or authorization.</p>
+    <p>Once the player has stacked the tiles necesarry to engage the point of interest or item in the game bar, they can add the requisite REST API method to the begining of the route and hit "Make Request".</p>
+    </section>
+  <footer>
+    By <a href="https://github.com/justinmajetich">Justin Majetich</a> and <a href="https://github.com/Gzoref">Geoffrey Zoref</a>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+</html>

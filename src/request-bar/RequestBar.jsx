@@ -49,8 +49,8 @@ class TileReceiver extends React.Component {
                         {...provided.droppableProps}
                     >
                         <h3 className={"receiver-text"}>{this.props.name}</h3>
-                        {this.props.name === "method" ? <MethodReceiverSubtractSVG className={"method-receiver-subtract"}/> : null}
-                        {this.props.name === "path" ? <PathReceiverSubtractSVG className={"path-receiver-subtract"}/> : null}
+                        {/* {this.props.name === "method" ? <MethodReceiverSubtractSVG className={"method-receiver-subtract"}/> : null}
+                        {this.props.name === "path" ? <PathReceiverSubtractSVG className={"path-receiver-subtract"}/> : null} */}
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}

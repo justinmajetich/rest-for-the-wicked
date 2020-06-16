@@ -12,24 +12,25 @@
 }
 
 .path-dock {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
 
-    width: min-content;
-    min-width: 100px;
-    height: 38px;
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+
+    border-bottom: 38px solid #333333;
+	border-left: 12px solid transparent;
+	border-right: 50px solid #333333;
+
+    transform: translateX();
+    width: 100px;
+    height: 0px;
 
     margin-right: 5px;
-
-    background-color: #333333;
 }
 
-.path-dock-subtract {
-    position: absolute;
-    top: 0%;
-    left: 0%;
+.path-dock .path-tile {
+    width: 100px;
+    transform: translateX(-12px);
 }
 
 .key-dock {

@@ -24,6 +24,8 @@
 
 /* PATH TILES */
 .path-tile {
+    position: relative;
+
     display: flex;
 
     border-bottom: 38px solid #FFFFFF;

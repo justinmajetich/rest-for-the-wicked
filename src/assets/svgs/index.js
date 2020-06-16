@@ -1,26 +1,24 @@
-// import React from 'react'
-// import {ReactComponent as MethodSlantSVG} from './method-slant.svg'
-// import {ReactComponent as PathSlantSVG} from './path-slant.svg'
-// import {ReactComponent as MethodTileSVG} from './method-tile.svg'
-// import {ReactComponent as MethodTileTextSVG} from './method-tile-text.svg'
+import React from 'react'
+import {ReactComponent as MethodOutlineSVG} from './method-outline.svg'
+import {ReactComponent as PathOutlineSVG} from './path-outline.svg'
+import {ReactComponent as RectOutlineSVG} from './rect-outline.svg'
 
-// export function getSVGComponent(type, text="") {
-//     switch(type) {
-//         case 'method': {
-//             return (
-//                     <MethodTileSVG/>
-//             );
-//         }
-//         case 'path': {
-//             return (<span className={"path-base"}>
-//                         <PathSlantSVG/>
-//                         <div>
-//                             {/* <h3 className={"h3-tile"}>/{text}</h3> */}
-//                         </div>
-//                     </span>);
-//         }
-//         default: {
-//             return (<span className={"key-item-base"}/>);
-//         }
-//     }
-// }
+export function getSVGComponent(type) {
+    switch(type) {
+        case 'method-receiver': {
+            return (<MethodOutlineSVG className={"outline-svg"}/>);
+        }
+        case 'path-receiver': {
+            return (<PathOutlineSVG className={"outline-svg"}/>);
+        }
+        case 'key-receiver': {
+            return (<RectOutlineSVG className={"outline-svg"}/>);
+        }
+        case 'item-receiver': {
+            return (<RectOutlineSVG className={"outline-svg"}/>);
+        }
+        default: {
+            return (null);
+        }
+    }
+}

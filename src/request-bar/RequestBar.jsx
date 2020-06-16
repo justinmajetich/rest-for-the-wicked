@@ -6,6 +6,7 @@ import { Tile } from "../tiles/Tile"
 import { makeRequest } from "../networking"
 import {ReactComponent as MethodReceiverSubtractSVG} from '../assets/svgs/method-receiver-subtract.svg'
 import {ReactComponent as PathReceiverSubtractSVG} from '../assets/svgs/path-receiver-subtract.svg'
+import { getSVGComponent } from "../assets/svgs"
 
 export class RequestBar extends React.Component {
 
@@ -51,6 +52,7 @@ class TileReceiver extends React.Component {
                         <div className={"receiver-shape"}>
                             <h3 className={"receiver-text"}>{this.props.name}</h3>
                         </div>
+                        {getSVGComponent(this.props.name + "-receiver")}
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}

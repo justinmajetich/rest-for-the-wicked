@@ -58,6 +58,11 @@
     width: 50px;
 }
 
+.method-receiver .outline-svg {
+    position: absolute;
+    transform: translateX(-1px);
+}
+
 .method-receiver .receiver-text {
     transform: translate(-24px, -34px);
     margin: 0px;
@@ -67,42 +72,41 @@
 .path-receiver {
     position: relative;
 
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 48px;
+    width: 176px;
+
+    margin-right: 20px;
+}
+
+.path-receiver .receiver-shape {
+    position: absolute;
 
     border-bottom: 48px solid #585858;
 	border-left: 15px solid transparent;
 	border-right: 48px solid #585858;
 
     height: 0px;
-    width: 97px;
-
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-right: 20px;
-
-    /* background-color: #585858; */
+    width: 113px;
 }
 
 .path-receiver .receiver-text {
     position: absolute;
-    /* top: 0%; */
     left: 50%;
     transform: translateY(14px);
 
     margin: 0px;
 }
 
-.path-receiver .path-tile {
+.path-receiver .outline-svg {
     position: absolute;
-    transform: translate(-15px, 5px);
+    transform: translateX(1px);
 }
 
-.path-receiver-subtract {
-    position: absolute;
-    left: 0%;
-}
+
 
 /* KEY RECEIVER */
 .key-receiver {
@@ -129,6 +133,10 @@
     width: 146px;
     
     background-color: #585858;
+}
+
+.key-receiver .outline-svg {
+    position: absolute;
 }
 
 .key-receiver .receiver-text {
@@ -160,4 +168,12 @@
     width: 146px;
     
     background-color: #585858;
+}
+
+.item-receiver .outline-svg {
+    position: absolute;
+}
+
+.item-receiver .receiver-text {
+    margin: 0px;
 }

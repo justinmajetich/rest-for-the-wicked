@@ -45,6 +45,8 @@
 
 /* KEY TILES */
 .key-tile {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,6 +64,8 @@
 
 /* ITEM TILES*/
 .item-tile {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;

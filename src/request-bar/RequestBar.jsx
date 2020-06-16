@@ -48,9 +48,9 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        <h3 className={"receiver-text"}>{this.props.name}</h3>
-                        {/* {this.props.name === "method" ? <MethodReceiverSubtractSVG className={"method-receiver-subtract"}/> : null}
-                        {this.props.name === "path" ? <PathReceiverSubtractSVG className={"path-receiver-subtract"}/> : null} */}
+                        <div className={"receiver-shape"}>
+                            <h3 className={"receiver-text"}>{this.props.name}</h3>
+                        </div>
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}
@@ -111,7 +111,7 @@ function isDropDisabled(currentReceiver = "", receivers = {}) {
             return (true);
         }
         case "item_receiver": {
-            if (receivers["key_receiver"].content) {
+            if (receivers["path_receiver"].content) {
                 return (receivers[currentReceiver].content ? true : false);
             }
             return (true);

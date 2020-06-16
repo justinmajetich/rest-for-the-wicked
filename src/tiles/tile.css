@@ -1,35 +1,49 @@
-.h3-tile {
-    margin-right: 10px;
-    margin-left: 10px;
+/* METHOD TILES */
+.method-tile {
+    position: relative;
 
+    display: flex;
+
+    border-top: 38px solid #FFFFFF;
+	border-left: 50px solid #FFFFFF;
+	border-right: 12px solid transparent;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 38px;
+    height: 0px;
+}
+
+.method-tile h3 {
+    position: absolute;
+    transform: translate(-24.5px, -18.5px);
+    margin: 0px;
     color: black;
 }
 
-/* METHOD TILES */
-.method-tile {
+/* PATH TILES */
+.path-tile {
+    position: relative;
     display: flex;
+
+    border-bottom: 38px solid #FFFFFF;
+	border-left: 12px solid transparent;
+	border-right: 50px solid #FFFFFF;
+
     justify-content: center;
     align-items: center;
 
-    width: fit-content;
-    height: 38px;
-
-    /* background-color: dodgerblue; */
+    width: 100px;
+    height: 0px;
 }
 
-
-/* ITEM TILES*/
-.item-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: fit-content;
-    height: 38px;
-
-    /* background-color: green; */
+.path-tile h3 {
+    position: absolute;
+    transform: translate(24.5px, 18.5px);
+    margin: 0px;
+    color: black;
 }
-
 
 /* KEY TILES */
 .key-tile {
@@ -37,29 +51,36 @@
     justify-content: center;
     align-items: center;
 
-    width: fit-content;
+    width: 130px;
     height: 38px;
 
-    /* background-color: darkorange; */
+    background-color: #FFFFFF;
 }
 
-/* PATH TILES */
-.path-tile {
+.key-tile h3 {
+    margin: 0px;
+    color: black;
+}
+
+/* ITEM TILES*/
+.item-tile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: fit-content;
+    width: 130px;
     height: 38px;
 
-    /* background-color: burlywood; */
+    background-color: #FFFFFF;
 }
 
-.method-path-base {
-    display: flex;
+.item-tile h3 {
+    margin: 0px;
+    color: black;
 }
 
-.method-path-base div {
+
+.path-base div {
     display: flex;
     justify-content: center;
     align-items: center;

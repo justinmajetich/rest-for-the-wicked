@@ -4,6 +4,8 @@ import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
 import { Tile } from "../tiles/Tile"
 import { makeRequest } from "../networking"
+import {ReactComponent as MethodReceiverSubtractSVG} from '../assets/svgs/method-receiver-subtract.svg'
+import {ReactComponent as PathReceiverSubtractSVG} from '../assets/svgs/path-receiver-subtract.svg'
 
 export class RequestBar extends React.Component {
 
@@ -46,14 +48,15 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
+                        <h3 className={"receiver-text"}>{this.props.name}</h3>
+                        {this.props.name === "method" ? <MethodReceiverSubtractSVG className={"method-receiver-subtract"}/> : null}
+                        {this.props.name === "path" ? <PathReceiverSubtractSVG className={"path-receiver-subtract"}/> : null}
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}
                                 type={this.props.name}
                                 index={0}
-                            /> :
-                            <h3>{this.props.name}</h3>
-                        }
+                            /> : null}
                         {provided.placeholder}
                     </span>
                 )}
@@ -82,7 +85,7 @@ function RequestButton (props) {
         className={"request-button"}
         onClick={onClick}
         >
-            <h3>Make Request</h3>
+            <h1>Make Request</h1>
         </button>
     );
 }

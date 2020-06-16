@@ -1,7 +1,6 @@
 import React from 'react'
 import './tile.css'
 import { Draggable } from 'react-beautiful-dnd'
-import { getSVGComponent } from '../assets/svgs'
 
 export class Tile extends React.Component {
     render() {
@@ -14,7 +13,12 @@ export class Tile extends React.Component {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                     >
-                        {getSVGComponent(this.props.type, this.props.name)}
+                        <h3>
+                            {this.props.type === "path" ? '/' : ''}
+                            {this.props.type === "key" ? '{' : ''}
+                            {this.props.name}
+                            {this.props.type === "key" ? '}' : ''}
+                        </h3>
                     </div>
                 )}
             </Draggable>

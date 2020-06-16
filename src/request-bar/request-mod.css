@@ -34,53 +34,89 @@
 }
 
 .method-receiver {
+    position: relative;
+    z-index: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50px;
-    width: 120px;
+    height: 48px;
+    min-width: 115px;
 
-    margin-right: 10px;
+    margin-right: 5px;
 
-    background-color: gray;
+    background-color: #585858;
+}
+
+.method-receiver-subtract {
+    position: absolute;
+    right: 0%;
 }
 
 .path-receiver {
+    position: relative;
+    z-index: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50px;
-    width: 120px;
+    height: 48px;
+    width: fit-content;
+    min-width: 100px;
 
-    margin-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-right: 20px;
 
-    background-color: gray;
+    background-color: #585858;
+}
+
+.path-receiver-subtract {
+    position: absolute;
+    left: 0%;
 }
 
 .key-receiver {
+    position: relative;
+    z-index: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50px;
-    width: 120px;
+    height: 48px;
+    min-width: 146px;
 
-    margin-right: 10px;
+    margin-right: 20px;
 
-    background-color: gray;
+    background-color: #585858;
 }
 
 .item-receiver {
+    position: relative;
+    z-index: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50px;
-    width: 120px;
+    height: 48px;
+    min-width: 146px;
 
     margin-right: 10px;
 
-    background-color: gray;
+    background-color: #585858;
+}
+
+.receiver-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+
+    margin: 0px;
 }

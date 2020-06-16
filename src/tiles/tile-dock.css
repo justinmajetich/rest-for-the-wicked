@@ -1,6 +1,4 @@
 .method-dock {
-    position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,13 +8,7 @@
 
     margin: 5px;
 
-    background-color: gray;
-}
-
-.method-dock-subtract {
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    background-image: url('../assets/svgs/method-dock.svg');
 }
 
 .path-dock {

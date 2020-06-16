@@ -1,4 +1,6 @@
-About the Game
+# REST for the Wicked
+
+## About the Game
 REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s. The look and feel is meant to invoke the graphics of the Apple Macintosh of the early 90s. Some of the inspiration for the game comes from series like Zork, Mist, Out of this World and Flashback.
 
 The story is inspired by dystopian works like 1984, Brave New World, 12 Monkeys, The Matrix and Blade Runner.
@@ -18,7 +20,7 @@ Although there are many text heavy REST API tutorials and explanations, we felt 
 
 The game is both played using the ideas of a RESTful API and built using a REST API. We thought this meta-idea a great educational tools.
 
-How to Play
+### How to Play
 The central textbox tells the story, but also contains certain words inside a tile. The tiled words are points of interest or items in the game that the player can interact with. Points of interest include rooms as well as places such as the vault and the computer. When a tile is brought onto the game bar, a method tile can be dragged, creating a combination that is then queried after clicking the Make Request button.
 
 gamebar-1

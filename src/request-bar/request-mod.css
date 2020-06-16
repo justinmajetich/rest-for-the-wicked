@@ -159,6 +159,12 @@
     background-color: #585858;
 }
 
+.key-receiver .receiver-text {
+    position: absolute;
+    z-index: -1;
+    transform: translateY(-19px);
+}
+
 .item-receiver {
     position: relative;
     z-index: 0;
@@ -173,4 +179,10 @@
     margin-right: 10px;
 
     background-color: #585858;
+}
+
+.item-receiver .receiver-text {
+    position: absolute;
+    z-index: -1;
+    transform: translateY(-19px);
 }

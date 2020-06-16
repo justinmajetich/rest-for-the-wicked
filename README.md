@@ -23,7 +23,8 @@ The game is both played using the ideas of a RESTful API and built using a REST 
 ### How to Play
 The central textbox tells the story, but also contains certain words inside a tile. The tiled words are points of interest or items in the game that the player can interact with. Points of interest include rooms as well as places such as the vault and the computer. When a tile is brought onto the game bar, a method tile can be dragged, creating a combination that is then queried after clicking the Make Request button.
 
-gamebar-1
+![Gamebar-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/landing_page/img/gambar-1.JPG)
+
 The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a "key" or an item.
 
 gamebar expanded

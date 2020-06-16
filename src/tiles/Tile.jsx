@@ -5,7 +5,11 @@ import { Draggable } from 'react-beautiful-dnd'
 export class Tile extends React.Component {
     render() {
         return (
-            <Draggable draggableId={this.props.name} index={this.props.index}>
+            <Draggable 
+                draggableId={this.props.name}
+                isDragDisabled={this.props.isDragDisabled}
+                index={this.props.index}
+            >
                 {(provided, snapshot) => (
                     <div
                         className={this.props.type + "-tile"}

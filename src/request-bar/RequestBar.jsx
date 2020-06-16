@@ -57,6 +57,10 @@ class TileReceiver extends React.Component {
                                 name={this.props.content.name}
                                 type={this.props.name}
                                 index={0}
+                                isDragDisabled={
+                                    this.props.name === "method" ? 
+                                    (receivers.path_receiver.content ? true : false) : false
+                                }
                             /> : null}
                         {provided.placeholder}
                     </span>

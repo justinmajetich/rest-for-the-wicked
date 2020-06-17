@@ -4,9 +4,8 @@ import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
 import { Tile } from "../tiles/Tile"
 import { makeRequest } from "../networking"
-import {ReactComponent as MethodReceiverSubtractSVG} from '../assets/svgs/method-receiver-subtract.svg'
-import {ReactComponent as PathReceiverSubtractSVG} from '../assets/svgs/path-receiver-subtract.svg'
 import { getSVGComponent } from "../assets/svgs"
+import { buttonClick } from "../redux/actions"
 
 export class RequestBar extends React.Component {
 
@@ -21,6 +20,7 @@ export class RequestBar extends React.Component {
                                 name={receiver[1].title}
                                 content={receiver[1].content}
                                 receivers={this.props.receivers}
+                                isDropDisabled={isDropDisabled(receiver[1].title, this.props.receivers)}
                             />);
                         } else {
                             return null;
@@ -28,7 +28,11 @@ export class RequestBar extends React.Component {
                     })
                 }
                 </div>
-                <RequestButton receivers={this.props.receivers}/>
+                <RequestButton
+                    receivers={this.props.receivers}
+                    isClicked={this.props.isClicked}
+                    dispatch={this.props.dispatch}
+                />
             </section>
         )
     }
@@ -40,18 +44,21 @@ class TileReceiver extends React.Component {
             <Droppable
                 droppableId={this.props.name + "_receiver"}
                 type={this.props.name}
-                isDropDisabled={isDropDisabled(this.props.name, this.props.receivers)}
+                isDropDisabled={this.props.isDropDisabled}
             >
                 {(provided, snapshot) => (
                     <span
                         className={this.props.name + "-receiver"}
                         ref={provided.innerRef}
+                        style={{
+                            opacity: (this.props.isDropDisabled && !this.props.content) ? '50%' : '100%',
+                        }}
                         {...provided.droppableProps}
                     >
                         <div className={"receiver-shape"}>
                             <h3 className={"receiver-text"}>{this.props.name}</h3>
                         </div>
-                        {getSVGComponent(this.props.name + "-receiver")}
+                        {getSVGComponent(this.props.name + "-receiver", !this.props.isDropDisabled)}
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}
@@ -59,7 +66,7 @@ class TileReceiver extends React.Component {
                                 index={0}
                                 isDragDisabled={
                                     this.props.name === "method" ? 
-                                    (receivers.path_receiver.content ? true : false) : false
+                                    (this.props.receivers.path_receiver.content ? true : false) : false
                                 }
                             /> : null}
                         {provided.placeholder}
@@ -74,8 +81,9 @@ function RequestButton (props) {
 
     function onClick(event) {
         event.preventDefault();
-        const r = props.receivers;
+        props.dispatch(buttonClick());
 
+        const r = props.receivers;
         // Create object from current request sequence
         makeRequest({
             method: r.method_receiver.content,
@@ -87,10 +95,10 @@ function RequestButton (props) {
 
     return (
         <button
-        className={"request-button"}
-        onClick={onClick}
+            className={props.isClicked ? "request-button-clicked" : "request-button"}
+            onClick={onClick}
         >
-            <h1>Make Request</h1>
+            <h1>MAKE REQUEST</h1>
         </button>
     );
 }
@@ -128,6 +136,7 @@ function isDropDisabled(currentReceiver = "", receivers = {}) {
 const mapStateToProps = state => {
     return ({
         receivers: state.droppables.receivers,
+        isClicked: state.requestButtonClicked
     });
 };
 

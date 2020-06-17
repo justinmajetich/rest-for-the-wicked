@@ -9,7 +9,9 @@
 
     width: 100%;
 
-    border: deeppink solid 1px;
+    background-color: black;
+
+    border: lightgray solid 1px;
 }
 
 .path-map {
@@ -25,7 +27,7 @@
                         [center-2] 1fr [center-3] 1fr [center-4] 1fr [center-5] 1fr
                         [center-6] 1fr [center-7] 1fr [center-8] 10%;
 
-    border: coral dashed 1px;
+    /* border: coral dashed 1px; */
 }
 
 .path-map p {

@@ -10,7 +10,8 @@ import ItemsModule from './items-module/ItemsModule'
 import {
     toPathReceiver, removeFromPathDock,
     listToReceiver, receiverToList,
-    toPathDock, fromPathReceiver
+    toPathDock, fromPathReceiver,
+    setInvalidRequestMessage
 } from './redux/actions'
 import { connect } from 'react-redux'
 
@@ -23,6 +24,9 @@ class App extends React.Component {
 
         // DROPPED NO WHERE OR IN PLACE
         if (!destination || (destID === sourceID && destination.index === source.index)) { return; }
+
+        // Clear request feedback message
+        this.props.dispatch(setInvalidRequestMessage(''));
 
         // PATH_EMBED -> PATH_RECEIVER
         if (destID === "path_receiver") {

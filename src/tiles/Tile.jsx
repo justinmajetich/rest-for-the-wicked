@@ -16,6 +16,7 @@ export class Tile extends React.Component {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
+                        style={getStyle(provided.draggableProps.style, snapshot)}
                     >
                         <h3>
                             {this.props.type === "path" ? '/' : ''}
@@ -29,3 +30,18 @@ export class Tile extends React.Component {
         );
     }
 }
+
+function getStyle(style, snapshot) {
+    
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    
+    const {curve} = snapshot.dropAnimation;
+
+    return {
+      ...style,
+      // Drastically shortened drop from default
+      transition: `all ${curve} .001s`,
+    };
+  }

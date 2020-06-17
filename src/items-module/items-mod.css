@@ -9,9 +9,11 @@
 
     width: 100%;
 
+    background-color: black;
+
     border-style: solid;
     border-width: 1px;
-    border-color: deeppink;
+    border-color: lightgray;
 }
 
 .item-harbor {
@@ -23,5 +25,5 @@
     align-items: center;
 
     padding: 15px;
-    border: chartreuse dashed 1px;
+    /* border: chartreuse dashed 1px; */
 }

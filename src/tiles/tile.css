@@ -1,11 +1,15 @@
+:root {
+    --default-tile-color: white;
+}
+
 /* METHOD TILES */
 .method-tile {
     position: relative;
 
     display: flex;
 
-    border-top: 38px solid #FFFFFF;
-	border-left: 50px solid #FFFFFF;
+    border-top: 38px solid var(--default-tile-color);
+	border-left: 50px solid var(--default-tile-color);
 	border-right: 12px solid transparent;
 
     justify-content: center;
@@ -28,9 +32,9 @@
 
     display: flex;
 
-    border-bottom: 38px solid #FFFFFF;
+    border-bottom: 38px solid #var(--default-tile-color);
 	border-left: 12px solid transparent;
-	border-right: 50px solid #FFFFFF;
+	border-right: 50px solid #var(--default-tile-color);
 
     justify-content: center;
     align-items: center;
@@ -56,7 +60,7 @@
     width: 130px;
     height: 38px;
 
-    background-color: #FFFFFF;
+    background-color: #var(--default-tile-color);
 }
 
 .key-tile h3 {
@@ -75,7 +79,7 @@
     width: 130px;
     height: 38px;
 
-    background-color: #FFFFFF;
+    background-color: #var(--default-tile-color);
 }
 
 .item-tile h3 {
@@ -83,7 +87,7 @@
     color: black;
 }
 
-
+/* 
 .path-base div {
     display: flex;
     justify-content: center;
@@ -94,9 +98,9 @@
     width: fit-content;
 
     background-color: #FFFFFF;
-}
+} */
 
-.key-item-base {
+/* .key-item-base {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,4 +110,4 @@
     width: fit-content;
 
     background-color: #FFFFFF;
-}
+} */

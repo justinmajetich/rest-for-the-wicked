@@ -1,3 +1,5 @@
+
+
 const initialState = {
     poi: {
             name: "api_headquarters",
@@ -38,12 +40,13 @@ const initialState = {
                             }
                     }
             },
-            spawned_items: [{name: "stapler", description: "shiny red"}, {name: "mug", description: "full of coffee"}],
+            spawned_items: [{name: "stapler", description: "shiny red"}],
             usable_items: [],
             needs_key: null,
             parent: null,
-            children: [{name: "lobby", needs_key: "lab_badge", usable_items: [{name: "cheese"}]}]
+            children: [{name: "lobby", needs_key: "lab_badge", usable_items: null}]
     },
+    requestButtonClicked: false,
     invalid_request_message: "",
     objective: "init objective",
     droppables: {
@@ -110,3 +113,5 @@ const initialState = {
 };
 
 export default initialState;
+
+

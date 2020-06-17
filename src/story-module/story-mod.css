@@ -8,13 +8,15 @@
     grid-template-columns: 50px [start] 1fr [end] 50px;
     grid-template-rows: 8% [start-objective] 5% [start-name] 8%
                         [start-description] 2fr [start-parent-poi] 1fr [req-bar-top] 70px
-                        [req-bar-bottom] 8%;
+                        [req-bar-bottom] 10%;
 
     width: 100%;
 
+    background-color: black;
+
     border-style: solid;
     border-width: 1px;
-    border-color: deeppink;
+    border-color: lightgray;
 }
 
 p.objective {
@@ -27,6 +29,8 @@ p.objective {
 
     text-align: right;
 }
+
+
 
 h3.poi-name {
     grid-column-start: start;
@@ -75,6 +79,8 @@ h3.poi-name {
     display: flex;
     justify-content: center;
 
+    margin-top: 10px;
+
     grid-column-start: start;
     grid-column-end: end;
     grid-row-start: req-bar-bottom;
@@ -84,16 +90,3 @@ h3.poi-name {
 .request-feedback p {
     margin: 0px;
 }
-
-/* .embed {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100px;
-    height: 38px;
-
-    margin-right: 5px;
-
-    background-color: #333333;
-} */

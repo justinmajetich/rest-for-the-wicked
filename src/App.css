@@ -12,10 +12,11 @@
   height: 720px;
   margin: 20px auto;
 
-  background-color: black;
+  background-image: url(./assets/fills/grey-dot-dark-open-graph-fill.svg);
+  background-position: center bottom -4px;
 
   font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
-  color: whitesmoke;
+  color: white;
   text-align: left;
 }
 
@@ -41,6 +42,11 @@
 
 /* Global Styling [Move]*/
 
-h4 {
-  margin: 0px;
+.title-bar {
+  background-color: lightgray;
+}
+
+.title-bar h4 {
+  color: black;
+  margin: 0px 0px 2px 8px;
 }

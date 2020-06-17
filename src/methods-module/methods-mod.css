@@ -8,8 +8,9 @@
     grid-row-end: center-mod-end;
 
     width: 100%;
-
-    border: deeppink solid 1px;
+    
+    background-color: black;
+    border: lightgray solid 1px;
 }
 
 .method-harbor {
@@ -20,5 +21,5 @@
     justify-content: flex-start;
 
     padding: 8px;
-    border: chartreuse dashed 1px;
+    /* border: chartreuse dashed 1px; */
 }

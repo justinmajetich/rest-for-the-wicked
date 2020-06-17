@@ -9,7 +9,9 @@ import {
     MAKE_REQUEST_SUCCESS,
     SET_INVALID_REQUEST_MESSAGE,
     RECEIVERS_TO_LISTS,
-    ADD_SPAWNED_ITEMS_TO_LISTS
+    ADD_SPAWNED_ITEMS_TO_LISTS,
+    BUTTON_RELEASE,
+    BUTTON_CLICK
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -91,4 +93,24 @@ export function setInvalidRequestMessage(message = "") {
         type: SET_INVALID_REQUEST_MESSAGE,
         payload: message
     });
+}
+
+// BUTTON ACTIONS ---------------------
+export function buttonDown() {
+    return ({
+        type: BUTTON_CLICK,
+    });
+}
+
+export function buttonUp() {
+    return ({
+        type: BUTTON_RELEASE,
+    });
+}
+
+export function buttonClick() {
+    return (dispatch) => {
+        dispatch(buttonDown());
+        setTimeout(() => { dispatch(buttonUp()) }, 250);
+      };
 }

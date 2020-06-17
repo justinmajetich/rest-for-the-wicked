@@ -18,7 +18,7 @@
     flex-grow: 1;
     display: grid;
 
-    grid-template-columns: 8% [tier-0-start] 1fr [tier-0-end] 5%
+    grid-template-columns: 8% [tier-0-start] 10% [tier-0-end] 5%
                            [tier-1-start] 1fr [tier-1-end] 5%
                            [tier-2-start] 1fr [tier-2-end] 5%
                            [tier-3-start] 1fr [tier-3-end] 8%;
@@ -26,8 +26,7 @@
                         [center2] 1fr [center1] 1fr [center] 1fr [center-1] 1fr
                         [center-2] 1fr [center-3] 1fr [center-4] 1fr [center-5] 1fr
                         [center-6] 1fr [center-7] 1fr [center-8] 10%;
-
-    /* border: coral dashed 1px; */
+    transform: translate(18px, -7px);
 }
 
 .path-map p {
@@ -41,15 +40,69 @@
     grid-row-start: center;
 }
 
+#lobby-branch-up {
+    grid-column-start: tier-0-start;
+    grid-column-end: tier-1-start;
+    grid-row-start: center;
+    grid-row-end: center2;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 40%;
+}
+
+#lobby-branch-straight {
+    grid-column-start: tier-0-end;
+    grid-column-end: tier-1-start;
+    grid-row-start: center;
+    grid-row-end: center;
+
+    height: 2px;
+    width: 20px;
+
+    margin: auto;
+    margin-left: 21%;
+}
+
+#lobby-branch-down {
+    grid-column-start: tier-0-start;
+    grid-column-end: tier-1-start;
+    grid-row-start: center-1;
+    grid-row-end: center-3;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 40%;
+    /* transform: translateY(1px); */
+}
+
 /* Tier 1 */
 #research-wing-map-node {
     grid-column-start: tier-1-start;
     grid-row-start: center2;
 }
 
-#front-desk-map-node {
+#research-wing-branch-up {
+    grid-column-start: tier-1-start;
+    grid-column-end: tier-2-start;
+    grid-row-start: center2;
+    grid-row-end: center4;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 66%;
+}
+
+#desk-map-node {
     grid-column-start: tier-1-start;
     grid-row-start: center;
+    margin-left: 10px;
 }
 
 #admin-wing-map-node {
@@ -57,15 +110,95 @@
     grid-row-start: center-2;
 }
 
+#admin-wing-branch-up {
+    grid-column-start: tier-1-start;
+    grid-column-end: tier-2-start;
+    grid-row-start: center-2;
+    grid-row-end: center;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 48%;
+}
+
+#admin-wing-branch-straight {
+    grid-column-start: tier-1-start;
+    grid-column-end: tier-2-start;
+    grid-row-start: center-2;
+    grid-row-end: center-2;
+
+    height: 2px;
+    width: 27px;
+
+    margin: auto;
+    margin-left: 72%;
+}
+
+#admin-wing-branch-down {
+    grid-column-start: tier-1-start;
+    grid-column-end: tier-2-start;
+    grid-row-start: center-3;
+    grid-row-end: center-5;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 48%;
+    transform: translateY(1px);
+}
+
 /* Tier 2 */
-#labs-map-node {
+#weapon-lab-map-node {
     grid-column-start: tier-2-start;
     grid-row-start: center4;
+}
+
+#weapon-lab-branch-straight {
+    grid-column-start: tier-2-end;
+    grid-column-end: tier-3-start;
+    grid-row-start: center4;
+    grid-row-end: center4;
+
+    height: 2px;
+    width: 20px;
+
+    margin: auto;
+    margin-left: 1px;
+}
+
+#weapon-lab-branch-down {
+    grid-column-start: tier-2-start;
+    grid-column-end: tier-3-start;
+    grid-row-start: center3;
+    grid-row-end: center1;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 54%;
 }
 
 #records-map-node {
     grid-column-start: tier-2-start;
     grid-row-start: center;
+    transform: translateX(-24px);
+}
+
+#blacklist-branch-straight {
+    grid-column-start: tier-2-start;
+    grid-column-end: tier-3-start;
+    grid-row-start: center;
+    grid-row-end: center;
+
+    height: 2px;
+    width: 27px;
+
+    margin: auto;
+    margin-left: 41%;
 }
 
 #computer-map-node {
@@ -76,30 +209,62 @@
 #offices-map-node {
     grid-column-start: tier-2-start;
     grid-row-start: center-4;
+    transform: translateX(-24px);
+}
+
+#lt-glass-branch-straight {
+    grid-column-start: tier-2-start;
+    grid-column-end: tier-3-start;
+    grid-row-start: center-4;
+    grid-row-end: center-4;
+
+    height: 2px;
+    width: 27px;
+
+    margin: auto;
+    margin-left: 41%;
+}
+
+#dr-delete-branch-down {
+    grid-column-start: tier-2-start;
+    grid-column-end: tier-3-start;
+    grid-row-start: center-5;
+    grid-row-end: center-7;
+
+    height: 15px;
+    width: 35px;
+
+    margin: auto;
+    margin-left: 16%;
 }
 
 /* Tier 3 */
 #vault-map-node {
     grid-column-start: tier-3-start;
     grid-row-start: center4;
+    transform: translateX(7px);
 }
 
 #logs-map-node {
     grid-column-start: tier-3-start;
     grid-row-start: center2;
+    transform: translateX(-11px);
 }
 
 #blacklist-map-node {
     grid-column-start: tier-3-start;
     grid-row-start: center;
+    transform: translateX(-34px);
 }
 
 #lt-glass-map-node {
     grid-column-start: tier-3-start;
     grid-row-start: center-4;
+    transform: translateX(-36px);
 }
 
 #dr-delete-map-node {
     grid-column-start: tier-3-start;
     grid-row-start: center-6;
+    transform: translateX(-57px);
 }

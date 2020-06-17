@@ -1,5 +1,5 @@
 :root {
-    --default-tile-color: white;
+    --default-tile-color: #FFFFFF;
 }
 
 /* METHOD TILES */
@@ -32,9 +32,9 @@
 
     display: flex;
 
-    border-bottom: 38px solid #var(--default-tile-color);
+    border-bottom: 38px solid var(--default-tile-color);
 	border-left: 12px solid transparent;
-	border-right: 50px solid #var(--default-tile-color);
+	border-right: 50px solid var(--default-tile-color);
 
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@
     width: 130px;
     height: 38px;
 
-    background-color: #var(--default-tile-color);
+    background-color: var(--default-tile-color);
 }
 
 .key-tile h3 {
@@ -79,7 +79,7 @@
     width: 130px;
     height: 38px;
 
-    background-color: #var(--default-tile-color);
+    background-color: var(--default-tile-color);
 }
 
 .item-tile h3 {

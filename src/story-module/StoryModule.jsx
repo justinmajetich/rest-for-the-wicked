@@ -44,6 +44,12 @@ export class Description extends React.Component {
                             type={"path"}
                             content={this.props.docks[name].content}
                         />);
+                    } else if (word[0] === '<') {
+                        console.log(word)
+                        return (<span
+                            className={"word-item"}
+                            key={index}
+                        >{word.slice(1)}</span>);
                     } else {
                         return (<span
                             className={"word"}

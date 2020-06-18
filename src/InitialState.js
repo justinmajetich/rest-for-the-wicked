@@ -1,5 +1,3 @@
-
-
 const initialState = {
     poi: {
             name: "api_headquarters",
@@ -40,11 +38,11 @@ const initialState = {
                             }
                     }
             },
-            spawned_items: [{name: "stapler", description: "shiny red"}],
-            usable_items: [],
+            spawned_items: null,
+            usable_items: null,
             needs_key: null,
             parent: null,
-            children: [{name: "lobby", needs_key: "lab_badge", usable_items: null}]
+            children: [{name: "lobby", usable_items: null}]
     },
     requestButtonClicked: false,
     invalid_request_message: "",

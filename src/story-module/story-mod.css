@@ -117,6 +117,12 @@ h3.poi-name {
     height: max-content;
 }
 
+.word-item {
+    font-family: 'pixel_operator_monobold';
+    margin-right: 5px;
+    height: max-content;
+}
+
 .request-feedback {
     display: flex;
     justify-content: center;

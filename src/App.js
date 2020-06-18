@@ -1,5 +1,5 @@
 import React from 'react'
-import './custom-font/pixel-operator/stylesheet.css'
+import './assets/pixel-operator/stylesheet.css'
 import './App.css'
 import { DragDropContext } from 'react-beautiful-dnd'
 import StoryModule from './story-module/StoryModule'

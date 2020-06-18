@@ -10,7 +10,9 @@
 
     border-top: 38px solid var(--default-tile-color);
 	border-left: 50px solid var(--default-tile-color);
-	border-right: 12px solid transparent;
+    border-right: 12px solid transparent;
+    
+    border-radius: 2px 0px 0px 2px;
 
     justify-content: center;
     align-items: center;
@@ -34,7 +36,9 @@
 
     border-bottom: 38px solid var(--default-tile-color);
 	border-left: 12px solid transparent;
-	border-right: 50px solid var(--default-tile-color);
+    border-right: 50px solid var(--default-tile-color);
+
+    border-radius: 0px 2px 2px 0px;
 
     justify-content: center;
     align-items: center;
@@ -57,6 +61,8 @@
     justify-content: center;
     align-items: center;
 
+    border-radius: 2px;
+
     width: 130px;
     height: 38px;
 
@@ -76,6 +82,8 @@
     justify-content: center;
     align-items: center;
 
+    border-radius: 2px;
+
     width: 130px;
     height: 38px;
 
@@ -88,28 +96,3 @@
     color: black;
     /* background-color: white; */
 }
-
-/* 
-.path-base div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 38px;
-    min-width: 87px;
-    width: fit-content;
-
-    background-color: #FFFFFF;
-} */
-
-/* .key-item-base {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 38px;
-    min-width: 130px;
-    width: fit-content;
-
-    background-color: #FFFFFF;
-} */

@@ -6,15 +6,54 @@
 
     display: grid;
     grid-template-columns: 50px [start] 1fr [end] 50px;
-    grid-template-rows: 10% [start-objective] 5% [start-name] 10%
-                        [start-description] 1fr [req-bar-top] 70px
+    grid-template-rows: 8% [start-objective] 5% [start-name] 8%
+                        [start-description] 2fr [start-parent-poi] 1fr [req-bar-top] 70px
                         [req-bar-bottom] 10%;
 
     width: 100%;
 
+    background-color: black;
+
     border-style: solid;
     border-width: 1px;
-    border-color: deeppink;
+    border-color: lightgray;
+}
+
+/* @keyframes story-header-retract {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(940px); }
+} */
+
+.story-header-box {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-objective;
+
+    height: 40px;
+
+    overflow-x: hidden;
+
+    background-image: url(../assets/fills/dark-diag-fill.png);
+}
+
+.story-header {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-objective;
+
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: transform 2.5s ease-in-out;
+    transform: translateX(0px);
+
+    padding: 10px 10px;
+
+    /* animation: story-header-retract 5s ease-in-out 1; */
+    
+    background-color: #FFFFFF;
 }
 
 p.objective {
@@ -24,9 +63,11 @@ p.objective {
     grid-row-end: start-name;
 
     margin: 0px;
-
+    color: black;
     text-align: right;
 }
+
+
 
 h3.poi-name {
     grid-column-start: start;
@@ -34,6 +75,9 @@ h3.poi-name {
     grid-row-start: start-name;
     grid-row-end: start-description;
 
+    color: black;
+    font-size: 24px;
+    font-family: 'pixel_operator_monobold';
     margin: 0px;
 }
 
@@ -48,23 +92,49 @@ h3.poi-name {
 
     height: max-content;
     line-height: 40px;
+
+    opacity: 100%;
 }
 
 .description-container .word {
     margin-right: 5px;
-
     height: max-content;
 }
 
-.embed {
+.parent-poi-container {
+    display: flex;
+
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-parent-poi;
+    grid-row-end: end-help-text;
+
+    line-height: 40px;
+}
+
+.parent-poi-container .word {
+    margin-right: 5px;
+    height: max-content;
+}
+
+.word-item {
+    font-family: 'pixel_operator_monobold';
+    margin-right: 5px;
+    height: max-content;
+}
+
+.request-feedback {
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    width: 100px;
-    height: 38px;
+    margin-top: 10px;
 
-    margin-right: 5px;
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: req-bar-bottom;
 
-    background-color: #333333;
+}
+
+.request-feedback p {
+    margin: 0px;
 }

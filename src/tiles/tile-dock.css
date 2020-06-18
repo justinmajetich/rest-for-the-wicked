@@ -7,21 +7,29 @@
     height: 38px;
 
     margin: 5px;
-
-    background-color: #333333;
+    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
+    background-image: url('../assets/tile-svgs/method-dock.svg');
 }
 
 .path-dock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+
+    border-bottom: 38px solid #333333;
+	border-left: 12px solid transparent;
+	border-right: 50px solid #333333;
 
     width: 100px;
-    height: 38px;
+    height: 0px;
 
     margin-right: 5px;
+}
 
-    background-color: #333333;
+.path-dock .path-tile {
+    width: 100px;
+    transform: translateX(-12px);
 }
 
 .key-dock {
@@ -29,23 +37,25 @@
     justify-content: center;
     align-items: center;
 
-    width: 150px;
+    width: 130px;
     height: 38px;
 
     margin: 5px;
 
     background-color: #333333;
+    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
 }
 
 .item-dock {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 150px;
+    
+    width: 130px;
     height: 38px;
 
     margin: 5px;
 
     background-color: #333333;
+    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
 }

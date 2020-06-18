@@ -8,13 +8,22 @@ class StoryModule extends React.Component {
     render() {
         return (
             <section className="story-container">
-                <p className="objective">objective: {this.props.objective}</p>
-                <h3 className="poi-name">/{this.props.poi.name}</h3>
+                <div className={"story-header-box"}>
+                    <div className={"story-header"}>
+                        <h3 className="poi-name">/{this.props.poi.name}</h3>
+                        <p className="objective">objective:<br />{this.props.objective}</p>
+                    </div>
+                </div>
                 <Description
                     text={this.props.poi.description.text.split(" ")}
                     docks={this.props.poi.description.docks}
                 />
+                <ParentPOI
+                    parent={this.props.poi.parent}
+                    docks={this.props.poi.description.docks}
+                />
                 <RequestBar/>
+                <div className="request-feedback"><p>{this.props.request_feedback}</p></div>
             </section>
         );
     }
@@ -22,17 +31,25 @@ class StoryModule extends React.Component {
 
 export class Description extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <div className={"description-container"}>
                 {this.props.text.map((word, index) => {
                     if (word[0] === '[') {
                         const name = /\w+/.exec(word)[0];
+                        console.log(name)
                         return (<TileDock
                             key={index}
                             name={name}
                             type={"path"}
                             content={this.props.docks[name].content}
                         />);
+                    } else if (word[0] === '<') {
+                        console.log(word)
+                        return (<span
+                            className={"word-item"}
+                            key={index}
+                        >{word.slice(1)}</span>);
                     } else {
                         return (<span
                             className={"word"}
@@ -45,9 +62,34 @@ export class Description extends React.Component {
     }
 }
 
+function ParentPOI (props) {
+    
+    console.log(props)
+
+    if (props.parent) {
+        return (
+            <div
+                className={"parent-poi-container"}
+            >
+                <span className={"word"}>Return to </span>
+                <TileDock
+                    key={0}
+                    name={props.parent.name}
+                    type={"path"}
+                    content={props.docks[props.parent.name].content}
+                /> 
+                <span className={"word"}>.</span>
+            </div>
+        );
+    } else {
+        return (null);
+    }
+}
+
 const mapStateToProps = state => {
     return ({
         poi: state.poi,
+        request_feedback: state.invalid_request_message,
         objective: state.objective
     });
 };

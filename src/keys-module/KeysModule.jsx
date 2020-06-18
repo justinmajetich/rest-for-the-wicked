@@ -12,18 +12,14 @@ export class KeysModule extends React.Component {
                 </div>
                 <div className={"key-harbor"}>
                     {Object.entries(this.props.keys.docks).map((dock, index) => {
-                        if (dock[1].is_visible) {
-                            return (
-                                <TileDock
-                                    key={index}
-                                    name={dock[0]}
-                                    type={this.props.keys.title.slice(0, -1)}
-                                    content={dock[1].content}
-                                />
-                            );
-                        } else {
-                            return null;
-                        }
+                        return (
+                            <TileDock
+                                key={index}
+                                name={dock[0]}
+                                type={this.props.keys.title.slice(0, -1)}
+                                content={dock[1]}
+                            />
+                        );
                     })}
                 </div>
             </section>

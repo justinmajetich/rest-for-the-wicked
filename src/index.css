@@ -1,3 +1,8 @@
+header {
+  height: 30px;
+  width: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: url(./assets/fills/grey-dot-dark-open-graph-fill.svg);
+  background-position: center;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+  font-size: 96px;
+  color: whitesmoke;
+  text-align: center;
+  margin: 30px;
 }

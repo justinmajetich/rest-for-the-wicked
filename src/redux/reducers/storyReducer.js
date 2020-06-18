@@ -1,18 +1,44 @@
-import {UPDATE_POI, UPDATE_OBJECTIVE, TO_PATH_DOCK, DRAG_FROM_EMBED} from "../actions/actionTypes"
+import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_INVALID_REQUEST_MESSAGE, UPDATE_OBJECTIVE} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
     const payload = action.payload;
 
     switch (action.type) {
-        case UPDATE_POI: {
-            return ({
-                ...state,
-                name: action.payload.name,
-                description: action.payload.description
+        case MAKE_REQUEST_BEGIN: {
+            console.log('MAKE_REQUEST_BEGIN')
+            return (state);
+        }
+
+        case MAKE_REQUEST_SUCCESS: {
+            console.log('MAKE_REQUEST_SUCCESS')
+            // Store old poi as parent
+            const text = payload.description;
+
+            // Create docks object from children poi
+            const docks = {};
+            payload.children.forEach(child => {
+                docks[child.name] = {content: child, docked: true};
             });
+
+            // Create dock for parent
+            if (payload.parent) {
+                docks[payload.parent.name] = {content: payload.parent, docked: true};
+            }
+
+            const newState = {
+                ...payload,
+                parent: payload.parent,
+                description: {
+                    text: text,
+                    docks: docks
+                }
+            };
+            console.log(newState)
+            return (newState);
         }
 
         case TO_PATH_DOCK: {
+            console.log(payload)
             const content = payload[payload.draggableId];
             const docksKey = payload.destination.droppableId;
             return ({
@@ -20,7 +46,7 @@ export const updateStory = (state = {}, action) => {
                 description: {
                     ...state.description,
                     docks: {
-                        ...state.docks,
+                        ...state.description.docks,
                         [docksKey]: {
                             content: content,
                             docked: true
@@ -32,19 +58,20 @@ export const updateStory = (state = {}, action) => {
 
         case DRAG_FROM_EMBED: {
             const docksKey = payload.source.droppableId;
-            return ({
+            const newState = {
                 ...state,
                 description: {
                     ...state.description,
                     docks: {
-                        ...state.docks,
+                        ...state.description.docks,
                         [docksKey]: {
                             content: null,
                             docked: false
                         }
                     }
                 }
-            });
+            };
+            return (newState);
         }
 
         default: {
@@ -53,13 +80,25 @@ export const updateStory = (state = {}, action) => {
     }
 }
 
-export const updateObjective = (state = "no objective found", action) => {
+export const updateInvalidRequestMessage = (state = {}, action) => {
+    const payload = action.payload;
+    
     switch (action.type) {
-        case UPDATE_OBJECTIVE: {
-            return (action.payload.objective);
+        case SET_INVALID_REQUEST_MESSAGE: {
+            return (payload);
         }
         default: {
             return (state);
         }
+    }
+}
+
+export const updateObjective = (state = "", action) => {
+    const payload = action.payload;
+
+    if (action.type === UPDATE_OBJECTIVE) {
+            return (payload);
+    } else {
+        return (state);
     }
 }

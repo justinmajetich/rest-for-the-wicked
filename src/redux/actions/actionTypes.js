@@ -14,6 +14,7 @@ export const ADD_SPAWNED_ITEMS_TO_LISTS = 'ADD_SPAWNED_ITEMS_TO_LISTS';
 
 export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';
 export const TO_PATH_DOCK = 'TO_PATH_DOCK';
+export const UPDATE_OBJECTIVE = 'UPDATE_OBJECTIVE';
 
 
 // NETWORKING ACTIONS ---------------------

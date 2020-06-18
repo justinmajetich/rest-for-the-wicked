@@ -19,6 +19,21 @@
     border-color: lightgray;
 }
 
+.story-header {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start-objective;
+
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 10px;
+    
+    background-color: #FFFFFF;
+}
+
 p.objective {
     grid-column-start: start;
     grid-column-end: end;
@@ -26,7 +41,7 @@ p.objective {
     grid-row-end: start-name;
 
     margin: 0px;
-
+    color: black;
     text-align: right;
 }
 
@@ -38,6 +53,9 @@ h3.poi-name {
     grid-row-start: start-name;
     grid-row-end: start-description;
 
+    color: black;
+    font-size: 24px;
+    font-family: 'pixel_operator_monobold';
     margin: 0px;
 }
 

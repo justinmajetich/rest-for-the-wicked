@@ -7,6 +7,7 @@ import {
     FROM_PATH_RECEIVER,
     MAKE_REQUEST_BEGIN,
     MAKE_REQUEST_SUCCESS,
+    UPDATE_OBJECTIVE,
     SET_INVALID_REQUEST_MESSAGE,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
@@ -63,6 +64,13 @@ export function toPathDock(result) {
     return ({
         type: TO_PATH_DOCK,
         payload: result
+    });
+}
+
+export function updateObjective(newObjective = "") {
+    return ({
+        type: UPDATE_OBJECTIVE,
+        payload: newObjective
     });
 }
 

@@ -43,11 +43,13 @@
 /* Global Styling [Move]*/
 
 .title-bar {
-  background-color: lightgray;
+  /* background-color: #FFFFFF; */
+  /* background-image: url('./assets/fills/dark-diag-fill.png'); */
+  border-bottom: lightgray solid 1px;
 }
 
 .title-bar h4 {
-  color: black;
+  color: lightgray;
   margin: 0px 0px 2px 8px;
 }
 

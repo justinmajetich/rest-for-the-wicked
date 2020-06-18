@@ -1,5 +1,5 @@
 :root {
-    --default-tile-color: #FFFFFF;
+    --default-tile-color: #70c5b3;
 }
 
 /* METHOD TILES */
@@ -79,12 +79,14 @@
     width: 130px;
     height: 38px;
 
+    /* background-image: url(../assets/fills/textured-steel-fill.png); */
     background-color: var(--default-tile-color);
 }
 
 .item-tile h3 {
     margin: 0px;
     color: black;
+    /* background-color: white; */
 }
 
 /* 

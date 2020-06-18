@@ -8,8 +8,10 @@ class StoryModule extends React.Component {
     render() {
         return (
             <section className="story-container">
-                <p className="objective">objective: {this.props.objective}</p>
-                <h3 className="poi-name">/{this.props.poi.name}</h3>
+                <div className={"story-header"}>
+                    <h3 className="poi-name">/{this.props.poi.name}</h3>
+                    <p className="objective">objective:<br />{this.props.objective}</p>
+                </div>
                 <Description
                     text={this.props.poi.description.text.split(" ")}
                     docks={this.props.poi.description.docks}

@@ -1,4 +1,4 @@
-import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_INVALID_REQUEST_MESSAGE} from "../actions/actionTypes"
+import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_INVALID_REQUEST_MESSAGE, UPDATE_OBJECTIVE} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
     const payload = action.payload;
@@ -93,13 +93,12 @@ export const updateInvalidRequestMessage = (state = {}, action) => {
     }
 }
 
-// export const updateObjective = (state = "no objective found", action) => {
-//     switch (action.type) {
-//         case UPDATE_OBJECTIVE: {
-//             return (action.payload.objective);
-//         }
-//         default: {
-//             return (state);
-//         }
-//     }
-// }
+export const updateObjective = (state = "", action) => {
+    const payload = action.payload;
+
+    if (action.type === UPDATE_OBJECTIVE) {
+            return (payload);
+    } else {
+        return (state);
+    }
+}

@@ -30,6 +30,8 @@
 }
 
 .path-map p {
+    width: fit-content;
+
     font-family: 'pixel_operator_monobold';
     margin: 0px;
 }

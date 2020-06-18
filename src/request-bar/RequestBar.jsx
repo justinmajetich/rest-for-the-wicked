@@ -4,7 +4,7 @@ import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
 import { Tile } from "../tiles/Tile"
 import { makeRequest } from "../networking"
-import { getSVGComponent } from "../assets/svgs"
+import { getSVGComponent } from "../assets/tile-svgs"
 import { buttonClick } from "../redux/actions"
 
 export class RequestBar extends React.Component {

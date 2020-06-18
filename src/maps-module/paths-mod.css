@@ -30,7 +30,14 @@
 }
 
 .path-map p {
+    font-family: 'pixel_operator_monobold';
     margin: 0px;
+}
+
+.path-map .current-path {
+    margin: 0px;
+    background-image: url('../assets/fills/dark-staggered-dot-fill.png');
+    animation: node-blink 1.25s steps(2, end) infinite;
 }
 
 /* Map Nodes */

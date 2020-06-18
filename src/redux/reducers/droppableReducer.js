@@ -16,7 +16,6 @@ export const updateDroppable = (state = {}, action) => {
             // newState.lists[payload.listType].docks[payload.contentID].content = null;
 
             // Create new state with updated content
-            console.log(content)
             const newState = {
                 lists: {
                     ...state.lists,
@@ -40,7 +39,6 @@ export const updateDroppable = (state = {}, action) => {
         }
 
         case RECEIVER_TO_LIST: {
-            console.log(payload)
             const content = state.receivers[payload.receiverID].content;
 
             // Create new state with updated content

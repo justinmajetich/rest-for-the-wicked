@@ -241,7 +241,3 @@ button:focus {
     color: #C8C8C8;
     margin: 0px;
 }
-
-
-@keyframes blink { to { visibility: hidden; } }
-@keyframes orbit { to { stroke-dashoffset: 8px; } }

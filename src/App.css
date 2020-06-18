@@ -50,3 +50,8 @@
   color: black;
   margin: 0px 0px 2px 8px;
 }
+
+
+@keyframes node-blink { to { background-image: none; } }
+@keyframes blink { to { visibility: hidden; } }
+@keyframes orbit { to { stroke-dashoffset: 8px; } }

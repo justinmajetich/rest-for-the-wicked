@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "https://rest-for-the-wicked.herokuapp.com/",
+    "https://rest-for-the-wicked.herokuapp.com",
 ]
 
 ROOT_URLCONF = 'backend.urls'

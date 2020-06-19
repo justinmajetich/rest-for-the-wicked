@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
+    "https://rest-for-the-wicked.herokuapp.com",
 ]
 
 ROOT_URLCONF = 'backend.urls'

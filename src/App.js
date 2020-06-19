@@ -1,5 +1,5 @@
 import React from 'react'
-import './custom-font/pixel-operator/stylesheet.css'
+import './assets/pixel-operator/stylesheet.css'
 import './App.css'
 import { DragDropContext } from 'react-beautiful-dnd'
 import StoryModule from './story-module/StoryModule'
@@ -10,7 +10,8 @@ import ItemsModule from './items-module/ItemsModule'
 import {
     toPathReceiver, removeFromPathDock,
     listToReceiver, receiverToList,
-    toPathDock, fromPathReceiver
+    toPathDock, fromPathReceiver,
+    setInvalidRequestMessage
 } from './redux/actions'
 import { connect } from 'react-redux'
 
@@ -24,6 +25,9 @@ class App extends React.Component {
         // DROPPED NO WHERE OR IN PLACE
         if (!destination || (destID === sourceID && destination.index === source.index)) { return; }
 
+        // Clear request feedback message
+        this.props.dispatch(setInvalidRequestMessage(''));
+
         // PATH_EMBED -> PATH_RECEIVER
         if (destID === "path_receiver") {
             console.log("PATH EMBED -> RECEIVER");
@@ -36,9 +40,10 @@ class App extends React.Component {
 
         // PATH_RECEIVER -> PATH_EMBED
         if (sourceID === "path_receiver") {
-                result[draggableId] = this.props.path_receiver;
-                this.props.dispatch(toPathDock(result));
-                this.props.dispatch(fromPathReceiver());
+            console.log("PATH_RECEIVER -> PATH_EMBED");
+            result[draggableId] = this.props.path_receiver;
+            this.props.dispatch(toPathDock(result));
+            this.props.dispatch(fromPathReceiver());
             return;
         }
 

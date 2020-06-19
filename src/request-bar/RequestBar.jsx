@@ -3,6 +3,9 @@ import "./request-mod.css"
 import { Droppable } from "react-beautiful-dnd"
 import { connect } from "react-redux"
 import { Tile } from "../tiles/Tile"
+import { makeRequest } from "../networking"
+import { getSVGComponent } from "../assets/tile-svgs"
+import { buttonClick } from "../redux/actions"
 
 export class RequestBar extends React.Component {
 
@@ -10,26 +13,14 @@ export class RequestBar extends React.Component {
         return (
             <section className="request-container">
                 <div className="tile-receiver-zone"> {
-                    Object.entries(this.props.receivers).map(receiver => {
-                        // if ((receiver[0] === "key_receiver" && !pathNeedsKey) ||
-                        //     (receiver[0] === "item_receiver" && !pathUsesItem)) {
-                        //     // If hidden receivers are docked, return contents to lists
-                        //     if (receiver[1].content) {
-                        //         this.props.dispatch(addToList({
-                        //             content: receiver[1].content,
-                        //             list: (receiver[0].replace("_receiver", "s_list"))
-                        //         }));
-                        //         this.props.dispatch(removeFromReceiver({
-                        //             content: receiver[1].content,
-                        //             receiver: receiver[0]
-                        //         }));
-                        //     }
-                        // }
+                    Object.entries(this.props.receivers).map((receiver, index) => {
                         if (receiver[1].is_visible) {
                             return (<TileReceiver
                                 key={receiver[0]}
                                 name={receiver[1].title}
                                 content={receiver[1].content}
+                                receivers={this.props.receivers}
+                                isDropDisabled={isDropDisabled(receiver[1].title, this.props.receivers)}
                             />);
                         } else {
                             return null;
@@ -37,35 +28,47 @@ export class RequestBar extends React.Component {
                     })
                 }
                 </div>
-                <RequestButton/>
+                <RequestButton
+                    receivers={this.props.receivers}
+                    isClicked={this.props.isClicked}
+                    dispatch={this.props.dispatch}
+                />
             </section>
         )
     }
 }
 
 class TileReceiver extends React.Component {
-
     render() {
         return (
             <Droppable
                 droppableId={this.props.name + "_receiver"}
                 type={this.props.name}
-                isDropDisabled={this.props.content ? true : false}
+                isDropDisabled={this.props.isDropDisabled}
             >
                 {(provided, snapshot) => (
                     <span
                         className={this.props.name + "-receiver"}
                         ref={provided.innerRef}
+                        style={{
+                            opacity: (this.props.isDropDisabled && !this.props.content) ? '50%' : '100%',
+                        }}
                         {...provided.droppableProps}
                     >
+                        <div className={"receiver-shape"}>
+                            <h3 className={"receiver-text"}>{this.props.name}</h3>
+                        </div>
+                        {getSVGComponent(this.props.name + "-receiver", !this.props.isDropDisabled)}
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}
                                 type={this.props.name}
                                 index={0}
-                            /> :
-                            <h3>{this.props.name}</h3>
-                        }
+                                isDragDisabled={
+                                    this.props.name === "method" ? 
+                                    (this.props.receivers.path_receiver.content ? true : false) : false
+                                }
+                            /> : null}
                         {provided.placeholder}
                     </span>
                 )}
@@ -74,19 +77,66 @@ class TileReceiver extends React.Component {
     }
 }
 
-class RequestButton extends React.Component {
-    render() {
-        return (
-          <button className="request-button">
-              <h3>Make Request</h3>
-          </button>
-        );
+function RequestButton (props) {
+
+    function onClick(event) {
+        event.preventDefault();
+        props.dispatch(buttonClick());
+
+        const r = props.receivers;
+        // Create object from current request sequence
+        makeRequest({
+            method: r.method_receiver.content,
+            path: r.path_receiver.content,
+            key: r.key_receiver.content,
+            item: r.item_receiver.content
+        });
+    }
+
+    return (
+        <button
+            className={props.isClicked ? "request-button-clicked" : "request-button"}
+            onClick={onClick}
+        >
+            <h1>MAKE REQUEST</h1>
+        </button>
+    );
+}
+
+function isDropDisabled(currentReceiver = "", receivers = {}) {
+    currentReceiver += "_receiver";
+    switch (currentReceiver) {
+        case "method_receiver": {
+            return (receivers.method_receiver.content ? true : false);
+        }
+        case "path_receiver": { 
+            if (receivers["method_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        case "key_receiver": {
+            if (receivers["path_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        case "item_receiver": {
+            if (receivers["path_receiver"].content) {
+                return (receivers[currentReceiver].content ? true : false);
+            }
+            return (true);
+        }
+        default: { 
+            return (false);
+        }
     }
 }
 
 const mapStateToProps = state => {
     return ({
         receivers: state.droppables.receivers,
+        isClicked: state.requestButtonClicked
     });
 };
 

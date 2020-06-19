@@ -5,17 +5,18 @@
                          [right-mod-start] 2.1fr [right-mod-end] 20px;
 
   grid-template-rows: 20px [upper-mod-start] 5fr [upper-mod-end] 20px
-                      [center-mod-start] 1.85fr [center-mod-end] 20px
-                      [lower-mod-start] 1.85fr [lower-mod-end] 20px;
+                      [center-mod-start] 1.65fr [center-mod-end] 20px
+                      [lower-mod-start] 1.65fr [lower-mod-end] 20px;
 
   width: 1080px;
   height: 720px;
   margin: 20px auto;
 
-  background-color: black;
+  background-image: url(./assets/fills/grey-dot-dark-open-graph-fill.svg);
+  background-position: center bottom -4px;
 
   font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
-  color: whitesmoke;
+  color: white;
   text-align: left;
 }
 
@@ -41,6 +42,18 @@
 
 /* Global Styling [Move]*/
 
-h4 {
-  margin: 0px;
+.title-bar {
+  /* background-color: #FFFFFF; */
+  /* background-image: url('./assets/fills/dark-diag-fill.png'); */
+  border-bottom: lightgray solid 1px;
 }
+
+.title-bar h4 {
+  color: lightgray;
+  margin: 0px 0px 2px 8px;
+}
+
+
+@keyframes node-blink { to { background-image: none; } }
+@keyframes blink { to { visibility: hidden; } }
+@keyframes orbit { to { stroke-dashoffset: 8px; } }

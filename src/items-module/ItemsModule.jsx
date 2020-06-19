@@ -12,18 +12,14 @@ export class ItemsModule extends React.Component {
                 </div>
                 <div className={"item-harbor"}>
                     {Object.entries(this.props.items.docks).map((dock, index) => {
-                        if (dock[1].is_visible) {
-                            return (
-                                <TileDock
-                                    key={index}
-                                    name={dock[0]}
-                                    type={this.props.items.title.slice(0, -1)}
-                                    content={dock[1].content}
-                                />
-                            );
-                        } else {
-                            return null;
-                        }
+                        return (
+                            <TileDock
+                                key={index}
+                                name={dock[0]}
+                                type={this.props.items.title.slice(0, -1)}
+                                content={dock[1]}
+                            />
+                        );
                     })}
                 </div>
             </section>

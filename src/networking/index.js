@@ -11,7 +11,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // Make API request for poi
         const newPOI = await axios({
             method: request.method.name,
-            url: "http://localhost:8000/poi/" + request.path.name,
+            url: "https://rest-for-the-wicked.herokuapp.com/poi/" + request.path.name,
         }).then(async (response) => {
 
             const data = response.data;

@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <title>REST for the Wicked</title>
+  <link rel="stylesheet" href="{% static '../static/about.css' %}">
+  <title>REST for the Wicked | About</title>
 </head>
 
 <body>
+  <header></header>
   <section class="feature">
     <div class="container-md">
       <h1>REST for the WICKED</h1>
-      <p>A text adventure game that teaches the conecpts of REST API</p>
-      <img src="./img/rtf2.png" alt="">
+      <p>A text adventure game that teaches the concepts of REST API</p>
+      <img class="game-screen" src="{% static '../static/about-images/rftw-screen.png' %}" alt="">
 
       <div class="row">
         <a href="https://rest-for-the-wicked.herokuapp.com/" class="col-sm">
           Play the Game
         </a>
-        <a href="#about" class="col-sm">
+        <a href="https://rest-for-the-wicked.herokuapp.com/about" class="col-sm">
           About
         </a>
       </div>
@@ -61,9 +62,9 @@
         </p>
       </p>
     </div>
-    <img src="./img/gambar-1.JPG" alt="gamebar-1">
-    <p>The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a "key" or an item.</p>
-    <img src="./img/gamebar.JPG" alt="gamebar expanded">
+    <img src="{% static '../static/about-images/request-bar-0.png' %}" alt="Request Bar">
+    <p>The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a key or an item.</p>
+    <img src="{% static '../static/about-images/request-bar-1.png' %}" alt="Alt Request Bar">
     <p>Using the REST architecture, a point of interest is synonymous with a URL route, while a key is meant to represent an API key or authorization.</p>
     <p>Once the player has stacked the tiles necesarry to engage the point of interest or item in the game bar, they can add the requisite REST API method to the begining of the route and hit "Make Request".</p>
     </section>

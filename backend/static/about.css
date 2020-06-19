@@ -4,7 +4,11 @@ body{
     background-color: white;
 }
 
-a{
+.game-screen {
+    width: 900px;
+}
+
+a {
     margin-top: 1em;
     color: rebeccapurple;
     text-decoration: none;
@@ -12,7 +16,7 @@ a{
 
 
 footer{
-    background-color: rgb(236, 240, 243);
+    background-color: white;
     text-align: center;
     margin-top: 4em;
     height: 50px;

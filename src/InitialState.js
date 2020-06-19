@@ -46,7 +46,7 @@ const initialState = {
     },
     requestButtonClicked: false,
     invalid_request_message: "",
-    objective: "locate weapon_lab",
+    objective: "access research_wing",
     droppables: {
             receivers: {
                     method_receiver: {

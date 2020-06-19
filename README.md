@@ -1,6 +1,6 @@
 # REST for the Wicked
 
-![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/landing_page/img/rftw-1.png)
+![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/about-images/rftw-screen.png)
 
 ## About the Game
 REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s. The look and feel is meant to invoke the graphics of the Apple Macintosh of the early 90s. Some of the inspiration for the game comes from series like Zork, Mist, Out of this World and Flashback.
@@ -25,11 +25,11 @@ The game is both played using the ideas of a RESTful API and built using a REST 
 ### How to Play
 The central textbox tells the story, but also contains certain words inside a tile. The tiled words are points of interest or items in the game that the player can interact with. Points of interest include rooms as well as places such as the vault and the computer. When a tile is brought onto the game bar, a method tile can be dragged, creating a combination that is then queried after clicking the Make Request button.
 
-![game bar-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/landing_page/img/gambar-1.JPG)
+![game bar-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/about-images/request-bar-0.png)
 
 The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a "key" or an item.
 
-![game bar expanded](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/landing_page/img/gamebar.JPG)
+![game bar expanded](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/about-images/request-bar-1.png)
 
 Using the REST architecture, a point of interest is synonymous with a URL route, while a key is meant to represent an API key or authorization.
 

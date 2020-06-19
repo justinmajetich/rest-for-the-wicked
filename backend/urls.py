@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from rest_framework import routers
 from api import views
 
@@ -25,6 +26,7 @@ router.register(r'item', views.ItemViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('about/', TemplateView.as_view(template_name="about.html")),
     path('', include('api.urls')),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))

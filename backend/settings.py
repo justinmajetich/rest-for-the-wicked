@@ -65,7 +65,8 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'build'),
+                 os.path.join(BASE_DIR, 'backend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,6 +136,6 @@ STATIC_URL = '/static/'
 
 # Place static in the same location as webpack build files
 STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'backend/static/')]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

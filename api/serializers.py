@@ -1,5 +1,7 @@
 from api.models import POI, Item
 from rest_framework import serializers
+
+
 '''
 Serializer converts model instanses to datatypes that can be rendered into JSON
 '''

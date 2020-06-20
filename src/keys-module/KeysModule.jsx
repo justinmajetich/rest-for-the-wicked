@@ -11,16 +11,20 @@ export class KeysModule extends React.Component {
                     <h4>{this.props.keys.title}</h4>
                 </div>
                 <div className={"key-harbor"}>
-                    {Object.entries(this.props.keys.docks).map((dock, index) => {
-                        return (
-                            <TileDock
-                                key={index}
-                                name={dock[0]}
-                                type={this.props.keys.title.slice(0, -1)}
-                                content={dock[1]}
-                            />
-                        );
-                    })}
+                    {Object.keys(this.props.keys.docks).length > 0 ?
+                        Object.entries(this.props.keys.docks).map((dock, index) => {
+                            return (
+                                <TileDock
+                                    key={index}
+                                    name={dock[0]}
+                                    type={this.props.keys.title.slice(0, -1)}
+                                    content={dock[1]}
+                                />
+                            );
+                        })
+                        :
+                        <p>You have no keys.</p>
+                    }
                 </div>
             </section>
         );

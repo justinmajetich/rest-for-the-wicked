@@ -6,12 +6,16 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
 
     // Validate request
     if (validateRequest(request)) {
+        const url = process.env.NODE_ENV === 'development' ? 
+                        "http://localhost:8000/poi/" : 
+                        "https://rest-for-the-wicked.herokuapp.com/poi/";
+
         store.dispatch(makeRequestBegin());
         
         // Make API request for poi
         const newPOI = await axios({
             method: request.method.name,
-            url: "https://rest-for-the-wicked.herokuapp.com/poi/" + request.path.name,
+            url: url + request.path.name,
         }).then(async (response) => {
 
             const data = response.data;

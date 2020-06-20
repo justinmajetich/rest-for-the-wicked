@@ -84,6 +84,7 @@ function RequestButton (props) {
         props.dispatch(buttonClick());
 
         const r = props.receivers;
+        
         // Create object from current request sequence
         makeRequest({
             method: r.method_receiver.content,
@@ -136,7 +137,7 @@ function isDropDisabled(currentReceiver = "", receivers = {}) {
 const mapStateToProps = state => {
     return ({
         receivers: state.droppables.receivers,
-        isClicked: state.requestButtonClicked
+        isClicked: state.request_button_clicked
     });
 };
 

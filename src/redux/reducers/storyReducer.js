@@ -1,16 +1,12 @@
-import {TO_PATH_DOCK, DRAG_FROM_EMBED, MAKE_REQUEST_BEGIN, MAKE_REQUEST_SUCCESS, SET_INVALID_REQUEST_MESSAGE, UPDATE_OBJECTIVE} from "../actions/actionTypes"
+import {TO_PATH_DOCK, DRAG_FROM_EMBED, SET_INVALID_REQUEST_MESSAGE, UPDATE_OBJECTIVE, SET_TRANSITION_ACTIVE, UPDATE_POI, SET_TRANSITION_INACTIVE, TOGGLE_DESCRIPTION_VISIBILITY} from "../actions/actionTypes"
 
 export const updateStory = (state = {}, action) => {
     const payload = action.payload;
 
     switch (action.type) {
-        case MAKE_REQUEST_BEGIN: {
-            console.log('MAKE_REQUEST_BEGIN')
-            return (state);
-        }
 
-        case MAKE_REQUEST_SUCCESS: {
-            console.log('MAKE_REQUEST_SUCCESS')
+        case UPDATE_POI: {
+            console.log('UPDATE_POI')
             // Store old poi as parent
             const text = payload.description;
 
@@ -30,7 +26,8 @@ export const updateStory = (state = {}, action) => {
                 parent: payload.parent,
                 description: {
                     text: text,
-                    docks: docks
+                    docks: docks,
+                    is_visible: state.description.is_visible
                 }
             };
             console.log(newState)
@@ -74,6 +71,16 @@ export const updateStory = (state = {}, action) => {
             return (newState);
         }
 
+        case TOGGLE_DESCRIPTION_VISIBILITY: {
+            return ({
+                ...state,
+                description: {
+                    ...state.description,
+                    is_visible: !state.description.is_visible
+                }
+            });
+        }
+
         default: {
             return (state);
         }
@@ -98,7 +105,20 @@ export const updateObjective = (state = "", action) => {
 
     if (action.type === UPDATE_OBJECTIVE) {
             return (payload);
-    } else {
-        return (state);
+    }
+    return (state);
+}
+
+export const updateTransitionState = (state = "", action) => {
+    switch (action.type) {
+        case SET_TRANSITION_ACTIVE: {
+            return (true);
+        }
+        case SET_TRANSITION_INACTIVE: {
+            return (false);
+        }
+        default: {
+            return (state);
+        }
     }
 }

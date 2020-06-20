@@ -6,11 +6,12 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
 
     // Validate request
     if (validateRequest(request)) {
+        store.dispatch(makeRequestBegin());
+
+        // Assing request url based on development or production environment
         const url = process.env.NODE_ENV === 'development' ? 
                         "http://localhost:8000/poi/" : 
                         "https://rest-for-the-wicked.herokuapp.com/poi/";
-
-        store.dispatch(makeRequestBegin());
         
         // Make API request for poi
         const newPOI = await axios({
@@ -42,10 +43,10 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // Dispatch new POI object to story module
         store.dispatch(makeRequestSuccess(newPOI));
         // Return request elements to docks
-        store.dispatch(receiversToLists());
+        setTimeout(() => { store.dispatch(receiversToLists()) }, 5000);
         // If POI spawns items/keys, add to respesctve lists
         if (newPOI.spawned_items) {
-            store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items));
+            setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 5000);
         }
     }
 }

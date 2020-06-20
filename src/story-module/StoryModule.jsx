@@ -6,10 +6,16 @@ import { TileDock } from '../tiles/TileDock'
 
 class StoryModule extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <section className="story-container">
                 <div className={"story-header-box"}>
-                    <div className={"story-header"}>
+                    <div
+                        className={"story-header"}
+                        style={{ 
+                            transform: this.props.transition_is_active ? 'translateX(940px)' : 'translateX(0px)'
+                        }}
+                    >
                         <h3 className="poi-name">/{this.props.poi.name}</h3>
                         <p className="objective">objective:<br />{this.props.objective}</p>
                     </div>
@@ -17,10 +23,12 @@ class StoryModule extends React.Component {
                 <Description
                     text={this.props.poi.description.text.split(" ")}
                     docks={this.props.poi.description.docks}
+                    is_visible={this.props.poi.description.is_visible}
                 />
                 <ParentPOI
                     parent={this.props.poi.parent}
                     docks={this.props.poi.description.docks}
+                    is_visible={this.props.poi.description.is_visible}
                 />
                 <RequestBar/>
                 <div className="request-feedback"><p>{this.props.request_feedback}</p></div>
@@ -31,13 +39,16 @@ class StoryModule extends React.Component {
 
 export class Description extends React.Component {
     render() {
-        console.log(this.props)
         return (
-            <div className={"description-container"}>
+            <div
+                className={"description-container"}
+                style={{
+                    opacity: this.props.is_visible ? '100%' : '0%'
+                }}
+            >
                 {this.props.text.map((word, index) => {
                     if (word[0] === '[') {
                         const name = /\w+/.exec(word)[0];
-                        console.log(name)
                         return (<TileDock
                             key={index}
                             name={name}
@@ -63,13 +74,13 @@ export class Description extends React.Component {
 }
 
 function ParentPOI (props) {
-    
-    console.log(props)
-
     if (props.parent) {
         return (
             <div
                 className={"parent-poi-container"}
+                style={{
+                    opacity: props.is_visible ? '100%' : '0%'
+                }}
             >
                 <span className={"word"}>Return to </span>
                 <TileDock
@@ -90,6 +101,7 @@ const mapStateToProps = state => {
     return ({
         poi: state.poi,
         request_feedback: state.invalid_request_message,
+        transition_is_active: state.transition_is_active,
         objective: state.objective
     });
 };
@@ -97,32 +109,3 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps
 )(StoryModule);
-
-//export class TileEmbed extends React.Component {
-//     render() {
-//         return (
-//             <Droppable
-//                 droppableId={this.props.name + "_dock"}
-//                 type={this.props.type}
-//             >
-//                 {(provided, snapshot) => (
-//                     <span
-//                         className={"dock"}
-//                         ref={provided.innerRef}
-//                         {...provided.droppableProps}
-//                     >
-//                         {this.props.docks[this.props.name].docked ?
-//                             <Tile
-//                                 key={0}
-//                                 name={this.props.name}
-//                                 type={this.props.type + "s"}
-//                                 index={0}
-//                             /> : <h3>/{this.props.name}</h3>
-//                         }
-//                         {provided.placeholder}
-//                     </span>
-//         )}
-//             </Droppable>
-//         );
-//     }
-// }

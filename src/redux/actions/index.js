@@ -5,10 +5,12 @@ import {
     RECEIVER_TO_LIST,
     TO_PATH_RECEIVER,
     FROM_PATH_RECEIVER,
-    MAKE_REQUEST_BEGIN,
-    MAKE_REQUEST_SUCCESS,
     UPDATE_OBJECTIVE,
+    UPDATE_POI,
     SET_INVALID_REQUEST_MESSAGE,
+    SET_TRANSITION_ACTIVE,
+    SET_TRANSITION_INACTIVE,
+    TOGGLE_DESCRIPTION_VISIBILITY,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
     BUTTON_RELEASE,
@@ -81,19 +83,46 @@ export function removeFromPathDock(result) {
     });
 }
 
-// NETWORKING ACTIONS ---------------------
-
-export function makeRequestBegin() {
+export function updatePOI(newPOI) {
     return ({
-        type: MAKE_REQUEST_BEGIN
+        type: UPDATE_POI,
+        payload: newPOI
     });
 }
 
-export function makeRequestSuccess(newPOI) {
+export function setTransitionActive() {
     return ({
-        type: MAKE_REQUEST_SUCCESS,
-        payload: newPOI
+        type: SET_TRANSITION_ACTIVE
     });
+}
+
+export function setTransitionInactive() {
+    return ({
+        type: SET_TRANSITION_INACTIVE
+    });
+}
+
+export function toggleDescriptionVisibility() {
+    return ({
+        type: TOGGLE_DESCRIPTION_VISIBILITY
+    });
+}
+
+// NETWORKING ACTIONS ---------------------
+
+export function makeRequestBegin() {
+    return (dispatch) => {
+        dispatch(setTransitionActive());
+        dispatch(toggleDescriptionVisibility());
+      };
+}
+
+export function makeRequestSuccess(newPOI) {
+    return (dispatch) => {
+        setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
+        setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
+        setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
+      };
 }
 
 export function setInvalidRequestMessage(message = "") {

@@ -12,31 +12,18 @@ const initialState = {
                                         parent: null,
                                         needs_key: null,
                                         full_path: "/lobby",
-                                        spawned_items: [
-                                                {
-                                                        name: "keycard",
-                                                        description: "A keycard to access the research wing.",
-                                                        spawn_poi: "http://localhost:8000/poi/lobby/",
-                                                        use_poi: "http://localhost:8000/poi/research_wing/",
-                                                        is_key: true
-                                                },
-                                                {
-                                                        name: "crowbar",
-                                                        description: "A tool or a weapon?",
-                                                        spawn_poi: "http://localhost:8000/poi/lobby/",
-                                                        use_poi: "http://localhost:8000/poi/admin_wing/",
-                                                        is_key: false
-                                                }                                                    
-                                        ],
+                                        spawned_items: null,
                                         usable_items: [],
                                         children: [
                                             "http://localhost:8000/poi/research_wing/",
+                                            "http://localhost:8000/poi/desk",
                                             "http://localhost:8000/poi/admin_wing/"
                                         ]
                                     },
                                     docked: true
                             }
-                    }
+                    },
+                    is_visible: true
             },
             spawned_items: null,
             usable_items: null,
@@ -44,7 +31,8 @@ const initialState = {
             parent: null,
             children: [{name: "lobby", usable_items: null}]
     },
-    requestButtonClicked: false,
+    transition_is_active: false,
+    request_button_clicked: false,
     invalid_request_message: "",
     objective: "access research_wing",
     droppables: {

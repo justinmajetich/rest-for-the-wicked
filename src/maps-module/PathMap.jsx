@@ -12,8 +12,6 @@ class PathMap extends React.Component {
                 {Object.entries(this.props.map_nodes).map((node, index)=> {
                     if (node[0] !== "current_node") {
                         const formatted = node[0].replace(/_/g, '-');
-                        console.log(node);
-                        console.log(formatted);
                         return (<p
                             id={formatted + "-map-node"}
                             key={index}

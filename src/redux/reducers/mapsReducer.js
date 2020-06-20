@@ -1,8 +1,8 @@
-import { MAKE_REQUEST_SUCCESS } from "../actions/actionTypes"
+import { UPDATE_POI } from "../actions/actionTypes"
 
 export const updateMap = (state = {}, action) => {
     switch (action.type) {
-        case MAKE_REQUEST_SUCCESS: {
+        case UPDATE_POI: {
             const new_node = action.payload.name;
             return ({
                 ...state,

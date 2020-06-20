@@ -2,6 +2,10 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+'''
+This file models the Database to Python Objects
+'''
+
 
 class POI(models.Model):
     '''
@@ -20,9 +24,9 @@ class POI(models.Model):
                                blank=True, null=True, related_name='children')
 
     # Does POI require a key or not.
-    needs_key = models.ForeignKey(
-        'Item', to_field='name', on_delete=models.SET_NULL,
-        blank=True, null=True)
+    needs_key = models.ForeignKey('Item', to_field='name',
+                                  on_delete=models.SET_NULL,
+                                  blank=True, null=True)
 
     # The full url/path
     full_path = models.CharField(max_length=100)

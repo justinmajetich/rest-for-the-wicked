@@ -8,6 +8,10 @@ from rest_framework import serializers, viewsets
 from django.forms.models import model_to_dict
 from api.serializers import POISerializer, ItemSerializer
 
+'''
+This class adds API endpoints for POI and Item.
+'''
+
 
 class PoiViewSet(viewsets.ModelViewSet):
     """ API endpoint that allows users to be viewed or edited. """

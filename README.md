@@ -7,7 +7,7 @@ REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s.
 
 The story is inspired by dystopian works like 1984, Brave New World, 12 Monkeys, The Matrix and Blade Runner.
 
-The idea for a game that teaches coding with coding challenges comes from games like:
+We were inpisred to create a game that teaches topics in programming with coding based gamess like:
 
 - CodinGame
 - Flexbox Froggy

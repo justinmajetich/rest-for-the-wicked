@@ -125,7 +125,7 @@ export function makeRequestSuccess(newPOI) {
         setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
         setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
         setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
-        setTimeout(() => { dispatch(buttonEnable()) }, 6000);
+        setTimeout(() => { dispatch(buttonEnable()) }, 5000);
       };
 }
 

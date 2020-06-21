@@ -28,3 +28,6 @@ export const BUTTON_DOWN = 'BUTTON_DOWN';
 export const BUTTON_UP = 'BUTTON_UP';
 export const BUTTON_ENABLE = 'BUTTON_ENABLE';
 export const BUTTON_DISABLE = 'BUTTON_DISABLE';
+
+// UPDATE MAP ---------------------
+export const UPDATE_MAP = 'UPDATE_MAP';

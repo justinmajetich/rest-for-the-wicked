@@ -16,7 +16,8 @@ import {
     BUTTON_UP,
     BUTTON_DOWN,
     BUTTON_ENABLE,
-    BUTTON_DISABLE
+    BUTTON_DISABLE,
+    UPDATE_MAP
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -110,6 +111,14 @@ export function toggleDescriptionVisibility() {
     });
 }
 
+// MAP ACTIONS ---------------------
+export function updateMap(poiName) {
+    return ({
+        type: UPDATE_MAP,
+        payload: poiName
+    });
+}
+
 // NETWORKING ACTIONS ---------------------
 
 export function makeRequestBegin() {
@@ -124,6 +133,7 @@ export function makeRequestSuccess(newPOI) {
     return (dispatch) => {
         setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
         setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
+        setTimeout(() => { dispatch(updateMap(newPOI.name)) }, 5000);
         setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
         setTimeout(() => { dispatch(buttonEnable()) }, 5000);
       };

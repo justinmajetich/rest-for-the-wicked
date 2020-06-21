@@ -1,12 +1,12 @@
-import { UPDATE_POI } from "../actions/actionTypes"
+import { UPDATE_MAP } from "../actions/actionTypes"
 
 export const updateMap = (state = {}, action) => {
     switch (action.type) {
-        case UPDATE_POI: {
-            const new_node = action.payload.name;
+        case UPDATE_MAP: {
+            const new_node = action.payload;
             return ({
                 ...state,
-                [action.payload.name]: new_node,
+                [new_node]: new_node,
                 current_node: new_node,
             });
         }

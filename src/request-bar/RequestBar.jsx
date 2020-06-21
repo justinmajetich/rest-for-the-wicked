@@ -31,6 +31,7 @@ export class RequestBar extends React.Component {
                 <RequestButton
                     receivers={this.props.receivers}
                     isClicked={this.props.isClicked}
+                    isEnabled={this.props.isEnabled}
                     dispatch={this.props.dispatch}
                 />
             </section>
@@ -83,15 +84,16 @@ function RequestButton (props) {
         event.preventDefault();
         props.dispatch(buttonClick());
 
-        const r = props.receivers;
-        
-        // Create object from current request sequence
-        makeRequest({
-            method: r.method_receiver.content,
-            path: r.path_receiver.content,
-            key: r.key_receiver.content,
-            item: r.item_receiver.content
-        });
+        if (props.isEnabled) {
+            const r = props.receivers;
+            // Create object from current request sequence
+            makeRequest({
+                method: r.method_receiver.content,
+                path: r.path_receiver.content,
+                key: r.key_receiver.content,
+                item: r.item_receiver.content
+            });
+        }
     }
 
     return (
@@ -137,7 +139,8 @@ function isDropDisabled(currentReceiver = "", receivers = {}) {
 const mapStateToProps = state => {
     return ({
         receivers: state.droppables.receivers,
-        isClicked: state.request_button_clicked
+        isClicked: state.button.request_button_clicked,
+        isEnabled: state.button.request_button_enabled
     });
 };
 

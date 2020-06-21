@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     poi: updateStory,
     transition_is_active: updateTransitionState,
     objective: updateObjective,
-    request_button_clicked: buttonReducer,
+    button: buttonReducer,
     invalid_request_message: updateInvalidRequestMessage,
     droppables: updateDroppable,
     map_nodes: updateMap

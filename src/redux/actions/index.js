@@ -13,8 +13,10 @@ import {
     TOGGLE_DESCRIPTION_VISIBILITY,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
-    BUTTON_RELEASE,
-    BUTTON_CLICK
+    BUTTON_UP,
+    BUTTON_DOWN,
+    BUTTON_ENABLE,
+    BUTTON_DISABLE
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -112,6 +114,7 @@ export function toggleDescriptionVisibility() {
 
 export function makeRequestBegin() {
     return (dispatch) => {
+        dispatch(buttonDisable());
         dispatch(setTransitionActive());
         dispatch(toggleDescriptionVisibility());
       };
@@ -122,6 +125,7 @@ export function makeRequestSuccess(newPOI) {
         setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
         setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
         setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
+        setTimeout(() => { dispatch(buttonEnable()) }, 6000);
       };
 }
 
@@ -135,13 +139,13 @@ export function setInvalidRequestMessage(message = "") {
 // BUTTON ACTIONS ---------------------
 export function buttonDown() {
     return ({
-        type: BUTTON_CLICK,
+        type: BUTTON_DOWN,
     });
 }
 
 export function buttonUp() {
     return ({
-        type: BUTTON_RELEASE,
+        type: BUTTON_UP,
     });
 }
 
@@ -150,4 +154,16 @@ export function buttonClick() {
         dispatch(buttonDown());
         setTimeout(() => { dispatch(buttonUp()) }, 250);
       };
+}
+
+export function buttonEnable() {
+    return ({
+        type: BUTTON_ENABLE
+    });
+}
+
+export function buttonDisable() {
+    return ({
+        type: BUTTON_DISABLE
+    });
 }

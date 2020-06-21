@@ -32,7 +32,10 @@ const initialState = {
             children: [{name: "lobby", usable_items: null}]
     },
     transition_is_active: false,
-    request_button_clicked: false,
+    button: {
+        request_button_clicked: false,
+        request_button_enabled: true
+    },
     invalid_request_message: "",
     objective: "access research_wing",
     droppables: {

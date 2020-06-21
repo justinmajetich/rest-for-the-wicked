@@ -8,7 +8,7 @@ Use paramteres ?
 class POISerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = POI
-        fields = ['name', 'description', 'parent', 'needs_key', 'full_path', 'spawned_items', 'usable_items', 'children']
+        fields = ['name', 'description', 'alt_description', 'parent', 'needs_key', 'spawned_items', 'usable_items', 'children']
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

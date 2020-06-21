@@ -8,7 +8,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
     if (validateRequest(request)) {
         store.dispatch(makeRequestBegin());
 
-        // Assing request url based on development or production environment
+        // Assign request url based on development or production environment
         const url = process.env.NODE_ENV === 'development' ? 
                         "http://localhost:8000/poi/" : 
                         "https://rest-for-the-wicked.herokuapp.com/poi/";
@@ -51,6 +51,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
     }
 }
 
+// Functions for nested requests
 async function getChildren(childURLs) {
     const children = []
 

@@ -9,15 +9,15 @@ class PathMap extends React.Component {
     render() {
         return (
             <div className={"path-map"}>
-                {Object.entries(this.props.map_nodes).map((node, index)=> {
+                {Object.entries(this.props.paths).map((node, index)=> {
                     if (node[0] !== "current_node") {
                         const formatted = node[0].replace(/_/g, '-');
                         return (<p
                             id={formatted + "-map-node"}
                             key={index}
-                            className={node[0] === this.props.map_nodes.current_node ? "current-path" : ""}
+                            className={node[0] === this.props.paths.current_path ? "current-path" : ""}
                         >
-                            {"/"}{this.props.map_nodes[node[0]]}
+                            {"/"}{this.props.paths[node[0]].name}
                         </p>);
                     }
                     return (null);
@@ -46,7 +46,7 @@ class PathMap extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        map_nodes: state.map_nodes
+        paths: state.paths
     });
 };
 

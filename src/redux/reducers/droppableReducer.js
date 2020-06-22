@@ -179,11 +179,8 @@ export const updateDroppable = (state = {}, action) => {
             for (let type of ["item", "key", "method"]) {
                 let listType = type + "_list";
                 let receiverType = type + "_receiver";
-                console.log(listType)
-                console.log(receiverType)
                 if (state.receivers[receiverType].content) {
                     const content = state.receivers[receiverType].content;
-                    console.log(content)
                     newState = {
                         ...newState,
                         receivers: {

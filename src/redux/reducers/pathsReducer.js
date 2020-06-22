@@ -6,8 +6,11 @@ export const updateMap = (state = {}, action) => {
             const new_node = action.payload;
             return ({
                 ...state,
-                [new_node]: new_node,
-                current_node: new_node,
+                current_path: new_node,
+                [new_node]: {
+                    name: new_node,
+                    ...state[new_node].is_alt
+                }
             });
         }
         default: {

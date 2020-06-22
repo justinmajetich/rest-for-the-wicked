@@ -8,6 +8,7 @@ const initialState = {
                                     content: {
                                         name: "lobby",
                                         description: "The lobby is still and sparse, save a grid of benches and an empty which, raised on platform, looks more like a judge's bench. To your left, there is a corridor labelled [research_wing] . On the right, another corridor [admin_wing] .",
+                                        alt_description: null,
                                         parent: null,
                                         needs_key: null,
                                         full_path: "/lobby",
@@ -82,21 +83,60 @@ const initialState = {
                     }
             }
     },
-    map_nodes: {
-            current_node: "",
-            lobby: "*****",
-            research_wing: "*************",
-            weapon_lab: "**********",
-            logs: "****",
-            vault: "*****",
-            desk: "****",
-            admin_wing: "**********",
-            records: "*******",
-            blacklist: "*********",
-            computer: "********",
-            offices: "*******",
-            dr_delete: "*********",
-            lt_glass: "********"
+        paths: {
+                current_path: "",
+                lobby: {
+                        name: "*****",
+                        is_alt: false
+                },
+                research_wing: {
+                        name: "*************",
+                        is_alt: false
+                },
+                weapon_lab: {
+                        name: "**********",
+                        is_alt: false
+                },
+                logs: {
+                        name: "****",
+                        is_alt: false
+                },
+                vault: {
+                        name: "*****",
+                        is_alt: false
+                },
+                desk: {
+                        name: "****",
+                        is_alt: false
+                },
+                admin_wing: {
+                        name: "**********",
+                        is_alt: false
+                },
+                records: {
+                        name: "*******",
+                        is_alt: false
+                },
+                blacklist: {
+                        name: "*********",
+                        is_alt: false
+                },
+                computer: {
+                        name: "********",
+                        is_alt: false
+                },
+                offices: {
+                        name: "*******",
+                        is_alt: false
+                },
+                dr_delete: {
+                        name: "*********",
+                        is_alt: false
+                },
+                lt_glass: {
+                        name: "********",
+                        is_alt: false
+                }
     }
 };
 

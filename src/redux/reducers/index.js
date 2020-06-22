@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { updateStory, updateObjective, updateInvalidRequestMessage, updateTransitionState } from './storyReducer'
-import { updateMap } from './mapsReducer'
+import { updateMap } from './pathsReducer'
 import { updateDroppable } from './droppableReducer'
 import { buttonReducer } from './buttonReducer'
 
@@ -11,6 +11,6 @@ const rootReducer = combineReducers({
     button: buttonReducer,
     invalid_request_message: updateInvalidRequestMessage,
     droppables: updateDroppable,
-    map_nodes: updateMap
+    paths: updateMap
 });
 export default rootReducer;

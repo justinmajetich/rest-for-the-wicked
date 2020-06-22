@@ -31,3 +31,4 @@ export const BUTTON_DISABLE = 'BUTTON_DISABLE';
 
 // UPDATE MAP ---------------------
 export const UPDATE_MAP = 'UPDATE_MAP';
+export const SET_IS_ALT_TRUE = 'SET_IS_ALT_TRUE';

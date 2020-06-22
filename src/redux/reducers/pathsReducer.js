@@ -1,4 +1,4 @@
-import { UPDATE_MAP } from "../actions/actionTypes"
+import { UPDATE_MAP, SET_IS_ALT_TRUE } from "../actions/actionTypes"
 
 export const updateMap = (state = {}, action) => {
     switch (action.type) {
@@ -17,6 +17,17 @@ export const updateMap = (state = {}, action) => {
                 [new_node]: {
                     name: new_node,
                     is_alt: is_alt
+                }
+            });
+        }
+        case SET_IS_ALT_TRUE: {
+            const poiName = action.payload;
+
+            return ({
+                ...state,
+                [poiName]: {
+                    ...state[poiName],
+                    is_alt: true
                 }
             });
         }

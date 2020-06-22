@@ -1,11 +1,19 @@
 import axios from 'axios'
 import { store } from '../redux/store'
-import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage } from '../redux/actions'
+import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue } from '../redux/actions'
 
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
+    const state = store.getState();
+
     // Validate request
     if (validateRequest(request)) {
+
+        // Set current POI description to alt if item was obtained
+        if (state.poi.spawned_items.length) {
+            setTimeout(() => { store.dispatch(setIsAltTrue(state.poi.name)) }, 2000);
+        }
+
         store.dispatch(makeRequestBegin());
 
         // Assign request url based on development or production environment
@@ -42,9 +50,11 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
 
         // Dispatch new POI object and request type to update story and path modules
         store.dispatch(makeRequestSuccess(newPOI, request.method.name));
+
         // Return request elements to docks
         setTimeout(() => { store.dispatch(receiversToLists()) }, 4000);
-        // If POI spawns items/keys, add to respesctve lists
+
+        // If POI spawns items/keys, add to respective lists
         if (newPOI.spawned_items) {
             setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 4000);
         }

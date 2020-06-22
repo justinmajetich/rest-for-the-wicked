@@ -25,8 +25,8 @@ const initialState = {
                     },
                     is_visible: true
             },
-            spawned_items: null,
-            usable_items: null,
+            spawned_items: [],
+            usable_items: [],
             needs_key: null,
             parent: null,
             children: [{name: "lobby", usable_items: null}]

@@ -13,6 +13,7 @@ import {
     TOGGLE_DESCRIPTION_VISIBILITY,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
+    SET_IS_ALT_TRUE,
     BUTTON_UP,
     BUTTON_DOWN,
     BUTTON_ENABLE,
@@ -119,6 +120,13 @@ export function updateMap(poiName='', methodType='') {
             poiName: poiName,
             methodType: methodType
         }
+    });
+}
+
+export function setIsAltTrue(poiName) {
+    return ({
+        type: SET_IS_ALT_TRUE,
+        payload: poiName
     });
 }
 

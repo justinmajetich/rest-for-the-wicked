@@ -134,11 +134,11 @@ export function makeRequestBegin() {
 
 export function makeRequestSuccess(newPOI={}, methodType='') {
     return (dispatch) => {
-        setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
-        setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
-        setTimeout(() => { dispatch(updateMap(newPOI.name, methodType)) }, 5000);
-        setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
-        setTimeout(() => { dispatch(buttonEnable()) }, 5000);
+        setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2000);
+        setTimeout(() => { dispatch(setTransitionInactive()) }, 2000);
+        setTimeout(() => { dispatch(updateMap(newPOI.name, methodType)) }, 4000);
+        setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 4000);
+        setTimeout(() => { dispatch(buttonEnable()) }, 4000);
       };
 }
 

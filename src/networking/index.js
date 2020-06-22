@@ -43,10 +43,10 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // Dispatch new POI object and request type to update story and path modules
         store.dispatch(makeRequestSuccess(newPOI, request.method.name));
         // Return request elements to docks
-        setTimeout(() => { store.dispatch(receiversToLists()) }, 5000);
+        setTimeout(() => { store.dispatch(receiversToLists()) }, 4000);
         // If POI spawns items/keys, add to respesctve lists
         if (newPOI.spawned_items) {
-            setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 5000);
+            setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 4000);
         }
     }
 }

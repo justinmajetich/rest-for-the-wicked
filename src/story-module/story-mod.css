@@ -41,7 +41,7 @@
     justify-content: space-between;
     align-items: center;
 
-    transition: transform 2.5s ease;
+    transition: transform 2s ease;
     transform: translateX(0px);
 
     padding: 10px 10px;

@@ -3,16 +3,16 @@ const initialState = {
             name: "api_headquarters",
             description: {
                     text: "As the simulation materializes within your visual cortex, you find yourself on a vast lawn. Rising before you is a monolith of polished, white concrete, notched with an even grid of black glass windows. There's a breeze you can almost feel, and the familiar tingling sensation of simulated embodiment, like a limb that's fallen asleep. At the foot of the building, a singular entrance leads to a [lobby] .",
+                    alt_text: null,
                     docks: {
                             lobby: {
                                     content: {
                                         name: "lobby",
                                         description: "The lobby is still and sparse, save a grid of benches and an empty which, raised on platform, looks more like a judge's bench. To your left, there is a corridor labelled [research_wing] . On the right, another corridor [admin_wing] .",
-                                        alt_description: null,
                                         parent: null,
                                         needs_key: null,
                                         full_path: "/lobby",
-                                        spawned_items: null,
+                                        spawned_items: [],
                                         usable_items: [],
                                         children: [
                                             "http://localhost:8000/poi/research_wing/",
@@ -85,6 +85,10 @@ const initialState = {
     },
         paths: {
                 current_path: "",
+                api_headquarters: {
+                        name: "api_headquarters",
+                        is_alt: false
+                },
                 lobby: {
                         name: "*****",
                         is_alt: false

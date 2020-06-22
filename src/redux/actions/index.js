@@ -112,10 +112,13 @@ export function toggleDescriptionVisibility() {
 }
 
 // MAP ACTIONS ---------------------
-export function updateMap(poiName) {
+export function updateMap(poiName='', methodType='') {
     return ({
         type: UPDATE_MAP,
-        payload: poiName
+        payload: {
+            poiName: poiName,
+            methodType: methodType
+        }
     });
 }
 
@@ -129,11 +132,11 @@ export function makeRequestBegin() {
       };
 }
 
-export function makeRequestSuccess(newPOI) {
+export function makeRequestSuccess(newPOI={}, methodType='') {
     return (dispatch) => {
         setTimeout(() => { dispatch(updatePOI(newPOI)) }, 2500);
         setTimeout(() => { dispatch(setTransitionInactive()) }, 2500);
-        setTimeout(() => { dispatch(updateMap(newPOI.name)) }, 5000);
+        setTimeout(() => { dispatch(updateMap(newPOI.name, methodType)) }, 5000);
         setTimeout(() => { dispatch(toggleDescriptionVisibility()) }, 5000);
         setTimeout(() => { dispatch(buttonEnable()) }, 5000);
       };

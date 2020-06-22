@@ -74,7 +74,7 @@ export const updateDroppable = (state = {}, action) => {
             if (state.receivers.method_receiver.content &&
                 (state.receivers.method_receiver.content.name === "PUT" ||
                 state.receivers.method_receiver.content.name === "POST")) {
-                itemVisibility = !!payload.content.usable_items;
+                itemVisibility = !!payload.content.usable_items.length;
             }
 
             // Create new state with updated content and visibilities

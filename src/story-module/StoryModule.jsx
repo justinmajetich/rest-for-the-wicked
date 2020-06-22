@@ -6,7 +6,7 @@ import { TileDock } from '../tiles/TileDock'
 
 class StoryModule extends React.Component {
     render() {
-        console.log(this.props)
+        console.log(this.props.poi.name)
         return (
             <section className="story-container">
                 <div className={"story-header-box"}>
@@ -21,7 +21,11 @@ class StoryModule extends React.Component {
                     </div>
                 </div>
                 <Description
-                    text={this.props.poi.description.text.split(" ")}
+                    /* Determines which description should be used */
+                    text={this.props.paths[this.props.poi.name].is_alt ?
+                        this.props.poi.description.alt_text.split(" ") :
+                        this.props.poi.description.text.split(" ")
+                    }
                     docks={this.props.poi.description.docks}
                     is_visible={this.props.poi.description.is_visible}
                 />
@@ -102,7 +106,8 @@ const mapStateToProps = state => {
         poi: state.poi,
         request_feedback: state.invalid_request_message,
         transition_is_active: state.transition_is_active,
-        objective: state.objective
+        objective: state.objective,
+        paths: state.paths
     });
 };
 

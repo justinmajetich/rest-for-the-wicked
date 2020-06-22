@@ -10,7 +10,7 @@ class PathMap extends React.Component {
         return (
             <div className={"path-map"}>
                 {Object.entries(this.props.paths).map((node, index)=> {
-                    if (node[0] !== "current_node") {
+                    if (node[0] !== "current_path" && node[0] !== "api_headquarters") {
                         const formatted = node[0].replace(/_/g, '-');
                         return (<p
                             id={formatted + "-map-node"}

@@ -7,8 +7,8 @@ export const updateStory = (state = {}, action) => {
 
         case UPDATE_POI: {
             console.log('UPDATE_POI')
-            // Store old poi as parent
             const text = payload.description;
+            const alt_text = payload.alt_description;
 
             // Create docks object from children poi
             const docks = {};
@@ -26,6 +26,7 @@ export const updateStory = (state = {}, action) => {
                 parent: payload.parent,
                 description: {
                     text: text,
+                    alt_text: alt_text,
                     docks: docks,
                     is_visible: state.description.is_visible
                 }

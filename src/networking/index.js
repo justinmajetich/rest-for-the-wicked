@@ -15,7 +15,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         
         // Make API request for poi
         const newPOI = await axios({
-            method: request.method.name,
+            method: 'GET',
             url: url + request.path.name,
         }).then(async (response) => {
 
@@ -40,8 +40,8 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
             console.log('NETWORKING ERROR ' + error)
         });
 
-        // Dispatch new POI object to story module
-        store.dispatch(makeRequestSuccess(newPOI));
+        // Dispatch new POI object and request type to update story and path modules
+        store.dispatch(makeRequestSuccess(newPOI, request.method.name));
         // Return request elements to docks
         setTimeout(() => { store.dispatch(receiversToLists()) }, 5000);
         // If POI spawns items/keys, add to respesctve lists
@@ -140,8 +140,22 @@ function validateRequest(request) {
             return false;
         }
     }
-    // Check if path uses items
-    if (request.path.usable_items) {
+    // Check if method is POST/PUT
+    if ((request.method.name === 'POST' || request.method.name === 'PUT')) {
+        // Check if path is POST/PUT-able (a.k.a. receives an item)
+        if (!request.path.usable_items.length) {
+            store.dispatch(setInvalidRequestMessage(
+                'You cannot make a ' + request.method.name + ' request to the ' + request.path.name + '.'
+            ));
+            return false;
+        }
+        // Check if item is present
+        if (!request.item) {
+            store.dispatch(setInvalidRequestMessage(
+                'You must pass an item to complete a ' + request.method.name + ' request.'
+            ));
+            return false;
+        }
         // Check if present item is valid
         if (request.item && 
             !request.path.usable_items.some(item => item.name === request.item.name)) {

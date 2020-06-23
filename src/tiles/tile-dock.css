@@ -5,31 +5,21 @@
 
     width: 100px;
     height: 38px;
-
     margin: 5px;
-    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
+    
     background-image: url('../assets/tile-svgs/method-dock.svg');
 }
 
 .path-dock {
-    /* display: flex; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    /* justify-content: flex-end; */
-    /* align-items: center; */
-
-    border-bottom: 38px solid #333333;
-	border-left: 12px solid transparent;
-	border-right: 50px solid #333333;
-
-    width: 100px;
-    height: 0px;
-
+    width: 162px;
+    height: 38px;
     margin-right: 5px;
-}
 
-.path-dock .path-tile {
-    width: 100px;
-    transform: translateX(-12px);
+    background-image: url('../assets/tile-svgs/path-dock.svg');
 }
 
 .key-dock {
@@ -37,13 +27,11 @@
     justify-content: center;
     align-items: center;
 
-    width: 130px;
+    width: 128px;
     height: 38px;
-
     margin: 5px;
 
     background-color: #333333;
-    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
 }
 
 .item-dock {
@@ -51,11 +39,9 @@
     justify-content: center;
     align-items: center;
     
-    width: 130px;
+    width: 128px;
     height: 38px;
-
     margin: 5px;
 
     background-color: #333333;
-    /* background-image: url('../assets/fills/dark-diag-fill.png'); */
 }

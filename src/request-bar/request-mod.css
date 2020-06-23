@@ -96,8 +96,12 @@ button:focus {
     margin-right: 5px;
 }
 
-.method-receiver-svg {
+.method-receiver-svg, .hovered-method-receiver-svg {
     position: absolute;
+}
+
+.hovered-method-receiver-svg path {
+    fill: #7a7d85;
 }
 
 .method-receiver .outline-svg {
@@ -121,8 +125,12 @@ button:focus {
     margin-right: 20px;
 }
 
-.path-receiver-svg {
+.path-receiver-svg, .hovered-path-receiver-svg {
     position: absolute;
+}
+
+.hovered-path-receiver-svg path {
+    fill: #7a7d85
 }
 
 .path-receiver .outline-svg {
@@ -170,8 +178,12 @@ button:focus {
     margin-right: 20px;
 }
 
-.item-receiver-svg {
+.rect-receiver-svg, .hovered-rect-receiver-svg {
     position: absolute;
+}
+
+.hovered-rect-receiver-svg path {
+    fill: #7a7d85;
 }
 
 .item-receiver .outline-svg {

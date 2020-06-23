@@ -53,12 +53,11 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         style={{
                             opacity: (this.props.isDropDisabled && !this.props.content) ? '50%' : '100%',
-                            
                         }}
                         {...provided.droppableProps}
                     >
                         {/* Get the apporiate receiver SVG */
-                        getSVGComponent(this.props.name + "-receiver")}
+                        getSVGComponent(this.props.name + "-receiver", snapshot.isDraggingOver)}
 
                         {/* Get the apporiate outline SVG */
                         getSVGComponent(this.props.name + "-outline", !this.props.isDropDisabled)}

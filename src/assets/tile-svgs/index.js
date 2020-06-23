@@ -34,22 +34,22 @@ export function getSVGComponent(type, active=false) {
         }
         case 'method-receiver': {
             return (<MethodReceiverSVG 
-                className={"method-receiver-svg"}
+                className={active ? "hovered-method-receiver-svg" : "method-receiver-svg"}
             />);
         }
         case 'path-receiver': {
             return (<PathReceiverSVG 
-                className={"path-receiver-svg"}
+                className={active ? "hovered-path-receiver-svg" : "path-receiver-svg"}
             />);
         }
         case 'key-receiver': {
             return (<RectReceiverSVG 
-                className={"key-receiver-svg"}
+                className={active ? "hovered-rect-receiver-svg" : "rect-receiver-svg"}
             />);
         }
         case 'item-receiver': {
             return (<RectReceiverSVG 
-                className={"item-receiver-svg"}
+                className={active ? "hovered-rect-receiver-svg" : "rect-receiver-svg"}
             />);
         }
         case 'method-outline': {

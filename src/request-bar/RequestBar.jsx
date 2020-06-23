@@ -53,13 +53,18 @@ class TileReceiver extends React.Component {
                         ref={provided.innerRef}
                         style={{
                             opacity: (this.props.isDropDisabled && !this.props.content) ? '50%' : '100%',
+                            
                         }}
                         {...provided.droppableProps}
                     >
-                        <div className={"receiver-shape"}>
-                            <h3 className={"receiver-text"}>{this.props.name}</h3>
-                        </div>
-                        {getSVGComponent(this.props.name + "-receiver", !this.props.isDropDisabled)}
+                        {/* Get the apporiate receiver SVG */
+                        getSVGComponent(this.props.name + "-receiver")}
+
+                        {/* Get the apporiate outline SVG */
+                        getSVGComponent(this.props.name + "-outline", !this.props.isDropDisabled)}
+
+                        <h3 className={"receiver-text"}>{this.props.name}</h3>
+
                         {this.props.content ?
                             <Tile
                                 name={this.props.content.name}
@@ -70,6 +75,7 @@ class TileReceiver extends React.Component {
                                     (this.props.receivers.path_receiver.content ? true : false) : false
                                 }
                             /> : null}
+
                         {provided.placeholder}
                     </span>
                 )}

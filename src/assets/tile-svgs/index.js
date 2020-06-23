@@ -5,6 +5,9 @@ import {ReactComponent as RectOutlineSVG} from './rect-outline.svg'
 import {ReactComponent as PathTileSVG} from './path-tile-2x.svg'
 import {ReactComponent as MethodTileSVG} from './method-tile-2x.svg'
 import {ReactComponent as RectTileSVG} from './rect-tile-2x.svg'
+import {ReactComponent as MethodReceiverSVG} from './method-receiver.svg'
+import {ReactComponent as PathReceiverSVG} from './path-receiver.svg'
+import {ReactComponent as RectReceiverSVG} from './rect-receiver.svg'
 
 
 export function getSVGComponent(type, active=false) {
@@ -30,6 +33,26 @@ export function getSVGComponent(type, active=false) {
             />);
         }
         case 'method-receiver': {
+            return (<MethodReceiverSVG 
+                className={"method-receiver-svg"}
+            />);
+        }
+        case 'path-receiver': {
+            return (<PathReceiverSVG 
+                className={"path-receiver-svg"}
+            />);
+        }
+        case 'key-receiver': {
+            return (<RectReceiverSVG 
+                className={"key-receiver-svg"}
+            />);
+        }
+        case 'item-receiver': {
+            return (<RectReceiverSVG 
+                className={"item-receiver-svg"}
+            />);
+        }
+        case 'method-outline': {
             return (<MethodOutlineSVG 
                         className={"outline-svg"}
                         style={{ 
@@ -37,7 +60,7 @@ export function getSVGComponent(type, active=false) {
                         }}
                     />);
         }
-        case 'path-receiver': {
+        case 'path-outline': {
             return (<PathOutlineSVG
                         className={"outline-svg"}
                         style={{ 
@@ -45,7 +68,7 @@ export function getSVGComponent(type, active=false) {
                         }}
                     />);
         }
-        case 'key-receiver': {
+        case 'key-outline': {
             return (<RectOutlineSVG
                         className={"outline-svg"}
                         style={{ 
@@ -53,7 +76,7 @@ export function getSVGComponent(type, active=false) {
                         }}
                     />);
         }
-        case 'item-receiver': {
+        case 'item-outline': {
             return (<RectOutlineSVG
                         className={"outline-svg"}
                         style={{ 

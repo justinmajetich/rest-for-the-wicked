@@ -3,9 +3,9 @@ const initialState = {
     intro: {
             current_scene: 0,
             scene_text: [
-                    "The sun sets on the seat of power and automation.",
-                    "You look to take matters into your own hands. If you can manage to comadere the neural link of a patrol officer, you might be able to access the API headquarters.",
-                    "You take the officer down. Heart-pumping, you wrench off its helmet and fumble to insert your link cable into the brain port."
+                    "The sun sets on the seat of power and automation. Another day of exile. Since the state placed you on their its notorious blocklist, you've been denied the basic rights and services of society. Access to currency, sustenance, healthcare gone overnight... it's a death sentence.",
+                    "You look to take matters into your own hands. The blocklist itself lies deep within the state's super-network. If you could infiltrate this space, there's a chance you could destroy the list once and for all. The brainlink of a patrol officer could present a backdoor into the system.",
+                    "With some struggle, you subdue the officer. Heart-pounding, you wrench off his helmet and fumble to splice into his brainlink. As you wait for the override to kick in, you review your objectives. Finding the blocklist is one thing - destroying it another. You have your methods but nothing of that caliber. However, you've heard rumors of a powerful new tech being developed in the state's weapon labs..."
                 ],
             scene_playing: false,
             scene_transitioning: false,

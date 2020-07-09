@@ -18,23 +18,24 @@ class IntroSceneWindow extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <article id={"scene-" + this.props.current_scene} className={"scene-window"}>
                 <div className={"scene-image"}></div>
                 <div className={"scene-text"}>
                     <p>{this.props.scene_text[this.props.current_scene]}</p>
                 </div>
-                {this.props.current_scene > 0 ?
+                <div className={"nav-button-wrapper"}>
+                    {this.props.current_scene > 0 ?
+                        <button
+                            onClick={this.onBackClick}
+                            className={this.props.isBackClicked ? 'back-button-clicked' : 'back-button'}
+                        >Back</button>
+                    : null}
                     <button
-                        onClick={this.onBackClick}
-                        className={this.props.isBackClicked ? 'back-button-clicked' : 'back-button'}
-                    >Back</button>
-                : null}
-                <button
-                    onClick={this.onNextClick}
-                    className={this.props.isNextClicked ? 'next-button-clicked' : 'next-button'}
-                >Next</button>
+                        onClick={this.onNextClick}
+                        className={this.props.isNextClicked ? 'next-button-clicked' : 'next-button'}
+                    >Next</button>
+                </div>
             </article>
         );
     }

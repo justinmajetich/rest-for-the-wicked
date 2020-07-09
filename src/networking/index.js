@@ -21,7 +21,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
                         "http://localhost:8000/poi/" : 
                         "https://rest-for-the-wicked.herokuapp.com/poi/";
         
-        // Make API request for poi
+        // Make API request for POI
         const newPOI = await axios({
             method: 'GET',
             url: url + request.path.name,
@@ -41,7 +41,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
                 data.children[i].needs_key = await getKey(data.children[i].needs_key);
                 data.children[i].usable_items = await getItems(data.children[i].usable_items);
             }
-            
+
             return (data);
 
         }).catch( error => {

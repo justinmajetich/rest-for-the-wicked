@@ -144,8 +144,8 @@ function isDropDisabled(currentReceiver = "", receivers = {}) {
 const mapStateToProps = state => {
     return ({
         receivers: state.droppables.receivers,
-        isClicked: state.button.request_button_clicked,
-        isEnabled: state.button.request_button_enabled
+        isClicked: state.button.button_clicked,
+        isEnabled: state.button.button_enabled
     });
 };
 

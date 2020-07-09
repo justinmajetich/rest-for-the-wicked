@@ -1,18 +1,17 @@
 .App {
   display: grid;
-  grid-template-columns: 20px [left-mod-start] 1fr [left-mod-end] 20px
+  grid-template-columns: [start] 20px [left-mod-start] 1fr [left-mod-end] 20px
                          [mid-mod-start] .9fr [mid-mod-end] 20px
-                         [right-mod-start] 2.1fr [right-mod-end] 20px;
+                         [right-mod-start] 2.1fr [right-mod-end] 20px [end];
 
-  grid-template-rows: 20px [upper-mod-start] 5fr [upper-mod-end] 20px
+  grid-template-rows: [start] 20px [upper-mod-start] 5fr [upper-mod-end] 20px
                       [center-mod-start] 1.65fr [center-mod-end] 20px
-                      [lower-mod-start] 1.65fr [lower-mod-end] 20px;
+                      [lower-mod-start] 1.65fr [lower-mod-end] 20px [end];
 
   width: 1080px;
   height: 720px;
   margin: 20px auto;
 
-  background-image: url(./assets/fills/grey-dot-dark-open-graph-fill.svg);
   background-position: center bottom -4px;
 
   font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
@@ -20,31 +19,9 @@
   text-align: left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Global Styling [Move]*/
+/* Global Styling */
 
 .title-bar {
-  /* background-color: #FFFFFF; */
-  /* background-image: url('./assets/fills/dark-diag-fill.png'); */
   border-bottom: lightgray solid 1px;
 }
 
@@ -52,7 +29,6 @@
   color: lightgray;
   margin: 0px 0px 2px 8px;
 }
-
 
 @keyframes node-blink { to { background-image: none; } }
 @keyframes blink { to { visibility: hidden; } }

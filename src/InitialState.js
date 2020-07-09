@@ -1,4 +1,15 @@
 const initialState = {
+    stage: 0,
+    intro: {
+            current_scene: 0,
+            scene_text: [
+                    "The sun sets on the seat of power and automation.",
+                    "You look to take matters into your own hands. If you can manage to comadere the neural link of a patrol officer, you might be able to access the API headquarters.",
+                    "You take the officer down. Heart-pumping, you wrench off its helmet and fumble to insert your link cable into the brain port."
+                ],
+            scene_playing: false,
+            scene_transitioning: false,
+    },
     poi: {
             name: "api_headquarters",
             description: {
@@ -33,8 +44,12 @@ const initialState = {
     },
     transition_is_active: false,
     button: {
-        request_button_clicked: false,
-        request_button_enabled: true
+        button_clicked: false,
+        button_enabled: true,
+        next_button_clicked: false,
+        next_button_enabled: true,
+        back_button_clicked: false,
+        back_button_enabled: true
     },
     invalid_request_message: "",
     objective: "access research_wing",

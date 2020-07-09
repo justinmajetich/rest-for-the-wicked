@@ -1,4 +1,3 @@
-
 // DROPPABLE ACTIONS ---------------------
 
 export const LIST_TO_RECEIVER = 'LIST_TO_RECEIVER';
@@ -9,7 +8,6 @@ export const RECEIVERS_TO_LISTS = 'RECEIVERS_TO_LISTS';
 export const LIST_TO_LIST = 'LIST_TO_LIST';
 export const ADD_SPAWNED_ITEMS_TO_LISTS = 'ADD_SPAWNED_ITEMS_TO_LISTS';
 
-
 // STORY ACTIONS ---------------------
 export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';
 export const TO_PATH_DOCK = 'TO_PATH_DOCK';
@@ -19,7 +17,6 @@ export const SET_TRANSITION_ACTIVE = 'SET_TRANSITION_ACTIVE';
 export const SET_TRANSITION_INACTIVE = 'SET_TRANSITION_INACTIVE';
 export const TOGGLE_DESCRIPTION_VISIBILITY = 'TOGGLE_DESCRIPTION_VISIBILITY';
 
-
 // NETWORKING ACTIONS ---------------------
 export const SET_INVALID_REQUEST_MESSAGE = 'SET_INVALID_REQUEST_MESSAGE';
 
@@ -28,7 +25,22 @@ export const BUTTON_DOWN = 'BUTTON_DOWN';
 export const BUTTON_UP = 'BUTTON_UP';
 export const BUTTON_ENABLE = 'BUTTON_ENABLE';
 export const BUTTON_DISABLE = 'BUTTON_DISABLE';
+export const NEXT_BUTTON_DOWN = 'NEXT_BUTTON_DOWN';
+export const NEXT_BUTTON_UP = 'NEXT_BUTTON_UP';
+export const NEXT_BUTTON_ENABLE = 'NEXT_BUTTON_ENABLE';
+export const NEXT_BUTTON_DISABLE = 'NEXT_BUTTON_DISABLE';
+export const BACK_BUTTON_DOWN = 'BACK_BUTTON_DOWN';
+export const BACK_BUTTON_UP = 'BACK_BUTTON_UP';
+export const BACK_BUTTON_ENABLE = 'BACK_BUTTON_ENABLE';
+export const BACK_BUTTON_DISABLE = 'BACK_BUTTON_DISABLE';
 
 // UPDATE MAP ---------------------
 export const UPDATE_MAP = 'UPDATE_MAP';
 export const SET_IS_ALT_TRUE = 'SET_IS_ALT_TRUE';
+
+// UPDATE STAGE ---------------------
+export const UPDATE_STAGE = 'UPDATE_STAGE'
+
+// UPDATE INTRO ---------------------
+export const NEXT_SCENE = 'NEXT_SCENE'
+export const BACK_SCENE = 'BACK_SCENE'

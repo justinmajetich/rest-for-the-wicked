@@ -1,0 +1,85 @@
+.intro-window {
+    grid-column-start: mid-mod-start;
+    grid-row-start: center-mod-start;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 1000px;
+    height: 480px;
+    margin-left: 1px;
+
+    border: 1px solid lightgray;
+
+    background-color: black;
+}
+
+.intro-window h1 {
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 72px;
+    color: whitesmoke;
+    text-align: center;
+    margin: 20px;
+}
+
+.intro-window p {
+    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#start-button {
+    width: 189px;
+    height: 63px;
+
+    background-image: url(../assets/button/req-button-unpressed.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    outline: none;
+    border: none;
+
+    margin: 40px;
+}
+
+#start-button-clicked {
+    width: 189px;
+    height: 63px;
+
+    background-image: url(../assets/button/req-button-pressed-alt1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    outline: none;
+    border: none;
+
+    margin: 40px;
+}
+
+
+#start-button p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 24px;
+    background-color: none;
+
+    margin: 0px;
+}
+
+#start-button-clicked p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 23px;
+    color: rgb(41, 41, 41);
+
+    margin: 0px;
+}

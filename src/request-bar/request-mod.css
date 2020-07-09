@@ -101,7 +101,7 @@ button:focus {
 }
 
 .hovered-method-receiver-svg path {
-    fill: #7a7d85;
+    fill: #666666;
 }
 
 .method-receiver .outline-svg {

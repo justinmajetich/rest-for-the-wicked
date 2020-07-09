@@ -7,6 +7,8 @@ import { PathsModule } from './paths-module/PathsModule'
 import MethodModule from './methods-module/MethodsModule'
 import KeysModule from './keys-module/KeysModule'
 import ItemsModule from './items-module/ItemsModule'
+import StartMenu from './start-menu/StartMenu'
+import IntroSceneWindow from './intro-scene-window/IntroSceneWindow'
 import {
     toPathReceiver, removeFromPathDock,
     listToReceiver, receiverToList,
@@ -17,20 +19,44 @@ import { connect } from 'react-redux'
 
 class App extends React.Component {
 
+    render() {
+        console.log(this.props)
+        return (
+            <DragDropContext onDragEnd={this.onDragEnd}>
+                <div className="App">
+                    {this.props.stage === 0 ? <StartMenu/> : null}
+                    {this.props.stage === 1 ? <IntroSceneWindow/> : null}
+                    {this.props.stage === 2 ?
+                        <>
+                            <StoryModule/>
+                            <MethodModule/>
+                            <KeysModule/>
+                            <ItemsModule/>
+                            <PathsModule/>
+                        </> : null
+                    }
+                </div>
+            </DragDropContext>
+        );
+    }
+
+    // DRAG END SCENARIOS FOR STATE MANAGEMENT
     onDragEnd = result => {
         const { destination, source, draggableId, type } = result;
         const sourceID = source ? source.droppableId : null;
         const destID = destination ? destination.droppableId : null;
 
         // DROPPED NO WHERE OR IN PLACE
-        if (!destination || (destID === sourceID && destination.index === source.index)) { return; }
+        if (!destination || (destID === sourceID && destination.index === source.index)) {
+            return;
+        }
 
         // Clear request feedback message
         this.props.dispatch(setInvalidRequestMessage(''));
 
-        // PATH_EMBED -> PATH_RECEIVER
+        // PATH_DOCK -> PATH_RECEIVER
         if (destID === "path_receiver") {
-            console.log("PATH EMBED -> RECEIVER");
+            console.log("PATH_DOCK -> PATH_RECEIVER");
             this.props.dispatch(toPathReceiver({
                 receiverID: destID,
                 content: this.props.path_docks[draggableId].content}));
@@ -38,7 +64,7 @@ class App extends React.Component {
             return;
         }
 
-        // PATH_RECEIVER -> PATH_EMBED
+        // PATH_RECEIVER -> PATH_DOCK
         if (sourceID === "path_receiver") {
             console.log("PATH_RECEIVER -> PATH_EMBED");
             result[draggableId] = this.props.path_receiver;
@@ -68,24 +94,11 @@ class App extends React.Component {
             }));
         }
     }
-
-    render() {
-        return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className="App">
-                    <StoryModule/>
-                    <MethodModule/>
-                    <KeysModule/>
-                    <ItemsModule/>
-                    <PathsModule/>
-                </div>
-            </DragDropContext>
-        );
-    }
 }
 
 const mapStateToProps = state => {
     return ({
+        stage: state.stage,
         path_docks: state.poi.description.docks,
         methods: state.droppables.lists.method_list.content,
         items: state.droppables.lists.item_list.content,

@@ -18,7 +18,12 @@ import {
     BUTTON_DOWN,
     BUTTON_ENABLE,
     BUTTON_DISABLE,
-    UPDATE_MAP
+    NEXT_BUTTON_UP, NEXT_BUTTON_DOWN, NEXT_BUTTON_ENABLE, NEXT_BUTTON_DISABLE,
+    BACK_BUTTON_UP, BACK_BUTTON_DOWN, BACK_BUTTON_ENABLE, BACK_BUTTON_DISABLE,
+    UPDATE_MAP,
+    UPDATE_STAGE,
+    NEXT_SCENE,
+    BACK_SCENE
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -158,6 +163,13 @@ export function setInvalidRequestMessage(message = "") {
 }
 
 // BUTTON ACTIONS ---------------------
+export function buttonClick() {
+    return (dispatch) => {
+        dispatch(buttonDown());
+        setTimeout(() => { dispatch(buttonUp()) }, 250);
+      };
+}
+
 export function buttonDown() {
     return ({
         type: BUTTON_DOWN,
@@ -170,13 +182,6 @@ export function buttonUp() {
     });
 }
 
-export function buttonClick() {
-    return (dispatch) => {
-        dispatch(buttonDown());
-        setTimeout(() => { dispatch(buttonUp()) }, 250);
-      };
-}
-
 export function buttonEnable() {
     return ({
         type: BUTTON_ENABLE
@@ -186,5 +191,89 @@ export function buttonEnable() {
 export function buttonDisable() {
     return ({
         type: BUTTON_DISABLE
+    });
+}
+
+export function nextButtonClick() {
+    return (dispatch) => {
+        dispatch(nextButtonDown());
+        setTimeout(() => { dispatch(nextButtonUp()) }, 250);
+      };
+}
+
+export function nextButtonDown() {
+    return ({
+        type: NEXT_BUTTON_DOWN,
+    });
+}
+
+export function nextButtonUp() {
+    return ({
+        type: NEXT_BUTTON_UP,
+    });
+}
+
+
+export function nextButtonEnable() {
+    return ({
+        type: NEXT_BUTTON_ENABLE
+    });
+}
+
+export function nextButtonDisable() {
+    return ({
+        type: NEXT_BUTTON_DISABLE
+    });
+}
+
+export function backButtonClick() {
+    return (dispatch) => {
+        dispatch(backButtonDown());
+        setTimeout(() => { dispatch(backButtonUp()) }, 250);
+      };
+}
+
+export function backButtonDown() {
+    return ({
+        type: BACK_BUTTON_DOWN,
+    });
+}
+
+export function backButtonUp() {
+    return ({
+        type: BACK_BUTTON_UP,
+    });
+}
+
+
+export function backButtonEnable() {
+    return ({
+        type: BACK_BUTTON_ENABLE
+    });
+}
+
+export function backButtonDisable() {
+    return ({
+        type: BACK_BUTTON_DISABLE
+    });
+}
+
+// UPDATE STAGE ---------------------
+export function updateStage() {
+    return ({
+        type: UPDATE_STAGE
+    });
+}
+
+// UPDATE SCENE ---------------------
+export function nextScene() {
+    return ({
+        type: NEXT_SCENE
+    });
+}
+
+export function backScene() {
+    return ({
+        type: BACK_SCENE
     });
 }

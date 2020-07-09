@@ -1,0 +1,107 @@
+.scene-window {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start;
+    grid-row-end: end;
+
+    display: grid;
+    grid-template-columns: repeat(24, 45px);
+    grid-template-rows: repeat(16, 45px);
+
+    width: 100%;
+}
+
+.scene-image {
+    border: 1px solid lightgray;
+    background-size: fill;
+}
+
+.scene-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    border: 1px solid lightgray;
+}
+
+.scene-text p {
+    font-size: 20px;
+    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+    margin: 0px;
+    line-height: 25px;
+}
+
+/* SCENE 0 */
+#scene-0 .scene-image {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    width: 1000px;
+    height: 519px;
+    background-image: url('../assets/scenes/scene-0.png'); 
+}
+
+#scene-0 .scene-text {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+/* SCENE 1 */
+#scene-1 { 
+    
+    background-image: url('../assets/scenes/scene-1.png');
+}
+
+/* SCENE 2 */
+#scene-2 {
+    background-image: url('../assets/scenes/scene-2.png');
+}
+
+/* BUTTONS */
+.next-button {
+    grid-column-start: 22;
+    grid-row-start: 15;
+    width: 100px;
+    height: 50px;
+    background-image: url(../assets/button/nav-button-up.png);
+    background-size: contain;
+    outline: none;
+    border: none;
+}
+
+.next-button-clicked {
+    grid-column-start: 22;
+    grid-row-start: 15;
+    width: 100px;
+    height: 50px;
+    background-image: url(../assets/button/nav-button-down.png);
+    background-size: contain;
+    outline: none;
+    border: none;
+}
+
+.back-button {
+    grid-column-start: 19;
+    grid-row-start: 15;
+    width: 100px;
+    height: 50px;
+    background-image: url(../assets/button/nav-button-up.png);
+    background-size: contain;
+    outline: none;
+    border: none;
+}
+
+.back-button-clicked {
+    grid-column-start: 19;
+    grid-row-start: 15;
+    width: 100px;
+    height: 50px;
+    background-image: url(../assets/button/nav-button-down.png);
+    background-size: contain;
+    outline: none;
+    border: none;
+}
+
+

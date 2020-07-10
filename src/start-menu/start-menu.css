@@ -14,12 +14,12 @@
     border: 1px solid lightgray;
     background-color: black;
 
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in;
     transform: translateY(0px);
 }
 
 .start-menu-transitioning {
-    transform: translateY(720px);
+    transform: translateY(1080px);
 }
 
 .start-menu h1, .start-menu-transitioning h1 {

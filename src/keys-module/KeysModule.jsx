@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 export class KeysModule extends React.Component {
     render() {
         return (
-            <section className="key-container">
+            <section className={this.props.isTransitioning ? "key-container-transitioning" : "key-container"}>
                 <div className="title-bar">
                     <h4>{this.props.keys.title}</h4>
                 </div>
@@ -33,7 +33,8 @@ export class KeysModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        keys: state.droppables.lists.key_list
+        keys: state.droppables.lists.key_list,
+        isTransitioning: state.stage.stage_transitioning
     });
 };
 

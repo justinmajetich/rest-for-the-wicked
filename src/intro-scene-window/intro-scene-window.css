@@ -14,8 +14,7 @@
 .scene-image, .scene-image-transitioning {
     border: 1px solid lightgray;
     background-size: fill;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
+    transition: transform 0.8s ease-in-out;
 }
 
 .scene-text, .scene-text-transitioning {
@@ -25,7 +24,7 @@
     padding: 20px 30px;
     background-color: black;
     border: 1px solid lightgray;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
     transform: translateX(0px);
 }
 
@@ -120,20 +119,12 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
     width: 225px;
     height: 50px;
-    /* background-color: black;
-    border: 1px solid lightgray; */
 }
 
-.nav-button-text {
-    font-size: 18px;
-    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
-    margin: 0px;
-}
-
-.next-button {
+#next-button,
+#next-button-clicked {
     width: 100px;
     height: 50px;
     background-image: url(../assets/button/nav-button-up.png);
@@ -142,20 +133,21 @@
     border: none;
     font-size: 18px;
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+    transition: transform 0.8s ease-in-out;
 }
-
-.next-button-clicked {
-    width: 100px;
-    height: 50px;
+#next-button-clicked {
     background-image: url(../assets/button/nav-button-down.png);
-    background-size: contain;
-    outline: none;
-    border: none;
     font-size: 17px;
-    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+}
+#next-button.show {
+    transform: translateY(0px);
+}
+#next-button.hide {
+    transform: translateY(1080px);
 }
 
-.back-button {
+#back-button,
+#back-button-clicked {
     width: 100px;
     height: 50px;
     background-image: url(../assets/button/nav-button-up.png);
@@ -165,16 +157,15 @@
     margin-right: 25px;
     font-size: 18px;
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+    transition: transform 0.8s ease-in-out;
 }
-
-.back-button-clicked {
-    width: 100px;
-    height: 50px;
+#back-button-clicked {
     background-image: url(../assets/button/nav-button-down.png);
-    background-size: contain;
-    outline: none;
-    border: none;
-    margin-right: 25px;
     font-size: 17px;
-    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+}
+#back-button.show {
+    transform: translateY(0px);
+}
+#back-button.hide {
+    transform: translateY(1080px);
 }

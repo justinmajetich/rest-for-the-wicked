@@ -1,19 +1,22 @@
-.item-container {
+.item-container,
+.item-container-transitioning {
     display: flex;
     flex-direction: column;
-
     grid-column-start: mid-mod-start;
     grid-column-end: mid-mod-end;
     grid-row-start: center-mod-start;
     grid-row-end: lower-mod-end;
 
     width: 100%;
-
     background-color: black;
-
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
+    transform: translateX(0px);
+    transition: transform 1.75s ease-in-out;
+}
+.item-container-transitioning {
+transform: translateX(1200px);
 }
 
 .item-harbor {

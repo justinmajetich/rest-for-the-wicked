@@ -25,7 +25,11 @@ import {
     TOGGLE_STAGE_TRANSITION,
     TOGGLE_SCENE_TRANSITION,
     NEXT_SCENE,
-    BACK_SCENE
+    BACK_SCENE,
+    BACK_BUTTON_SHOW,
+    BACK_BUTTON_HIDE,
+    NEXT_BUTTON_SHOW,
+    NEXT_BUTTON_HIDE
 } from "./actionTypes"
 
 // DROPPABLE REDUCER ---------------------
@@ -228,6 +232,18 @@ export function nextButtonDisable() {
     });
 }
 
+export function nextButtonShow() {
+    return ({
+        type: NEXT_BUTTON_SHOW
+    });
+}
+
+export function nextButtonHide() {
+    return ({
+        type: NEXT_BUTTON_HIDE
+    });
+}
+
 export function backButtonClick() {
     return (dispatch) => {
         dispatch(backButtonDown());
@@ -260,13 +276,34 @@ export function backButtonDisable() {
     });
 }
 
+export function backButtonShow() {
+    return ({
+        type: BACK_BUTTON_SHOW
+    });
+}
+
+export function backButtonHide() {
+    return ({
+        type: BACK_BUTTON_HIDE
+    });
+}
+
+export function hideNavButtons() {
+    return (dispatch) => {
+        setTimeout(() => { dispatch(backButtonHide()) }, 250);
+        setTimeout(() => { dispatch(nextButtonHide()) }, 350);
+    }
+}
+
 // UPDATE STAGE ---------------------
 export function updateStage() {
     return (dispatch) => {
         dispatch(toggleSceneTransition())
         setTimeout(() => { dispatch(toggleStageTransition()) }, 250);
-        setTimeout(() => { dispatch(nextStage()) }, 550);
-        setTimeout(() => { dispatch(toggleSceneTransition()) }, 600)
+        setTimeout(() => { dispatch(nextStage()) }, 1050);
+        setTimeout(() => { dispatch(toggleSceneTransition()) }, 1100);
+        setTimeout(() => { dispatch(nextButtonShow()) }, 1100);
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 1100);
       };
 }
 
@@ -287,12 +324,12 @@ export function updateScene(direction) {
     return (dispatch) => {
         if (direction === "next") {
             setTimeout(() => { dispatch(toggleSceneTransition()) }, 250)
-            setTimeout(() => { dispatch(nextScene()) }, 750)
-            setTimeout(() => { dispatch(toggleSceneTransition()) }, 760)
+            setTimeout(() => { dispatch(nextScene()) }, 1050)
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 1060)
         } else {
             setTimeout(() => { dispatch(toggleSceneTransition()) }, 250)
-            setTimeout(() => { dispatch(backScene()) }, 750)
-            setTimeout(() => { dispatch(toggleSceneTransition()) }, 760)
+            setTimeout(() => { dispatch(backScene()) }, 1050)
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 1060)
         }
     };
 }

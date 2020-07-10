@@ -6,9 +6,8 @@ import { TileDock } from '../tiles/TileDock'
 
 class StoryModule extends React.Component {
     render() {
-        console.log(this.props.poi.name)
         return (
-            <section className="story-container">
+            <section className={this.props.isTransitioning ? "story-container-transitioning" : "story-container"}>
                 <div className={"story-header-box"}>
                     <div
                         className={"story-header"}
@@ -107,7 +106,8 @@ const mapStateToProps = state => {
         request_feedback: state.invalid_request_message,
         transition_is_active: state.transition_is_active,
         objective: state.objective,
-        paths: state.paths
+        paths: state.paths,
+        isTransitioning: state.stage.stage_transitioning
     });
 };
 

@@ -6,7 +6,7 @@ import {TileDock} from "../tiles/TileDock";
 export class ItemsModule extends React.Component {
     render() {
         return (
-            <section className="item-container">
+            <section className={this.props.isTransitioning ? "item-container-transitioning" : "item-container"}>
                 <div className="title-bar">
                     <h4>{this.props.items.title}</h4>
                 </div>
@@ -29,7 +29,8 @@ export class ItemsModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        items: state.droppables.lists.item_list
+        items: state.droppables.lists.item_list,
+        isTransitioning: state.stage.stage_transitioning
     });
 };
 

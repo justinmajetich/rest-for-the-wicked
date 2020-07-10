@@ -1,7 +1,7 @@
 import React from "react"
 import './intro-scene-window.css'
 import { connect } from "react-redux"
-import { backButtonClick, nextButtonClick, updateScene, updateStage } from "../redux/actions"
+import { backButtonClick, nextButtonClick, updateScene, updateStage, backButtonHide, hideNavButtons, backButtonShow } from "../redux/actions"
 
 class IntroSceneWindow extends React.Component {
 
@@ -11,16 +11,35 @@ class IntroSceneWindow extends React.Component {
 
         // If last scene, transition to main stage
         if (this.props.current_scene === 2) {
+            this.props.dispatch(hideNavButtons())
             this.props.dispatch(updateStage());
         } else {
-            this.props.dispatch(updateScene("next"));
+            if (!this.props.isTransitioning) {
+                this.props.dispatch(updateScene("next"));
+                
+                // Show back button if moving from scene 0
+                // Timeout added to allow scene to change before showing button
+                if (this.props.current_scene === 0) {
+                    setTimeout(() => {
+                        this.props.dispatch(backButtonShow())
+                    }, 1100);
+                }
+            }
         }
     }
 
     onBackClick = (event) => {
         event.preventDefault();
         this.props.dispatch(backButtonClick());
-        this.props.dispatch(updateScene("back"));
+
+        if (!this.props.isTransitioning) {
+            this.props.dispatch(updateScene("back"));
+            // hide back button if moving to scene 0
+            if (this.props.current_scene === 1) {
+                setTimeout(() => {
+                    this.props.dispatch(backButtonHide())
+                }, 250);            }
+        }
     }
 
     render() {
@@ -31,15 +50,15 @@ class IntroSceneWindow extends React.Component {
                     <p>{this.props.scene_text[this.props.current_scene]}</p>
                 </div>
                 <div className={"nav-button-wrapper"}>
-                    {this.props.current_scene > 0 ?
-                        <button
-                            onClick={this.onBackClick}
-                            className={this.props.isBackClicked ? 'back-button-clicked' : 'back-button'}
-                        >Back</button>
-                    : null}
+                    <button
+                        onClick={this.onBackClick}
+                        id={this.props.isBackClicked ? "back-button-clicked" : "back-button"}
+                        className={this.props.backButtonShown ? "show" : "hide"}
+                    >Back</button>
                     <button
                         onClick={this.onNextClick}
-                        className={this.props.isNextClicked ? 'next-button-clicked' : 'next-button'}
+                        id={this.props.isNextClicked ? "next-button-clicked" : "next-button"}
+                        className={this.props.nextButtonShown ? "show" : "hide"}
                     >Next</button>
                 </div>
             </article>
@@ -54,6 +73,8 @@ const mapStateToProps = state => {
         scene_text: state.intro.scene_text,
         isNextClicked: state.button.next_button_clicked,
         isBackClicked: state.button.back_button_clicked,
+        nextButtonShown: state.button.next_button_shown,
+        backButtonShown: state.button.back_button_shown
     });
 };
 

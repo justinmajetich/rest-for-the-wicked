@@ -50,8 +50,10 @@ const initialState = {
         button_enabled: true,
         next_button_clicked: false,
         next_button_enabled: true,
+        next_button_shown: false,
         back_button_clicked: false,
-        back_button_enabled: true
+        back_button_enabled: true,
+        back_button_shown: false
     },
     invalid_request_message: "",
     objective: "access research_wing",
@@ -158,7 +160,7 @@ const initialState = {
                         name: "********",
                         is_alt: false
                 }
-    }
+        }
 };
 
 export default initialState;

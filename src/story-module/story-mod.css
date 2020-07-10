@@ -1,4 +1,5 @@
-.story-container {
+.story-container,
+.story-container-transitioning {
     grid-column-start: left-mod-start;
     grid-column-end: right-mod-end;
     grid-row-start: upper-mod-start;
@@ -11,12 +12,15 @@
                         [req-bar-bottom] 10%;
 
     width: 100%;
-
     background-color: black;
-
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
+    transform: translateX(0px);
+    transition: transform 1.25s ease-in-out;
+}
+.story-container-transitioning {
+    transform: translateX(-1600px);
 }
 
 .story-header-box {

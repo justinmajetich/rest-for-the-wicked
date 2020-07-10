@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 class MethodsModule extends React.Component {
     render() {
         return (
-            <section className="method-container">
+            <section className={this.props.isTransitioning ? "method-container-transitioning" : "method-container"}>
                 <div className="title-bar">
                     <h4>{this.props.methods.title}</h4>
                 </div>
@@ -29,7 +29,8 @@ class MethodsModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        methods: state.droppables.lists.method_list
+        methods: state.droppables.lists.method_list,
+        isTransitioning: state.stage.stage_transitioning
     });
 };
 

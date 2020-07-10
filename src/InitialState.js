@@ -1,13 +1,15 @@
 const initialState = {
-    stage: 0,
+    stage: {
+            current: 0,
+            stage_transitioning: false
+    },
     intro: {
             current_scene: 0,
             scene_text: [
-                    "The sun sets on the seat of power and automation. Another day of exile. Since the state placed you on their its notorious blocklist, you've been denied the basic rights and services of society. Access to currency, sustenance, healthcare gone overnight... it's a death sentence.",
-                    "You look to take matters into your own hands. The blocklist itself lies deep within the state's super-network. If you could infiltrate this space, there's a chance you could destroy the list once and for all. The brainlink of a patrol officer could present a backdoor into the system.",
-                    "With some struggle, you subdue the officer. Heart-pounding, you wrench off his helmet and fumble to splice into his brainlink. As you wait for the override to kick in, you review your objectives. Finding the blocklist is one thing - destroying it another. You have your methods but nothing of that caliber. However, you've heard rumors of a powerful new tech being developed in the state's weapon labs..."
+                    "The sun sets on the seat of power and automation. Another day of exile. Since the state placed you on its notorious blocklist, you've been denied the basic rights and services of society. Access to currency, sustenance, healthcare gone overnight... it's a death sentence.",
+                    "You look to take matters into your own hands. The blocklist itself lies deep within the state's super-network. If you could infiltrate this space, there's a chance you could destroy the list. The brainlink of a patrol officer could present a backdoor into the system.",
+                    "With some struggle, you subdue the officer. Heart-pounding, you wrench off his helmet, fumble to splice into his brainlink, and wait for the override to kick in. Finding the blocklist will be one thing - destroying it another. You have your methods but nothing of that caliber. However, there are rumors of a powerful new tech being developed in the state's weapon labs..."
                 ],
-            scene_playing: false,
             scene_transitioning: false,
     },
     poi: {

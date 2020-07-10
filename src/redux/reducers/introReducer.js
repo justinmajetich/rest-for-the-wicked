@@ -1,4 +1,4 @@
-import { NEXT_SCENE, BACK_SCENE } from "../actions/actionTypes"
+import { NEXT_SCENE, BACK_SCENE, TOGGLE_SCENE_TRANSITION } from "../actions/actionTypes"
 
 export const updateIntro = (state = {}, action) => {
     switch (action.type) {
@@ -14,6 +14,12 @@ export const updateIntro = (state = {}, action) => {
             return ({
                 ...state,
                 current_scene: targetScene
+            });
+        }
+        case TOGGLE_SCENE_TRANSITION: {
+            return ({
+                ...state,
+                scene_transitioning: !state.scene_transitioning
             });
         }
         default: {

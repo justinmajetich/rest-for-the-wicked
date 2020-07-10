@@ -13,7 +13,7 @@ body {
 
   background-image: url(./assets/fills/grey-dot-dark-open-graph-fill.svg);
   background-position: center;
-  
+  overflow: hidden;
 }
 
 code {

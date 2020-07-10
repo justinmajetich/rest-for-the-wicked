@@ -13,7 +13,7 @@ class StartMenu extends React.Component {
 
     render() {
         return (
-            <div className={"intro-window"}>
+            <div className={this.props.isTransitioning ? "start-menu-transitioning" : "start-menu"}>
                 <h1>REST for the Wicked</h1>
                 <p>A dystopian text adventure into REST APIs</p>
                 <button
@@ -29,6 +29,7 @@ class StartMenu extends React.Component {
 
 const mapStateToProps = state => {
     return ({
+        isTransitioning: state.stage.stage_transitioning,
         isClicked: state.button.button_clicked,
         isEnabled: state.button.button_enabled
     });

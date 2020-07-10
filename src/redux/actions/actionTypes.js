@@ -39,8 +39,10 @@ export const UPDATE_MAP = 'UPDATE_MAP';
 export const SET_IS_ALT_TRUE = 'SET_IS_ALT_TRUE';
 
 // UPDATE STAGE ---------------------
-export const UPDATE_STAGE = 'UPDATE_STAGE'
+export const NEXT_STAGE = 'NEXT_STAGE'
+export const TOGGLE_STAGE_TRANSITION = 'TOGGLE_STAGE_TRANSITION'
 
 // UPDATE INTRO ---------------------
 export const NEXT_SCENE = 'NEXT_SCENE'
 export const BACK_SCENE = 'BACK_SCENE'
+export const TOGGLE_SCENE_TRANSITION = 'TOGGLE_SCENE_TRANSITION'

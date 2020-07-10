@@ -21,7 +21,9 @@ import {
     NEXT_BUTTON_UP, NEXT_BUTTON_DOWN, NEXT_BUTTON_ENABLE, NEXT_BUTTON_DISABLE,
     BACK_BUTTON_UP, BACK_BUTTON_DOWN, BACK_BUTTON_ENABLE, BACK_BUTTON_DISABLE,
     UPDATE_MAP,
-    UPDATE_STAGE,
+    NEXT_STAGE,
+    TOGGLE_STAGE_TRANSITION,
+    TOGGLE_SCENE_TRANSITION,
     NEXT_SCENE,
     BACK_SCENE
 } from "./actionTypes"
@@ -260,12 +262,41 @@ export function backButtonDisable() {
 
 // UPDATE STAGE ---------------------
 export function updateStage() {
+    return (dispatch) => {
+        dispatch(toggleSceneTransition())
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 250);
+        setTimeout(() => { dispatch(nextStage()) }, 550);
+        setTimeout(() => { dispatch(toggleSceneTransition()) }, 600)
+      };
+}
+
+export function toggleStageTransition() {
     return ({
-        type: UPDATE_STAGE
+        type: TOGGLE_STAGE_TRANSITION
+    });
+}
+
+export function nextStage() {
+    return ({
+        type: NEXT_STAGE
     });
 }
 
 // UPDATE SCENE ---------------------
+export function updateScene(direction) {
+    return (dispatch) => {
+        if (direction === "next") {
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 250)
+            setTimeout(() => { dispatch(nextScene()) }, 750)
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 760)
+        } else {
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 250)
+            setTimeout(() => { dispatch(backScene()) }, 750)
+            setTimeout(() => { dispatch(toggleSceneTransition()) }, 760)
+        }
+    };
+}
+
 export function nextScene() {
     return ({
         type: NEXT_SCENE
@@ -275,5 +306,11 @@ export function nextScene() {
 export function backScene() {
     return ({
         type: BACK_SCENE
+    });
+}
+
+export function toggleSceneTransition() {
+    return ({
+        type: TOGGLE_SCENE_TRANSITION
     });
 }

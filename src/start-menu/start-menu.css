@@ -1,4 +1,4 @@
-.intro-window {
+.start-menu, .start-menu-transitioning {
     grid-column-start: mid-mod-start;
     grid-row-start: center-mod-start;
 
@@ -12,11 +12,17 @@
     margin-left: 1px;
 
     border: 1px solid lightgray;
-
     background-color: black;
+
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(0px);
 }
 
-.intro-window h1 {
+.start-menu-transitioning {
+    transform: translateY(720px);
+}
+
+.start-menu h1, .start-menu-transitioning h1 {
     font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
     font-size: 72px;
     color: whitesmoke;
@@ -24,7 +30,7 @@
     margin: 20px;
 }
 
-.intro-window p {
+.start-menu p, .start-menu-transitioning p {
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
     font-size: 24px;
     margin-top: 10px;

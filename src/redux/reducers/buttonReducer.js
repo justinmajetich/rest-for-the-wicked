@@ -30,7 +30,6 @@ export const buttonReducer = (state = {}, action) => {
             });
         }
         case NEXT_BUTTON_DOWN: {
-            console.log("NEXT BUTTON DOWN")
             return ({
                 ...state,
                 next_button_clicked: true

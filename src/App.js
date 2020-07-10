@@ -20,13 +20,12 @@ import { connect } from 'react-redux'
 class App extends React.Component {
 
     render() {
-        console.log(this.props)
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <div className="App">
-                    {this.props.stage === 0 ? <StartMenu/> : null}
-                    {this.props.stage === 1 ? <IntroSceneWindow/> : null}
-                    {this.props.stage === 2 ?
+                    {this.props.stage.current === 0 ? <StartMenu/> : null}
+                    {this.props.stage.current === 1 ? <IntroSceneWindow/> : null}
+                    {this.props.stage.current === 2 ?
                         <>
                             <StoryModule/>
                             <MethodModule/>

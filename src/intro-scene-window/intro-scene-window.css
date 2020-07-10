@@ -11,14 +11,14 @@
     width: 100%;
 }
 
-.scene-image {
+.scene-image, .scene-image-transitioning {
     border: 1px solid lightgray;
     background-size: fill;
     transition: transform 0.5s ease-in-out;
     transform: translateX(0px);
 }
 
-.scene-text {
+.scene-text, .scene-text-transitioning {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,8 @@
     transform: translateX(0px);
 }
 
-.scene-text p {
+.scene-text p,
+.scene-text-transitioning p {
     font-size: 20px;
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
     margin: 0px;
@@ -45,8 +46,6 @@
     height: 500px;
     background-image: url('../assets/scenes/scene-0.png');
     background-position: top;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-0 .scene-image-transitioning {
     transform: translateX(-1800px);
@@ -58,8 +57,6 @@
     grid-row-start: 2;
     width: 500px;
     height: 160px;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-0 .scene-text-transitioning {
     transform: translateX(1800px);
@@ -74,8 +71,6 @@
     height: 601px;
     background-image: url('../assets/scenes/scene-1.png');
     background-position: center;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-1 .scene-image-transitioning {
     transform: translateX(1800px);
@@ -87,8 +82,6 @@
     height: 340px;
     grid-column-start: 17;
     grid-row-start: 6;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-1 .scene-text-transitioning {
     transform: translateX(-1800px);
@@ -103,8 +96,6 @@
     height: 501px;
     background-image: url('../assets/scenes/scene-2.png');
     background-position: center;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-2 .scene-image-transitioning {
     transform: translateX(1800px);
@@ -116,8 +107,6 @@
     height: 240px;
     grid-column-start: 14;
     grid-row-start: 9;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0px);
 }
 #scene-2 .scene-text-transitioning {
     transform: translateX(-1800px);
@@ -189,5 +178,3 @@
     font-size: 17px;
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
 }
-
-

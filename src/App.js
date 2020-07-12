@@ -1,14 +1,6 @@
 import React from 'react'
 import './assets/pixel-operator/stylesheet.css'
 import './App.css'
-import { DragDropContext } from 'react-beautiful-dnd'
-import StoryModule from './story-module/StoryModule'
-import PathsModule from './paths-module/PathsModule'
-import MethodModule from './methods-module/MethodsModule'
-import KeysModule from './keys-module/KeysModule'
-import ItemsModule from './items-module/ItemsModule'
-import StartMenu from './start-menu/StartMenu'
-import IntroSceneWindow from './intro-scene-window/IntroSceneWindow'
 import {
     toPathReceiver, removeFromPathDock,
     listToReceiver, receiverToList,
@@ -16,25 +8,36 @@ import {
     setInvalidRequestMessage
 } from './redux/actions'
 import { connect } from 'react-redux'
+import { DragDropContext } from 'react-beautiful-dnd'
+import StoryModule from './story-module/StoryModule'
+import PathsModule from './paths-module/PathsModule'
+import MethodModule from './methods-module/MethodsModule'
+import KeysModule from './keys-module/KeysModule'
+import ItemsModule from './items-module/ItemsModule'
+import StartMenu from './start-menu/StartMenu'
+import IntroSceneWindow from './intro/IntroSceneWindow'
+
 
 class App extends React.Component {
 
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className="App">
-                    {this.props.stage.current === 0 ? <StartMenu/> : null}
-                    {this.props.stage.current === 1 ? <IntroSceneWindow/> : null}
-                    {this.props.stage.current === 2 ?
-                        <>
-                            <StoryModule/>
-                            <MethodModule/>
-                            <KeysModule/>
-                            <ItemsModule/>
-                            <PathsModule/>
-                        </> : null
-                    }
-                </div>
+                <section className={"App-wrapper"}>
+                    <div className={"App"}>
+                        {this.props.stage.current === 0 ? <StartMenu/> : null}
+                        {this.props.stage.current === 1 ? <IntroSceneWindow/> : null}
+                        {this.props.stage.current === 2 ?
+                            <>
+                                <StoryModule/>
+                                <MethodModule/>
+                                <KeysModule/>
+                                <ItemsModule/>
+                                <PathsModule/>
+                            </> : null
+                        }
+                    </div>
+                </section>
             </DragDropContext>
         );
     }

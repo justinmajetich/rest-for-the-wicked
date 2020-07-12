@@ -1,0 +1,66 @@
+.nav-bar {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    border-bottom: 1px solid lightgray;
+}
+
+.left-nav-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.right-nav-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+#home-link {
+    width: 32px;
+    height: 32px;
+    background-image: url('../assets/logo/rtfw-logo-x2.png');
+    background-size: contain;
+}
+#home-link:hover {
+    opacity: 0.9;
+}
+
+.left-nav-wrapper p.show {
+    margin-left: 20px;
+    color: white;
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 24px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.left-nav-wrapper p.hide { opacity: 0; }
+
+#about-link {
+    margin-right: 30px;
+    color: white;
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+#about-link:hover {
+    opacity: 0.9;
+}
+
+#github-link {
+    justify-self: flex-end;
+    width: 26px;
+    height: 26px;
+    background-image: url('../assets/logo/GitHub-Mark-Light-32px.png');
+    background-size: contain;
+    opacity: 0.95;
+}
+#github-link:hover {
+    opacity: 0.85;
+}

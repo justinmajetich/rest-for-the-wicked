@@ -1,6 +1,6 @@
 .start-menu, .start-menu-transitioning {
-    grid-column-start: mid-mod-start;
-    grid-row-start: center-mod-start;
+    grid-column-start: start;
+    grid-row-start: start;
 
     display: flex;
     flex-direction: column;
@@ -9,17 +9,12 @@
 
     width: 1000px;
     height: 480px;
-    margin-left: 1px;
+    margin: 120px 40px 120px 40px;
 
     border: 1px solid lightgray;
     background-color: black;
-
-    transition: transform 0.8s ease-in;
-    transform: translateY(0px);
-}
-
-.start-menu-transitioning {
-    transform: translateY(1080px);
+    /* transition: transform 0.6s ease-in;
+    transform: translateX(0px); */
 }
 
 .start-menu h1, .start-menu-transitioning h1 {

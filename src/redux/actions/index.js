@@ -300,10 +300,10 @@ export function updateStage() {
     return (dispatch) => {
         dispatch(toggleSceneTransition())
         setTimeout(() => { dispatch(toggleStageTransition()) }, 250);
-        setTimeout(() => { dispatch(nextStage()) }, 1050);
-        setTimeout(() => { dispatch(toggleSceneTransition()) }, 1100);
-        setTimeout(() => { dispatch(nextButtonShow()) }, 1100);
-        setTimeout(() => { dispatch(toggleStageTransition()) }, 1100);
+        setTimeout(() => { dispatch(nextStage()) }, 450);
+        setTimeout(() => { dispatch(toggleSceneTransition()) }, 500);
+        setTimeout(() => { dispatch(nextButtonShow()) }, 500);
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 500);
       };
 }
 

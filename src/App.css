@@ -1,3 +1,10 @@
+.App-wrapper {
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   display: grid;
   grid-template-columns: [start] 20px [left-mod-start] 1fr [left-mod-end] 20px
@@ -10,7 +17,7 @@
 
   width: 1080px;
   height: 720px;
-  margin: 20px auto;
+  margin: auto;
 
   background-position: center bottom -4px;
 

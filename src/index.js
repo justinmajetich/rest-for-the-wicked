@@ -10,8 +10,10 @@ import { store } from './redux/store'
 ReactDOM.render(
     <Provider store={store}>
         <React.StrictMode>
-            <NavBar />
-            <App />
+            <div className={"page-wrapper"}>
+                <NavBar />
+                <App />
+            </div>
         </React.StrictMode>
     </Provider>,
   document.getElementById('root')

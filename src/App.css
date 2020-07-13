@@ -1,6 +1,6 @@
 .App-wrapper {
+  height: 100%;
   display: flex;
-  height: 90%;
   justify-content: center;
   align-items: center;
 }

@@ -36,7 +36,7 @@
     width: 189px;
     height: 63px;
 
-    background-image: url(../assets/button/req-button-unpressed.png);
+    background-image: url(../../assets/button/req-button-unpressed.png);
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -50,7 +50,7 @@
     width: 189px;
     height: 63px;
 
-    background-image: url(../assets/button/req-button-pressed-alt1.png);
+    background-image: url(../../assets/button/req-button-pressed-alt1.png);
     background-size: contain;
     background-repeat: no-repeat;
 

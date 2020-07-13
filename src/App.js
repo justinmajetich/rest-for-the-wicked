@@ -9,13 +9,14 @@ import {
 } from './redux/actions'
 import { connect } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
-import StoryModule from './story-module/StoryModule'
-import PathsModule from './paths-module/PathsModule'
-import MethodModule from './methods-module/MethodsModule'
-import KeysModule from './keys-module/KeysModule'
-import ItemsModule from './items-module/ItemsModule'
-import StartMenu from './start-menu/StartMenu'
-import IntroSceneWindow from './intro/IntroSceneWindow'
+import { StoryModule, PathsModule, MethodModule, KeysModule, ItemsModule, StartModule, IntroModule } from './modules'
+// import StoryModule from './story-module/StoryModule'
+// import PathsModule from './paths-module/PathsModule'
+// import MethodModule from './methods-module/MethodsModule'
+// import KeysModule from './keys-module/KeysModule'
+// import ItemsModule from './items-module/ItemsModule'
+// import StartModule from './start-module/StartModule'
+// import IntroModule from './intro-module/IntroModule'
 
 
 class App extends React.Component {
@@ -25,8 +26,8 @@ class App extends React.Component {
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <section className={"App-wrapper"}>
                     <div className={"App"}>
-                        {this.props.stage.current === 0 ? <StartMenu/> : null}
-                        {this.props.stage.current === 1 ? <IntroSceneWindow/> : null}
+                        {this.props.stage.current === 0 ? <StartModule/> : null}
+                        {this.props.stage.current === 1 ? <IntroModule/> : null}
                         {this.props.stage.current === 2 ?
                             <>
                                 <StoryModule/>

@@ -1,9 +1,9 @@
 import React from "react"
 import "./paths-mod.css"
 import {connect} from "react-redux";
-import {ReactComponent as BranchUpSVG} from '../assets/map-svgs/branch-up.svg'
-import {ReactComponent as BranchDownSVG} from '../assets/map-svgs/branch-down.svg'
-import {ReactComponent as BranchStraightSVG} from '../assets/map-svgs/branch-straight.svg'
+import {ReactComponent as BranchUpSVG} from 'assets/map-svgs/branch-up.svg'
+import {ReactComponent as BranchDownSVG} from 'assets/map-svgs/branch-down.svg'
+import {ReactComponent as BranchStraightSVG} from 'assets/map-svgs/branch-straight.svg'
 
 
 class PathMap extends React.Component {

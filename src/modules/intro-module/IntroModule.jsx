@@ -1,7 +1,7 @@
 import React from "react"
-import './intro-scene-window.css'
+import './intro-mod.css'
 import { connect } from "react-redux"
-import { backButtonClick, nextButtonClick, updateScene, updateStage, backButtonHide, hideNavButtons, backButtonShow } from "../redux/actions"
+import { backButtonClick, nextButtonClick, updateScene, updateStage, backButtonHide, hideNavButtons, backButtonShow } from "redux/actions"
 
 class IntroSceneWindow extends React.Component {
 

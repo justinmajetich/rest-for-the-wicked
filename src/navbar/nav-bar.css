@@ -31,6 +31,13 @@
 #home-link:hover {
     opacity: 0.9;
 }
+#home-link span {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
+}
 
 .left-nav-wrapper p.show {
     margin-left: 20px;
@@ -65,4 +72,11 @@
 }
 #github-link:hover {
     opacity: 0.85;
+}
+#github-link span {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
 }

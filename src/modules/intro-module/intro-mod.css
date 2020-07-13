@@ -43,7 +43,7 @@
     grid-row-start: 3;
     width: 940px;
     height: 500px;
-    background-image: url('../assets/scenes/scene-0.png');
+    background-image: url(../../assets/scenes/scene-0.png);
     background-position: top;
 }
 #scene-0 .scene-image-transitioning {
@@ -68,7 +68,7 @@
     grid-row-start: 2;
     width: 651px;
     height: 551px;
-    background-image: url('../assets/scenes/scene-1.png');
+    background-image: url(../../assets/scenes/scene-1.png);
     background-position: center;
 }
 #scene-1 .scene-image-transitioning {
@@ -93,7 +93,7 @@
     grid-row-start: 2;
     width: 820px;
     height: 501px;
-    background-image: url('../assets/scenes/scene-2.png');
+    background-image: url(../../assets/scenes/scene-2.png);
     background-position: center;
 }
 #scene-2 .scene-image-transitioning {
@@ -127,7 +127,7 @@
 #next-button-clicked {
     width: 100px;
     height: 50px;
-    background-image: url(../assets/button/nav-button-up.png);
+    background-image: url(../../assets/button/nav-button-up.png);
     background-size: contain;
     outline: none;
     border: none;
@@ -136,7 +136,7 @@
     transition: transform 0.8s ease-in-out;
 }
 #next-button-clicked {
-    background-image: url(../assets/button/nav-button-down.png);
+    background-image: url(../../assets/button/nav-button-down.png);
     font-size: 17px;
 }
 #next-button.show {
@@ -150,7 +150,7 @@
 #back-button-clicked {
     width: 100px;
     height: 50px;
-    background-image: url(../assets/button/nav-button-up.png);
+    background-image: url(../../assets/button/nav-button-up.png);
     background-size: contain;
     outline: none;
     border: none;
@@ -160,7 +160,7 @@
     transition: transform 0.8s ease-in-out;
 }
 #back-button-clicked {
-    background-image: url(../assets/button/nav-button-down.png);
+    background-image: url(../../assets/button/nav-button-down.png);
     font-size: 17px;
 }
 #back-button.show {

@@ -1,14 +1,16 @@
 import React from "react"
 import { connect } from "react-redux"
-import { buttonClick, updateStage } from "../redux/actions"
-import './start-menu.css'
+import { buttonClick, updateStage } from "redux/actions"
+import './start-mod.css'
 
 class StartMenu extends React.Component {
 
     onClick = (event) => {
         event.preventDefault();
         this.props.dispatch(buttonClick());
-        this.props.dispatch(updateStage());
+        if (!this.props.isTransitioning) {
+            this.props.dispatch(updateStage());
+        }
     }
 
     render() {

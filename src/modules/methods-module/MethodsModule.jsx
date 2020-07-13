@@ -1,22 +1,22 @@
 import React from "react";
-import "./items-mod.css";
+import "./methods-mod.css";
+import { TileDock } from "tiles/TileDock";
 import {connect} from "react-redux";
-import {TileDock} from "../tiles/TileDock";
 
-export class ItemsModule extends React.Component {
+class MethodsModule extends React.Component {
     render() {
         return (
-            <section className={this.props.isTransitioning ? "item-container-transitioning" : "item-container"}>
+            <section className={this.props.isTransitioning ? "method-container-transitioning" : "method-container"}>
                 <div className="title-bar">
-                    <h4>{this.props.items.title}</h4>
+                    <h4>{this.props.methods.title}</h4>
                 </div>
-                <div className={"item-harbor"}>
-                    {Object.entries(this.props.items.docks).map((dock, index) => {
+                <div className={"method-harbor"}>
+                    {Object.entries(this.props.methods.docks).map((dock, index) => {
                         return (
                             <TileDock
                                 key={index}
                                 name={dock[0]}
-                                type={this.props.items.title.slice(0, -1)}
+                                type={this.props.methods.title.slice(0, -1)}
                                 content={dock[1]}
                             />
                         );
@@ -29,11 +29,11 @@ export class ItemsModule extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        items: state.droppables.lists.item_list,
+        methods: state.droppables.lists.method_list,
         isTransitioning: state.stage.stage_transitioning
     });
 };
 
 export default connect(
     mapStateToProps
-)(ItemsModule);
+)(MethodsModule);

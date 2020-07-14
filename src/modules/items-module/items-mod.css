@@ -1,5 +1,9 @@
-.item-container,
-.item-container-transitioning {
+@keyframes items-intro {
+    0% { transform: translateX(1200px); }
+    100% { transform: translateX(0px); }
+}
+
+.item-container {
     display: flex;
     flex-direction: column;
     grid-column-start: mid-mod-start;
@@ -12,11 +16,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    transform: translateX(0px);
-    transition: transform 1.75s ease-in-out;
-}
-.item-container-transitioning {
-transform: translateX(1200px);
+    animation: items-intro 1.75s ease-in-out 1;
 }
 
 .item-harbor {

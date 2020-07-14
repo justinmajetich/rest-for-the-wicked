@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 export class KeysModule extends React.Component {
     render() {
         return (
-            <section className={this.props.isTransitioning ? "key-container-transitioning" : "key-container"}>
+            <section className={"key-container"}>
                 <div className="title-bar">
                     <h4>{this.props.keys.title}</h4>
                 </div>

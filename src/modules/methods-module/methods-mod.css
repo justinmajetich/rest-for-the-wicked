@@ -1,5 +1,9 @@
-.method-container,
-.method-container-transitioning {
+@keyframes methods-intro {
+    0% { transform: translateY(1080px); }
+    100% { transform: translateY(0px); }
+}
+
+.method-container {
     display: flex;
     flex-direction: column;
     grid-column-start: left-mod-start;
@@ -10,11 +14,8 @@
     width: 100%;
     background-color: black;
     border: lightgray solid 1px;
-    transform: translateY(0px);
-    transition: transform 2.25s ease-out;
-}
-.method-container-transitioning {
-    transform: translateY(1080px);
+
+    animation: methods-intro 2.25s ease-out 1;
 }
 
 .method-harbor {
@@ -25,5 +26,4 @@
     justify-content: flex-start;
 
     padding: 8px;
-    /* border: chartreuse dashed 1px; */
 }

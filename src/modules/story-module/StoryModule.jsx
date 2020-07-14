@@ -7,7 +7,7 @@ import { TileDock } from 'tiles/TileDock'
 class StoryModule extends React.Component {
     render() {
         return (
-            <section className={this.props.isTransitioning ? "story-container-transitioning" : "story-container"}>
+            <section className={"story-container"}>
                 <div className={"story-header-box"}>
                     <div
                         className={"story-header"}

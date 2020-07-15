@@ -27,6 +27,7 @@
     height: 32px;
     background-image: url('../assets/logo/rtfw-logo-x2.png');
     background-size: contain;
+    background-repeat: no-repeat;
 }
 #home-link:hover {
     opacity: 0.9;
@@ -68,6 +69,7 @@
     height: 26px;
     background-image: url('../assets/logo/GitHub-Mark-Light-32px.png');
     background-size: contain;
+    background-repeat: no-repeat;
     opacity: 0.95;
 }
 #github-link:hover {

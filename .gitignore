@@ -26,3 +26,5 @@ __pycache__
 
 .idea/
 db.sqlite3
+
+notes.txt

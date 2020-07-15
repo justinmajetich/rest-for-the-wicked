@@ -41,7 +41,7 @@
 
 .path-map .current-path {
     margin: 0px;
-    background-image: url(/assets/fills/dark-staggered-dot-fill.png);
+    background-image: url(../../assets/fills/dark-staggered-dot-fill.png);
     animation: node-blink 1.25s steps(2, end) infinite;
 }
 

@@ -1,36 +1,23 @@
 # REST for the Wicked
+REST for the Wicked is a text adventure game illustrating some of the basic concepts and interactions that define the REST framework. It was created by Justin Majetich and Geoffery Zoref as a portfolio project for Holberton School. Our aim was to complement the range of text-heavy resources that exist online by providing an interactive, spatial-visual explanation of REST.
+
+We were inspired by educational coding games like [Flexbox Froggy](https://flexboxfroggy.com/) and [Untrusted](https://alexnisnevich.github.io/untrusted/), as well as text adventure games of the 80s and 90s. In deciding on a format for the project, we felt a text adventure game would make an intuitive analog to REST interaction. A touchpoint for art direction was the early Macintosh HyperCard aesthetic. To approximate this look, game assets were created using [Cloudpaint](https://www.cloudpaint.com/classic) - a web-based emulation of MacPaint v1.5.
+
+If you'd like to learn more about our development process or technology stack, check out [Justin's post on Medium](https://medium.com/@justinmajetich/rest-for-the-wicked-a-narrative-introduction-to-the-rest-framework-fc1668877a48) and [Geoff's on LinkedIn](https://www.linkedin.com/pulse/making-rest-wicked-geoffrey-zoref/).
 
 ![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/full-demo.gif)
 
-## About the Game
-REST for the Wicked is inspired by text adventure games of the 70s, 80s and 90s. The look and feel is meant to invoke the graphics of the Apple Macintosh of the early 90s. Some of the inspiration for the game comes from series like Zork, Mist, Out of this World and Flashback.
-
-The story is inspired by dystopian works like 1984, Brave New World, 12 Monkeys, The Matrix and Blade Runner.
-
-We were inpisred to create a game that teaches topics in programming with coding based gamess like:
-
-- CodinGame
-- Flexbox Froggy
-- Code Combat
-- Untrusted
-- Robocode
-- Elevator Saga
-
-We were inspired to create this game because when we created our own RESTful APIs for the Holberton Airbnb Clone project, many of us found the REST API concept difficult to understand. Even students from cohorts above us were unable to explain what a REST API is in a few sentences.
-
-Although there are many text heavy REST API tutorials and explanations, we felt as though they were either too technical or too general. In envisioning REST for the Wicked, we realized that a text adventure game would be the perfect environment to explore what a RESTful API is and what it does.
-
-The game is both played using the ideas of a RESTful API and built using a REST API. We thought this meta-idea a great educational tools.
-
 ### How to Play
-The central textbox tells the story, but also contains certain words inside a tile. The tiled words are points of interest or items in the game that the player can interact with. Points of interest include rooms as well as places such as the vault and the computer. When a tile is brought onto the game bar, a method tile can be dragged, creating a combination that is then queried after clicking the Make Request button.
+You'll navigate the world of REST for the Wicked using the interface pictured above. Your main instrument of interaction with the game world is the request bar, located in the UI's top module. You'll use it to navigate and manipulate the game world.
 
-![game bar-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/basic-request.gif)
+We've modeled the request bar after an actual REST request. To make a request, drag a method, path, key, and item tile onto the bar and execute the request. For example, you could use the 'GET' method tile and the '/lobby' path tile to move to the lobby.
 
-The game bar is interactive, so, for example, when the "lobby" tile is dragged onthe the "path", the bar expands to allows the player to drag additional tiles, such as a "key" or an item.
+![basic-request](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/basic-request.gif)
 
-![game bar expanded](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/complex-request.gif)
+As you explore the world, you'll collect items and keys, which can be used to access or interact with certain rooms. To use an item, 'POST' or 'PUT' it to a path, as pictured below.
 
-Using the REST architecture, a point of interest is synonymous with a URL route, while a key is meant to represent an API key or authorization.
+![complex-request](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/complex-request.gif)
 
-Once the player has stacked the tiles necesarry to engage the point of interest or item in the game bar, they can add the requisite REST API method to the begining of the route and hit "Make Request".
+As you explore the game world, you'll collect methods, items, and keys. These are stored for use in their respective invetories. You're also provided a map to orient yourself within the world.
+
+![lower-mods](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/lower-mods.gif)

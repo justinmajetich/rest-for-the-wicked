@@ -9,14 +9,10 @@ import {
 } from './redux/actions'
 import { connect } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { StoryModule, PathsModule, MethodModule, KeysModule, ItemsModule, StartModule, IntroModule } from './modules'
-// import StoryModule from './story-module/StoryModule'
-// import PathsModule from './paths-module/PathsModule'
-// import MethodModule from './methods-module/MethodsModule'
-// import KeysModule from './keys-module/KeysModule'
-// import ItemsModule from './items-module/ItemsModule'
-// import StartModule from './start-module/StartModule'
-// import IntroModule from './intro-module/IntroModule'
+import { 
+    StoryModule, PathsModule, MethodModule, KeysModule, 
+    ItemsModule, StartModule, IntroModule
+} from './modules'
 
 
 class App extends React.Component {

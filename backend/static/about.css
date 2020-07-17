@@ -72,6 +72,12 @@ h3 {
     width: auto;
     margin: 0px 20px;
 }
+@media screen and (max-width: 420px) {
+    .profile { 
+        flex-direction: column; 
+        justify-items: flex-start;
+    }
+}
 
 .profile img {
     border: 1px solid lightgray;
@@ -156,6 +162,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: auto;
 }
 
 a {

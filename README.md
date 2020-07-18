@@ -8,8 +8,6 @@ The frontend application is built with React and React-Redux, while the backend 
 </br >
 </br >
 
-  
-  
 ![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/full-demo.gif)
 
 ### How to Play
@@ -26,3 +24,5 @@ As you explore the world, you'll collect items and keys, which can be used to ac
 As you explore the game world, you'll collect methods, items, and keys. These are stored for use in their respective invetories. You're also provided a map to orient yourself within the world.
 
 ![lower-mods](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/lower-mods.gif)
+
+Try it out at [restforthewicked.app](https://www.restforthewicked.app/)!

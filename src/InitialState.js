@@ -15,7 +15,7 @@ const initialState = {
     poi: {
             name: "api_headquarters",
             description: {
-                    text: "As the simulation materializes within your visual cortex, you find yourself on a vast lawn. Rising before you is a monolith of polished, white concrete, notched with an even grid of black glass windows. There's a breeze you can almost feel, and the familiar tingling sensation of simulated embodiment, like a limb that's fallen asleep. At the foot of the building, a singular entrance leads to a [lobby] .",
+                    text: "As the simulation materializes within your visual cortex, you find yourself on a vast lawn. Rising before you is a monolith of polished white concrete, gridded with dark windows. You feel the familiar tingling of simulated embodiment. At the foot of the building, an entrance leads to a [lobby] .",
                     alt_text: null,
                     docks: {
                             lobby: {

@@ -1,10 +1,14 @@
 import axios from 'axios'
 import { store } from '../redux/store'
-import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue } from '../redux/actions'
+import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue, updateObjective, addDeleteMethod, updateToOutroStage } from '../redux/actions'
 
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
     const state = store.getState();
+    const objectivesByRoom = {
+        "research_wing": 1,
+        "vault": 2
+    }
 
     // Validate request
     if (validateRequest(request)) {
@@ -36,6 +40,13 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
             // Get parent POI
             data.parent = await getParent(data.parent);
 
+            // Get key and usable items of parent POI
+            if (data.parent)
+            {
+                data.parent.needs_key = await getKey(data.parent.needs_key);
+                data.parent.usable_items = await getItems(data.parent.usable_items);
+            }
+
             // Get key/usable_items of children POI
             for (let i = 0; i < data.children.length; i++) {
                 data.children[i].needs_key = await getKey(data.children[i].needs_key);
@@ -57,6 +68,15 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // If POI spawns items/keys, add to respective lists
         if (newPOI.spawned_items) {
             setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 4000);
+        }
+
+        // If room discovery moves objective forward and room has not already been visited
+        if (newPOI.name in objectivesByRoom && state.objective.current < objectivesByRoom[newPOI.name])
+        {
+            store.dispatch(updateObjective());
+
+            if (newPOI.name === "vault")
+            setTimeout(() => { store.dispatch(addDeleteMethod()) }, 4000);
         }
     }
 }
@@ -133,6 +153,7 @@ function validateRequest(request) {
         ));
         return false;
     }
+
     // Check if path needs key
     if (request.path.needs_key) {
         // Check if key is present
@@ -142,8 +163,13 @@ function validateRequest(request) {
             ));
             return false;
         }
+
+        console.log("key passed is " + request.key.name + "\n" +
+        "key need is " + request.path.needs_key.name + ", and they are equal (" +
+        (request.key.name === request.path.needs_key.name) + ").");
+
         // Check if present key is valid
-        if (request.key === request.path.needs_key) {
+        if (request.key.name !== request.path.needs_key.name) {
             store.dispatch(setInvalidRequestMessage(
                 'Access denied. Invalid key.'
             ));
@@ -170,10 +196,25 @@ function validateRequest(request) {
         if (request.item && 
             !request.path.usable_items.some(item => item.name === request.item.name)) {
                 store.dispatch(setInvalidRequestMessage(
-                    'You cannot use a ' + request.item.name + ' in the ' + request.path.name
+                    'You cannot use a ' + request.item.name + ' in the ' + request.path.name + '.'
                 ));
             return false;
         }
     }
+
+    // If DELETE method is being used on "blacklist" POI
+    if (request.method.name === "DELETE") {
+        if (request.path.name === "blacklist") {
+            store.dispatch(updateToOutroStage());
+            return false;
+        }
+        else {
+            store.dispatch(setInvalidRequestMessage(
+                'You cannot DELETE the ' + request.path.name + '.'
+            ));
+            return false;
+        }
+    }
+    
     return true;
 }

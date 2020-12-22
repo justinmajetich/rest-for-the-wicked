@@ -1,0 +1,143 @@
+.outro, .outro-transitioning {
+    grid-column-start: start;
+    grid-column-end: end;
+    grid-row-start: start;
+    grid-row-end: end;
+
+    display: grid;
+    grid-template-columns: repeat(24, 45px);
+    grid-template-rows: repeat(16, 45px);
+
+    width: 100%;
+}
+
+.outro .title-wrapper {
+    grid-column-start: 4;
+    grid-row-start: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 280px;
+    height: 75px;
+
+    background-color: black;
+    border: 1px solid lightgray;
+    transition: transform 1s ease-in-out;
+    transform: translateX(0px);
+}
+
+.outro-transitioning .title-wrapper {
+    transform: translateX(-1080px);
+}
+
+h1 {
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 48px;
+    color: whitesmoke;
+    text-align: center;
+    margin: 0;
+}
+
+.outro .outro-text {
+    grid-column-start: 6;
+    grid-row-start: 8;   
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
+    margin: 0px;
+    line-height: 25px;
+
+    width: 330px;
+    height: 185px;
+    padding: 20px 30px;
+    background-color: black;
+    border: 1px solid lightgray;
+
+    transition: transform 1.8s ease-in-out;
+    transform: translateX(0px);
+}
+
+.outro-transitioning .outro-text {
+    transform: translateX(-1080px);
+}
+
+.outro .outro-image {
+    grid-column-start: 12;
+    grid-row-start: 3;
+    width: 360px;
+    height: 480px;
+    background-image: url(../../assets/scenes/outro-scene.png);
+    background-position: top;
+    border: 1px solid lightgray;
+    background-size: fill;
+    transition: transform 1.4s ease-in-out;
+    transform: translateX(0px);
+}
+
+.outro-transitioning .outro-image {
+    transform: translateX(1080px);
+}
+
+#replay-button {
+    grid-column-start: 13;
+    grid-row-start: 14;
+    
+    width: 189px;
+    height: 63px;
+
+    background-image: url(../../assets/button/req-button-unpressed.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    outline: none;
+    border: none;
+
+    margin: 40px;
+}
+
+#replay-button-clicked {
+    grid-column-start: 16;
+    grid-row-start: 10;
+    width: 189px;
+    height: 63px;
+
+    background-image: url(../../assets/button/req-button-pressed-alt1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    outline: none;
+    border: none;
+
+    margin: 40px;
+}
+
+
+#replay-button p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 24px;
+    background-color: none;
+
+    margin: 0px;
+}
+
+#replay-button-clicked p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
+    font-size: 23px;
+    color: rgb(41, 41, 41);
+
+    margin: 0px;
+}

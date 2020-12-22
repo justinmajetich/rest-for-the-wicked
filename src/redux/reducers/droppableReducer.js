@@ -1,7 +1,7 @@
 import {
-    TO_PATH_RECEIVER, LIST_TO_LIST,
-    LIST_TO_RECEIVER,
-    RECEIVER_TO_LIST, FROM_PATH_RECEIVER, RECEIVERS_TO_LISTS, ADD_SPAWNED_ITEMS_TO_LISTS
+    TO_PATH_RECEIVER, LIST_TO_LIST, LIST_TO_RECEIVER,
+    RECEIVER_TO_LIST, FROM_PATH_RECEIVER, RECEIVERS_TO_LISTS,
+    ADD_SPAWNED_ITEMS_TO_LISTS, ADD_DELETE_METHOD
 } from '../actions/actionTypes'
 
 export const updateDroppable = (state = {}, action) => {
@@ -238,6 +238,23 @@ export const updateDroppable = (state = {}, action) => {
 
         case LIST_TO_LIST: {
             return(state);
+        }
+
+        case ADD_DELETE_METHOD: {
+            const newState = {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    method_list: {
+                        ...state.lists.method_list,
+                        docks: {
+                            ...state.lists.method_list.docks,
+                            DELETE: { name: "DELETE" }
+                        }
+                    }
+                }
+            };
+            return (newState);
         }
 
         default: {

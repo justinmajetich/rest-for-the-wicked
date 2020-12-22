@@ -3,7 +3,7 @@
     100% { transform: translateX(0px); }
 }
 
-.item-container {
+.item-container, .item-container-outro {
     display: flex;
     flex-direction: column;
     grid-column-start: mid-mod-start;
@@ -17,6 +17,11 @@
     border-width: 1px;
     border-color: lightgray;
     animation: items-intro 1.75s ease-in-out 1;
+    transition: transform 2.25s ease-in-out;
+}
+
+.item-container-outro {
+    transform: translateX(1200px);
 }
 
 .item-harbor {

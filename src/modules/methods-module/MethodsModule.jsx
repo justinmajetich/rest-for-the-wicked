@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 class MethodsModule extends React.Component {
     render() {
         return (
-            <section className={"method-container"}>
+            <section className={this.props.isTransitioning ? "method-container-outro" : "method-container"}>
                 <div className="title-bar">
                     <h4>{this.props.methods.title}</h4>
                 </div>

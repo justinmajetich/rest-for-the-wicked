@@ -13,6 +13,7 @@ import {
     TOGGLE_DESCRIPTION_VISIBILITY,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
+    ADD_DELETE_METHOD,
     SET_IS_ALT_TRUE,
     BUTTON_UP,
     BUTTON_DOWN,
@@ -74,6 +75,12 @@ export function addSpawnedItemsToLists(spawned_items = []) {
     })
 }
 
+export function addDeleteMethod() {
+    return ({
+        type: ADD_DELETE_METHOD,
+    })
+}
+
 
 // STORY MODULE REDUCER ---------------------
 
@@ -84,10 +91,9 @@ export function toPathDock(result) {
     });
 }
 
-export function updateObjective(newObjective = "") {
+export function updateObjective() {
     return ({
         type: UPDATE_OBJECTIVE,
-        payload: newObjective
     });
 }
 
@@ -298,12 +304,29 @@ export function hideNavButtons() {
 // UPDATE STAGE ---------------------
 export function updateStage() {
     return (dispatch) => {
-        dispatch(toggleSceneTransition())
+        dispatch(toggleSceneTransition());
         setTimeout(() => { dispatch(toggleStageTransition()) }, 250);
         setTimeout(() => { dispatch(nextStage()) }, 450);
         setTimeout(() => { dispatch(toggleSceneTransition()) }, 500);
         setTimeout(() => { dispatch(nextButtonShow()) }, 500);
         setTimeout(() => { dispatch(toggleStageTransition()) }, 500);
+      };
+}
+
+export function updateToMainStage() {
+    return (dispatch) => {
+        dispatch(toggleSceneTransition())
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 250);
+        setTimeout(() => { dispatch(nextStage()) }, 450);
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 500);
+      };
+}
+
+export function updateToOutroStage() {
+    return (dispatch) => {
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 150);
+        setTimeout(() => { dispatch(nextStage()) }, 1750);
+        setTimeout(() => { dispatch(toggleStageTransition()) }, 2000);
       };
 }
 

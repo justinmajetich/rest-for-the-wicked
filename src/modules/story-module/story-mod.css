@@ -3,7 +3,7 @@
     100% { transform: translateX(0px); }
 }
 
-.story-container {
+.story-container, .story-container-outro {
     grid-column-start: left-mod-start;
     grid-column-end: right-mod-end;
     grid-row-start: upper-mod-start;
@@ -21,6 +21,11 @@
     border-width: 1px;
     border-color: lightgray;
     animation: story-intro 1.25s ease-in-out 1;
+    transition: transform 1.25s ease-in-out;
+}
+
+.story-container-outro {
+    transform: translateX(-1600px);
 }
 
 .story-header-box {

@@ -56,7 +56,10 @@ const initialState = {
         back_button_shown: false
     },
     invalid_request_message: "",
-    objective: "access research_wing",
+    objective: {
+                objectives: ["access research_wing", "retrieve delete method", "destroy blacklist"],
+                current: 0,
+        },
     droppables: {
             receivers: {
                     method_receiver: {
@@ -87,7 +90,8 @@ const initialState = {
                             docks: {
                                     GET: {name: "GET"},
                                     POST: {name: "POST"},
-                                    PUT: {name: "PUT"}
+                                    PUT: {name: "PUT"},
+                                    DELETE: {name: "DELETE"}
                             }
                     },
                     key_list: {
@@ -97,7 +101,7 @@ const initialState = {
                     item_list: {
                             title: "items",
                             docks: {
-                                    decoy_bug: {name: "decoy_bug", description: "False entity which can be uploaded into a security system"}
+                                    decoy_method: {name: "decoy_method", description: "False entity which can be uploaded into a security system"}
                             }
                     }
             }

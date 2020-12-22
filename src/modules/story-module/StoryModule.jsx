@@ -7,7 +7,7 @@ import { TileDock } from 'tiles/TileDock'
 class StoryModule extends React.Component {
     render() {
         return (
-            <section className={"story-container"}>
+            <section className={this.props.isTransitioning ? "story-container-outro" : "story-container"}>
                 <div className={"story-header-box"}>
                     <div
                         className={"story-header"}
@@ -16,7 +16,7 @@ class StoryModule extends React.Component {
                         }}
                     >
                         <h3 className="poi-name">/{this.props.poi.name}</h3>
-                        <p className="objective">objective:<br />{this.props.objective}</p>
+                        <p className="objective">objective:<br />{this.props.objectives[this.props.currentObjective]}</p>
                     </div>
                 </div>
                 <Description
@@ -59,7 +59,6 @@ export class Description extends React.Component {
                             content={this.props.docks[name].content}
                         />);
                     } else if (word[0] === '<') {
-                        console.log(word)
                         return (<span
                             className={"word-item"}
                             key={index}
@@ -105,7 +104,8 @@ const mapStateToProps = state => {
         poi: state.poi,
         request_feedback: state.invalid_request_message,
         transition_is_active: state.transition_is_active,
-        objective: state.objective,
+        objectives: state.objective.objectives,
+        currentObjective: state.objective.current,
         paths: state.paths,
         isTransitioning: state.stage.stage_transitioning
     });

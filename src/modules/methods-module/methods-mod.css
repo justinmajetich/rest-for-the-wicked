@@ -3,7 +3,7 @@
     100% { transform: translateY(0px); }
 }
 
-.method-container {
+.method-container, .method-container-outro {
     display: flex;
     flex-direction: column;
     grid-column-start: left-mod-start;
@@ -16,6 +16,11 @@
     border: lightgray solid 1px;
 
     animation: methods-intro 2.25s ease-out 1;
+    transition: transform 2.75s ease-out;
+}
+
+.method-container-outro {
+    transform: translateY(1080px);
 }
 
 .method-harbor {

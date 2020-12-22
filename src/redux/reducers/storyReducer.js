@@ -102,10 +102,13 @@ export const updateInvalidRequestMessage = (state = {}, action) => {
 }
 
 export const updateObjective = (state = "", action) => {
-    const payload = action.payload;
+    const nextObjective = state.current + 1;
 
     if (action.type === UPDATE_OBJECTIVE) {
-            return (payload);
+            return ({
+                ...state,
+                current: nextObjective
+            });
     }
     return (state);
 }

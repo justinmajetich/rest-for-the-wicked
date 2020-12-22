@@ -1,7 +1,7 @@
 import React from "react"
 import './intro-mod.css'
 import { connect } from "react-redux"
-import { backButtonClick, nextButtonClick, updateScene, updateStage, backButtonHide, hideNavButtons, backButtonShow } from "redux/actions"
+import { backButtonClick, nextButtonClick, updateScene, updateToMainStage, backButtonHide, hideNavButtons, backButtonShow } from "redux/actions"
 
 class IntroSceneWindow extends React.Component {
 
@@ -12,7 +12,7 @@ class IntroSceneWindow extends React.Component {
         // If last scene, transition to main stage
         if (this.props.current_scene === 2) {
             this.props.dispatch(hideNavButtons())
-            this.props.dispatch(updateStage());
+            this.props.dispatch(updateToMainStage());
         } else {
             if (!this.props.isTransitioning) {
                 this.props.dispatch(updateScene("next"));

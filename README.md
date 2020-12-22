@@ -3,7 +3,10 @@ REST for the Wicked is a text adventure game illustrating some of the basic conc
 
 We were inspired by educational coding games like [Flexbox Froggy](https://flexboxfroggy.com/) and [Untrusted](https://alexnisnevich.github.io/untrusted/), as well as text adventure games of the 80s and 90s. In deciding on a format for the project, we felt a text adventure game would make an intuitive analog to REST interaction. A touchpoint for art direction was the early Macintosh HyperCard aesthetic. To approximate this look, game assets were created using [Cloudpaint](https://www.cloudpaint.com/classic) - a web-based emulation of MacPaint v1.5.
 
-If you'd like to learn more about our development process or technology stack, check out [Justin's post on Medium](https://medium.com/@justinmajetich/rest-for-the-wicked-a-narrative-introduction-to-the-rest-framework-fc1668877a48) and [Geoff's on LinkedIn](https://www.linkedin.com/pulse/making-rest-wicked-geoffrey-zoref/).
+The frontend application is built with React and React-Redux, while the backend runs on Django and the Django REST Framework library. If you'd like to learn more about our development process or technology stack, check out [Justin's post on Medium](https://medium.com/@justinmajetich/rest-for-the-wicked-a-narrative-introduction-to-the-rest-framework-fc1668877a48) and [Geoff's on LinkedIn](https://www.linkedin.com/pulse/making-rest-wicked-geoffrey-zoref/).  
+  
+</br >
+</br >
 
 ![rftw-1](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/full-demo.gif)
 
@@ -21,3 +24,5 @@ As you explore the world, you'll collect items and keys, which can be used to ac
 As you explore the game world, you'll collect methods, items, and keys. These are stored for use in their respective invetories. You're also provided a map to orient yourself within the world.
 
 ![lower-mods](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/lower-mods.gif)
+
+Try it out at [restforthewicked.app](https://www.restforthewicked.app/)!

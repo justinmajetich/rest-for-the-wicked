@@ -23,7 +23,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // Assign request url based on development or production environment
         const url = process.env.NODE_ENV === 'development' ? 
                         "http://localhost:8000/poi/" : 
-                        "https://rest-for-the-wicked.herokuapp.com/poi/";
+                        "/poi/";
         
         // Make API request for POI
         const newPOI = await axios({

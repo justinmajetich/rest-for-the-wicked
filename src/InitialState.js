@@ -90,9 +90,8 @@ const initialState = {
                             docks: {
                                     GET: {name: "GET"},
                                     POST: {name: "POST"},
-                                    PUT: {name: "PUT"},
-                                    DELETE: {name: "DELETE"}
-                            }
+                                    PUT: {name: "PUT"}
+                                }
                     },
                     key_list: {
                             title: "keys",

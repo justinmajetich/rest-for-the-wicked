@@ -28,9 +28,9 @@ const initialState = {
                                         spawned_items: [],
                                         usable_items: [],
                                         children: [
-                                            "https://restforthewicked.app/poi/research_wing/",
-                                            "https://restforthewicked.app/poi/desk",
-                                            "https://restforthewicked.app/poi/admin_wing/"
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/research_wing/",
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/desk",
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/admin_wing/"
                                         ]
                                     },
                                     docked: true

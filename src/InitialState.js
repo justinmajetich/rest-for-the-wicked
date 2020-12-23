@@ -28,9 +28,9 @@ const initialState = {
                                         spawned_items: [],
                                         usable_items: [],
                                         children: [
-                                            "http://localhost:8000/poi/research_wing/",
-                                            "http://localhost:8000/poi/desk",
-                                            "http://localhost:8000/poi/admin_wing/"
+                                            "https://restforthewicked.app/poi/research_wing/",
+                                            "https://restforthewicked.app/poi/desk",
+                                            "https://restforthewicked.app/poi/admin_wing/"
                                         ]
                                     },
                                     docked: true
@@ -100,7 +100,7 @@ const initialState = {
                     item_list: {
                             title: "items",
                             docks: {
-                                    decoy_method: {name: "decoy_method", description: "False entity which can be uploaded into a security system"}
+                                    delete_decoy: {name: "delete_decoy", description: "False entity which can be uploaded into a security system"}
                             }
                     }
             }

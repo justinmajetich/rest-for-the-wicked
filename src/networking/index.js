@@ -57,8 +57,6 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
 
         }).catch( error => {
             console.log('NETWORKING ERROR ' + error)
-            console.log(error.request)
-            console.log(error.response)
         });
 
         // Dispatch new POI object and request type to update story and path modules

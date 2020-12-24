@@ -1,7 +1,7 @@
 import {
     TO_PATH_RECEIVER, LIST_TO_LIST, LIST_TO_RECEIVER,
     RECEIVER_TO_LIST, FROM_PATH_RECEIVER, RECEIVERS_TO_LISTS,
-    ADD_SPAWNED_ITEMS_TO_LISTS, ADD_DELETE_METHOD
+    ADD_SPAWNED_ITEMS_TO_LISTS, SPEND_ITEM, ADD_DELETE_METHOD
 } from '../actions/actionTypes'
 
 export const updateDroppable = (state = {}, action) => {
@@ -12,8 +12,6 @@ export const updateDroppable = (state = {}, action) => {
 
             // Assign content from list to receiver
             const content = state.lists[payload.listType].docks[payload.contentID];
-            // newState.receivers[payload.receiverID].content = newState.lists[payload.listType].docks[payload.contentID].content;
-            // newState.lists[payload.listType].docks[payload.contentID].content = null;
 
             // Create new state with updated content
             const newState = {
@@ -124,11 +122,8 @@ export const updateDroppable = (state = {}, action) => {
             for (let type of ["key", "item"]) {
                 let listType = type + "_list";
                 let receiverType = type + "_receiver";
-                console.log(listType)
-                console.log(receiverType)
                 if (state.receivers[receiverType].content) {
                     const content = state.receivers[receiverType].content;
-                    console.log(content)
                     newState = {
                         ...newState,
                         receivers: {
@@ -210,7 +205,6 @@ export const updateDroppable = (state = {}, action) => {
             // Create key docks from spawned keys/items
             const key_docks = state.lists.key_list.docks;
             const item_docks = state.lists.item_list.docks;
-            console.log(payload)
             payload.forEach(item => {
                 if (item.is_key) {
                     key_docks[item.name] = item;
@@ -233,6 +227,38 @@ export const updateDroppable = (state = {}, action) => {
                     }
                 }
             }
+            return (newState);
+        }
+
+        case SPEND_ITEM: {
+            const itemName = action.payload;
+            const updatedDocks = {};
+            
+            // Copy unspent items to updated inventory.
+            // state.lists.item_list.docks.forEach(item => {
+            //     if (item.name !== itemName) {
+            //         updatedDocks[item.name] = item;
+            //     }
+            // });
+            for (let item in state.lists.item_list.docks) {
+                if (item !== itemName) {
+                    updatedDocks[item] = item;
+                }
+            }
+
+            const newState = {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    item_list: {
+                        ...state.lists.item_list,
+                        docks: updatedDocks
+                    }
+                }
+            }
+
+            console.log("State updated, item removed!");
+
             return (newState);
         }
 

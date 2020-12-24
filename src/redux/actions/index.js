@@ -13,6 +13,7 @@ import {
     TOGGLE_DESCRIPTION_VISIBILITY,
     RECEIVERS_TO_LISTS,
     ADD_SPAWNED_ITEMS_TO_LISTS,
+    SPEND_ITEM,
     ADD_DELETE_METHOD,
     SET_IS_ALT_TRUE,
     BUTTON_UP,
@@ -73,6 +74,13 @@ export function addSpawnedItemsToLists(spawned_items = []) {
         type: ADD_SPAWNED_ITEMS_TO_LISTS,
         payload: spawned_items
     })
+}
+
+export function spendItem(itemName) {
+    return ({
+        type: SPEND_ITEM,
+        payload: itemName
+    });
 }
 
 export function addDeleteMethod() {

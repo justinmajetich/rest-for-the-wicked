@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { store } from '../redux/store'
-import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue, updateObjective, addDeleteMethod, updateToOutroStage } from '../redux/actions'
+import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue, updateObjective, addDeleteMethod, updateToOutroStage, spendItem } from '../redux/actions'
 
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
@@ -65,6 +65,11 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         // Return request elements to docks
         setTimeout(() => { store.dispatch(receiversToLists()) }, 4000);
 
+        // If item was spent, remove it from list.
+        if (request.method.name === 'POST') {
+            setTimeout(() => { store.dispatch(spendItem(request.item.name)) }, 4000);
+        }
+
         // If POI spawns items/keys, add to respective lists
         if (newPOI.spawned_items) {
             setTimeout(() => { store.dispatch(addSpawnedItemsToLists(newPOI.spawned_items)) }, 4000);
@@ -75,8 +80,9 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
         {
             store.dispatch(updateObjective());
 
-            if (newPOI.name === "vault")
-            setTimeout(() => { store.dispatch(addDeleteMethod()) }, 4000);
+            if (newPOI.name === "vault") {
+                setTimeout(() => { store.dispatch(addDeleteMethod()) }, 4000);
+            }
         }
     }
 }

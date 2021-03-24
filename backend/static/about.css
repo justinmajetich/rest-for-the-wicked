@@ -167,6 +167,17 @@ img {
     width: auto;
 }
 
+.in-memory-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.in-memory-img {
+    width: 350px;
+}
+
 a {
     font-family: 'pixel_operator_monobold', "Andale Mono", Arial, sans-serif;
     color: white;

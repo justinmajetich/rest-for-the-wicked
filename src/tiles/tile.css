@@ -13,6 +13,10 @@
     height: 40px;
 }
 
+.method-tile-svg {
+    height: 40px;
+}
+
 .method-tile h3 {
     position: absolute;
     margin: auto;
@@ -53,6 +57,10 @@
     height: 40px;
 }
 
+.key-tile-svg {
+    height: 40px;
+}
+
 .key-tile h3 {
     position: absolute;
     margin: auto;
@@ -69,6 +77,10 @@
 
     width: 130px;
     height: 38px;
+}
+
+.item-tile-svg {
+    height: 40px;
 }
 
 .item-tile h3 {

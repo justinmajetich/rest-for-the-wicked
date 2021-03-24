@@ -20,13 +20,13 @@ export class Tile extends React.Component {
                         ref={provided.innerRef}
                         style={getStyle(provided.draggableProps.style, snapshot)}
                     >
-                        {getSVGComponent(this.props.type + "-tile")}
                         <h3>
                             {this.props.type === "path" ? '/' : ''}
                             {this.props.type === "key" ? '{' : ''}
                             {this.props.name}
                             {this.props.type === "key" ? '}' : ''}
                         </h3>
+                        {getSVGComponent(this.props.type + "-tile")}
                     </div>
                 )}
             </Draggable>

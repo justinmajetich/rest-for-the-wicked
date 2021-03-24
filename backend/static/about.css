@@ -24,6 +24,8 @@ body {
 }
 
 .section-break {
+    display:flex;
+    justify-content: center;
     font-family: 'pixel_operator_monoregular', "Andale Mono", Arial, sans-serif;
     font-size: 30px;
 }

@@ -3,6 +3,8 @@ REST for the Wicked is a text adventure game illustrating some of the basic conc
 
 We were inspired by educational coding games like [Flexbox Froggy](https://flexboxfroggy.com/) and [Untrusted](https://alexnisnevich.github.io/untrusted/), as well as text adventure games of the 80s and 90s. In deciding on a format for the project, we felt a text adventure game would make an intuitive analog to REST interaction. A touchpoint for art direction was the early Macintosh HyperCard aesthetic. To approximate this look, game assets were created using [Cloudpaint](https://www.cloudpaint.com/classic) - a web-based emulation of MacPaint v1.5.
 
+![outro-scene](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/src/assets/scenes/outro-scene.png)
+
 The frontend application is built with React and React-Redux, while the backend runs on Django and the Django REST Framework library. If you'd like to learn more about our development process or technology stack, check out [Justin's post on Medium](https://medium.com/@justinmajetich/rest-for-the-wicked-a-narrative-introduction-to-the-rest-framework-fc1668877a48) and [Geoff's on LinkedIn](https://www.linkedin.com/pulse/making-rest-wicked-geoffrey-zoref/).  
   
 </br >

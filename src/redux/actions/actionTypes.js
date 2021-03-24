@@ -7,6 +7,8 @@ export const FROM_PATH_RECEIVER = 'FROM_PATH_RECEIVER';
 export const RECEIVERS_TO_LISTS = 'RECEIVERS_TO_LISTS';
 export const LIST_TO_LIST = 'LIST_TO_LIST';
 export const ADD_SPAWNED_ITEMS_TO_LISTS = 'ADD_SPAWNED_ITEMS_TO_LISTS';
+export const SPEND_ITEM = 'SPEND_ITEM';
+export const ADD_DELETE_METHOD = 'ADD_DELETE_METHOD';
 
 // STORY ACTIONS ---------------------
 export const DRAG_FROM_EMBED = 'DRAG_FROM_EMBED';

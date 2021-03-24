@@ -6,7 +6,7 @@ import {TileDock} from "../../tiles/TileDock";
 export class ItemsModule extends React.Component {
     render() {
         return (
-            <section className={"item-container"}>
+            <section className={this.props.isTransitioning ? "item-container-outro" : "item-container"}>
                 <div className="title-bar">
                     <h4>{this.props.items.title}</h4>
                 </div>

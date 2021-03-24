@@ -17,7 +17,7 @@ We've modeled the request bar after an actual REST request. To make a request, d
 
 ![basic-request](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/basic-request.gif)
 
-As you explore the world, you'll collect items and keys, which can be used to access or interact with certain rooms. To use an item, 'POST' or 'PUT' it to a path, as pictured below.
+As you explore the world, you'll collect items and keys, which can be used to access or interact with certain rooms. To use an item, 'POST' or 'PUT' it to a path, as pictured below. You can think of a 'POST' request as adding an item into a path, while a 'PUT' request uses an item to change the room's state.
 
 ![complex-request](https://github.com/justinmajetich/rest-for-the-wicked/blob/master/backend/static/images/gifs/complex-request.gif)
 

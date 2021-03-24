@@ -6,16 +6,16 @@ const initialState = {
     intro: {
             current_scene: 0,
             scene_text: [
-                    "The sun sets on the seat of power and automation. Another day of exile. Since the state placed you on its notorious blocklist, you've been denied the basic rights and services of society. Access to currency, sustenance, healthcare gone overnight... it's a death sentence.",
-                    "You look to take matters into your own hands. The blocklist itself lies deep within the state's super-network. If you could infiltrate this space, there's a chance you could destroy the list. The brainlink of a patrol officer could present a backdoor into the system.",
-                    "With some struggle, you subdue the officer. Heart-pounding, you wrench off his helmet, fumble to splice into his brainlink, and wait for the override to kick in. Finding the blocklist will be one thing - destroying it another. You have your methods but nothing of that caliber. However, there are rumors of a powerful new tech being developed in the state's weapon labs..."
+                    "The sun sets on the seat of power and automation. Another day of exile. Since the state placed you on its notorious blacklist, you've been denied the basic rights and services of society. Access to currency, sustenance, healthcare gone overnight... it's a death sentence.",
+                    "You look to take matters into your own hands. The blacklist itself lies deep within the state's super-network. If you could infiltrate this space, there's a chance you could destroy the list. The brainlink of a patrol officer could present a backdoor into the system.",
+                    "With some struggle, you subdue the officer. Heart-pounding, you wrench off his helmet, fumble to splice into his brainlink, and wait for the override to kick in. Finding the blacklist will be one thing - destroying it another. You have your methods but nothing of that caliber. However, there are rumors of a powerful new tech being developed in the state's weapon labs..."
                 ],
             scene_transitioning: false,
     },
     poi: {
             name: "api_headquarters",
             description: {
-                    text: "As the simulation materializes within your visual cortex, you find yourself on a vast lawn. Rising before you is a monolith of polished, white concrete, notched with an even grid of black glass windows. There's a breeze you can almost feel, and the familiar tingling sensation of simulated embodiment, like a limb that's fallen asleep. At the foot of the building, a singular entrance leads to a [lobby] .",
+                    text: "As the simulation materializes within your visual cortex, you find yourself on a vast lawn. Rising before you is a monolith of polished white concrete, gridded with dark windows. You feel the familiar tingling of simulated embodiment. At the foot of the building, an entrance leads to a [lobby] .",
                     alt_text: null,
                     docks: {
                             lobby: {
@@ -28,9 +28,9 @@ const initialState = {
                                         spawned_items: [],
                                         usable_items: [],
                                         children: [
-                                            "http://localhost:8000/poi/research_wing/",
-                                            "http://localhost:8000/poi/desk",
-                                            "http://localhost:8000/poi/admin_wing/"
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/research_wing/",
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/desk",
+                                            "https://rest-for-the-wicked.herokuapp.com/poi/admin_wing/"
                                         ]
                                     },
                                     docked: true
@@ -56,7 +56,10 @@ const initialState = {
         back_button_shown: false
     },
     invalid_request_message: "",
-    objective: "access research_wing",
+    objective: {
+                objectives: ["access research_wing", "retrieve delete method", "destroy blacklist"],
+                current: 0,
+        },
     droppables: {
             receivers: {
                     method_receiver: {
@@ -88,7 +91,7 @@ const initialState = {
                                     GET: {name: "GET"},
                                     POST: {name: "POST"},
                                     PUT: {name: "PUT"}
-                            }
+                                }
                     },
                     key_list: {
                             title: "keys",
@@ -97,7 +100,7 @@ const initialState = {
                     item_list: {
                             title: "items",
                             docks: {
-                                    decoy_bug: {name: "decoy_bug", description: "False entity which can be uploaded into a security system"}
+                                    delete_decoy: {name: "delete_decoy", description: "False entity which can be uploaded into a security system"}
                             }
                     }
             }

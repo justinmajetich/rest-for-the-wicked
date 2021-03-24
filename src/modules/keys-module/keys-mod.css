@@ -3,7 +3,7 @@
     100% { transform: translateY(0px); }
 }
 
-.key-container {
+.key-container, .key-container-outro {
     display: flex;
     flex-direction: column;
     grid-column-start: left-mod-start;
@@ -15,6 +15,11 @@
     background-color: black;
     border: lightgray solid 1px;
     animation: keys-intro 2.75s ease-out 1;
+    transition: transform 2.25s ease-out;
+}
+
+.key-container-outro {
+    transform: translateY(1080px);
 }
 
 .key-harbor {

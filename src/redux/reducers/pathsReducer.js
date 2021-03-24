@@ -3,7 +3,6 @@ import { UPDATE_MAP, SET_IS_ALT_TRUE } from "../actions/actionTypes"
 export const updateMap = (state = {}, action) => {
     switch (action.type) {
         case UPDATE_MAP: {
-            console.log(action.payload)
             const new_node = action.payload.poiName;
 
             // If item was PUT/POSTed to path, set alt_description to active

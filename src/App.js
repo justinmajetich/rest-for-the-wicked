@@ -13,6 +13,7 @@ import {
     StoryModule, PathsModule, MethodModule, KeysModule, 
     ItemsModule, StartModule, IntroModule
 } from './modules'
+import OutroModule from 'modules/outro-module/OutroModule'
 
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
                                 <PathsModule/>
                             </> : null
                         }
+                        {this.props.stage.current === 3 ? <OutroModule/> : null}
                     </div>
                 </section>
             </DragDropContext>
@@ -55,7 +57,6 @@ class App extends React.Component {
 
         // PATH_DOCK -> PATH_RECEIVER
         if (destID === "path_receiver") {
-            console.log("PATH_DOCK -> PATH_RECEIVER");
             this.props.dispatch(toPathReceiver({
                 receiverID: destID,
                 content: this.props.path_docks[draggableId].content}));
@@ -65,7 +66,6 @@ class App extends React.Component {
 
         // PATH_RECEIVER -> PATH_DOCK
         if (sourceID === "path_receiver") {
-            console.log("PATH_RECEIVER -> PATH_EMBED");
             result[draggableId] = this.props.path_receiver;
             this.props.dispatch(toPathDock(result));
             this.props.dispatch(fromPathReceiver());
@@ -74,7 +74,6 @@ class App extends React.Component {
 
         // LIST -> RECEIVER
         if (destID.includes("receiver", -8)) {
-            console.log("LIST -> RECEIVER");
             this.props.dispatch(listToReceiver({
                 listType: type + "_list",
                 receiverID: destID,
@@ -85,7 +84,6 @@ class App extends React.Component {
 
         // RECEIVER -> LIST
         if (sourceID.includes("receiver", -8)) {
-            console.log("RECEIVER -> LIST");
             this.props.dispatch(receiverToList({
                 listType: type + "_list",
                 receiverID: sourceID,

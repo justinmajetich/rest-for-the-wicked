@@ -6,7 +6,6 @@ export const updateStory = (state = {}, action) => {
     switch (action.type) {
 
         case UPDATE_POI: {
-            console.log('UPDATE_POI')
             const text = payload.description;
             const alt_text = payload.alt_description;
 
@@ -31,12 +30,10 @@ export const updateStory = (state = {}, action) => {
                     is_visible: state.description.is_visible
                 }
             };
-            console.log(newState)
             return (newState);
         }
 
         case TO_PATH_DOCK: {
-            console.log(payload)
             const content = payload[payload.draggableId];
             const docksKey = payload.destination.droppableId;
             return ({
@@ -102,10 +99,13 @@ export const updateInvalidRequestMessage = (state = {}, action) => {
 }
 
 export const updateObjective = (state = "", action) => {
-    const payload = action.payload;
+    const nextObjective = state.current + 1;
 
     if (action.type === UPDATE_OBJECTIVE) {
-            return (payload);
+            return ({
+                ...state,
+                current: nextObjective
+            });
     }
     return (state);
 }

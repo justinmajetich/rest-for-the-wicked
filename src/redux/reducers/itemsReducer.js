@@ -1,10 +1,8 @@
-import { UPDATE_ITEMS_LIST } from '../actions/actionTypes'
+import { UPDATE_ITEMS_LIST, SPEND_ITEM } from '../actions/actionTypes'
 
 export const updateItemsList = (state = {}, action) => {
     switch (action.type) {
         case UPDATE_ITEMS_LIST: {
-            console.log(action.payload);
-            console.log(state);
             if (!(action.payload.draggableId in state.content)) {
                 // Reorder list to reflect drag
                 const content = state.content;
@@ -17,6 +15,15 @@ export const updateItemsList = (state = {}, action) => {
             } else {
                 return (state);
             }
+        }
+        case SPEND_ITEM: {
+            const itemName = action.payload;
+
+
+            return ({
+                ...state,
+                content: content
+            });
         }
         default: {
             return (state);

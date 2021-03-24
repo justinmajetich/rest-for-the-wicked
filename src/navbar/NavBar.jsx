@@ -7,7 +7,7 @@ function NavBar(props) {
         <section className={"nav-bar"}>
             <span className={"left-nav-wrapper"}>
                 <a id={"home-link"} href={'/'}><span>Home Page</span></a>
-                <p className={props.currentStage === 2 ? "show" : "hide"}>REST for the wicked</p>
+                <p className={props.currentStage >= 2 ? "show" : "hide"}>REST for the wicked</p>
             </span>
             <span className={"right-nav-wrapper"}>
                 <a id={"about-link"} href={'/about'}>/about</a>

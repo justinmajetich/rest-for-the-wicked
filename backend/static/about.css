@@ -175,6 +175,8 @@ img {
 }
 
 .in-memory-img {
+    border: 1px solid lightgray;
+    margin: 20px;
     width: 350px;
 }
 

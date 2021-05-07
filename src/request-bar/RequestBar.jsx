@@ -39,6 +39,7 @@ export class RequestBar extends React.Component {
     }
 }
 
+// Component receives tiles dragged by user, then submits sequence to networking.
 class TileReceiver extends React.Component {
     render() {
         return (

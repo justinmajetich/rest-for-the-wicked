@@ -3,7 +3,7 @@ import './tile.css'
 import { Draggable } from 'react-beautiful-dnd'
 import { getSVGComponent } from "../assets/tile-svgs"
 
-
+// Draggable tile component used to compose requests.
 export class Tile extends React.Component {
     render() {
         return (

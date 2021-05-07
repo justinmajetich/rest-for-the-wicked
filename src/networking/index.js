@@ -2,6 +2,7 @@ import axios from 'axios'
 import { store } from '../redux/store'
 import { makeRequestBegin, makeRequestSuccess, receiversToLists, addSpawnedItemsToLists, setInvalidRequestMessage, setIsAltTrue, updateObjective, addDeleteMethod, updateToOutroStage, spendItem } from '../redux/actions'
 
+// Passes data requests to server and parses responses.
 export async function makeRequest(request = {method: {}, path: {}, key: {}, item: {}}) {
 
     const state = store.getState();
@@ -87,7 +88,7 @@ export async function makeRequest(request = {method: {}, path: {}, key: {}, item
     }
 }
 
-// Functions for nested requests
+// Functions for making nested requests.
 async function getChildren(childURLs) {
     const children = []
 
@@ -144,6 +145,7 @@ async function getKey(keyURL) {
     return (null);
 }
 
+// Validates the sequence of request tiles composed by the player.
 function validateRequest(request) {
     // Check if method is present
     if (!request.method) {

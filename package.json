@@ -2,8 +2,8 @@
   "name": "rest-for-the-wicked-app",
   "version": "0.1.0",
   "engines": {
-    "node": "18.x",
-    "npm": "18.x"
+    "node": "14.4.0",
+    "npm": "7.19.1"
   },
   "private": true,
   "dependencies": {
